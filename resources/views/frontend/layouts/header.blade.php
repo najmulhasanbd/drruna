@@ -22,19 +22,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/') }}" class="menu-link">
+                                    <a href="{{ route('about') }}" class="menu-link">
                                         <span class="text-default">About</span>
                                         <span class="text-hover">About</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/') }}" class="menu-link">
+                                    <a href="{{ route('service') }}" class="menu-link">
                                         <span class="text-default">Services</span>
                                         <span class="text-hover">Services</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/') }}" class="menu-link">
+                                    <a href="{{ route('faq') }}" class="menu-link">
                                         <span class="text-default">FAQs</span>
                                         <span class="text-hover">FAQs</span>
                                     </a>
@@ -92,10 +92,10 @@
 
                 <div class="offcanvas-body">
                     <ul class="mobile-nav">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">FAQs</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('about') }}">About</a></li>
+                        <li><a href="{{ route('service') }}">Services</a></li>
+                        <li><a href="{{ route('faq') }}">FAQs</a></li>
                     </ul>
                 </div>
             </div>

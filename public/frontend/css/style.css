@@ -68,9 +68,8 @@ ol {
 }
 
 
-
 section.header-area {
-    background: var(--primary-color);
+	background: #060C1D;
 }
 
 /* ================= HEADER ================= */
@@ -133,15 +132,16 @@ section.header-area {
 
 /* ================= RIGHT NUMBER ================= */
 .header-right {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 8px 16px;
-    border-radius: 40px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(6px);
-    transition: all 0.3s ease;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 8px 16px;
+	border-radius: 40px;
+	/* background: rgba(255,255,255,0.08); */
+	backdrop-filter: blur(6px);
+	transition: all 0.3s ease;
+	background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(34, 197, 94, 0.15), rgba(168, 85, 247, 0.15));
 }
 
 .header-right img {
@@ -496,16 +496,16 @@ section.header-area {
 }
 
 .icon-box-medical {
-    width: 70px;
-    height: 70px;
-    background: #e9f5ee; /* As per screenshot */
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    color: var(--primary-green);
-    transition: 0.3s;
+	width: 70px;
+	height: 70px;
+	background: #e9f5ee;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	color: #00984B;
+	transition: 0.3s;
 }
 
 .service-card-premium:hover .icon-box-medical {
@@ -841,6 +841,53 @@ section.header-area {
 }
 
 /* award */
+/* Container design */
+.award-content-box {
+    border: 1px solid #dee2e6;
+    border-radius: 15px;
+    background: #fff;
+}
+
+/* Nav Pill buttons */
+.nav-pills .nav-link {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    color: #555;
+    margin: 5px;
+    width: 140px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.award_photo {
+    margin: auto;
+}
+/* Icon size inside button */
+.tab-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #f39c12; /* Orange color */
+}
+
+/* Active State Design (Sobar bame jeita ache) */
+.nav-pills .nav-link.active {
+    background-color: #fff !important;
+    border: 2px solid #28a745 !important; /* Green border like image */
+    color: #333 !important;
+}
+
+.nav-pills .nav-link:hover {
+    border-color: #f39c12;
+}
+
+/* Text style */
+.nav-link span {
+    font-size: 13px;
+    font-weight: 600;
+}
 
 .mini-title { font-size: 10px; font-weight: 600; line-height: 1.2; }
 
@@ -945,4 +992,75 @@ section.header-area {
 .footer-bottom {
     font-size: 14px;
     opacity: 0.8;
+}
+.footer-fb-container {
+    padding: 10px;
+}
+
+.footer-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Subtitle-er niche ekti chotto line */
+.footer-subtitle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #1877F2; /* Facebook Blue */
+}
+
+.facebook-page-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.facebook-page-wrapper:hover {
+    transform: translateY(-5px); /* Hover korle upore uthbe */
+}
+
+.fb-img {
+    width: 100%;
+    display: block;
+    transition: scale 0.5s ease;
+}
+
+.facebook-page-wrapper:hover .fb-img {
+    scale: 1.1; /* Hover korle image halka boro hobe */
+}
+
+/* Image-er upor halka blackish layer */
+.fb-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.facebook-page-wrapper:hover .fb-overlay {
+    opacity: 1;
+}
+
+.fb-overlay span {
+    color: white;
+    border: 1px solid white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
 }
