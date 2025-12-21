@@ -70,7 +70,7 @@
                          <h2 class="mb-3 display-6 fw-bold">I Provide Best <br> Medical Treatment.</h2>
                          <p class="mb-4 opacity-75 lead">Dr. Runa Akter: Dedicated, Highly Experienced & Compassionate.
                          </p>
-                         <a href="tel:01790118866" class="px-5 shadow btn btn-primary btn-lg rounded-pill">
+                         <a href="mailto:test@gmail.com" class="px-5 shadow btn btn-primary btn-lg rounded-pill">
                              BOOK AN APPOINTMENT <i class="fas fa-calendar-check ms-2"></i>
                          </a>
                      </div>
@@ -103,7 +103,7 @@
                          <h3 id="serviceTitle" class="mb-3 fw-bold text-dark">Service Name</h3>
                          <p id="serviceDescription" class="text-muted lh-lg">Description goes here...</p>
                          <hr class="my-4">
-                         <a href="#" class="px-4 btn btn-success rounded-pill">BOOK AN APPOINMENT</a>
+                         <a href="mailto:test@gmail.com" class="px-4 btn btn-success rounded-pill">BOOK AN APPOINMENT</a>
                      </div>
                  </div>
              </div>

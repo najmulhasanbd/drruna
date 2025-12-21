@@ -11,22 +11,25 @@
 
                     <h1 class="hero-title">
                         Asst. Prof. Dr. <br>
-                        <span style="color: #ffb703;">Runa Akter Dola</span>
+                        <div class="position-relative d-flex align-items-end justify-content-end">
+                            <span style="color: #ffb703;">Runa Akter Dola</span>
+                            <small class="right-0 position-absolute" style="bottom:-20px">MBBS, BCS (Health), FCPS (OBGYN)</small>
+                        </div>
                     </h1>
 
-                    <h5 class="mb-3 text-white fw-bold">MBBS, BCS (Health), FCPS (OBGYN)</h5>
+                    {{-- <h5 class="mb-3 text-white fw-bold">MBBS, BCS (Health), FCPS (OBGYN)</h5> --}}
 
-                    <p class="hero-text">
+                    <p class=" hero-text">
                         Assistant Professor (Feto-Maternal Medicine) at Sir Salimullah Medical College.
                         Expert in <strong>High-Risk Pregnancy</strong> & Women's Health with 16+ years of
                         experience.
                     </p>
 
-                    <div class="gap-3 hero-buttons d-flex">
+                    <div class="flex-wrap gap-3 hero-buttons d-flex">
                         <a href="tel:09611530530" class="btn btn-appointment">
                             <i class="fas fa-phone-alt"></i> Call: 09611530530
                         </a>
-                        <a href="#" class="px-4 btn btn-outline-light"
+                        <a href="{{ route('service') }}" class="px-4 btn btn-outline-light"
                             style="border-radius: 8px; font-weight: 600; padding: 14px 26px;">
                             View Services
                         </a>

@@ -1,9 +1,9 @@
     <header>
-        <section class="header-area">
+        <section class="header-area header-sticky">
             <div class="container">
                 <div class="row align-items-center d-none d-lg-flex">
                     <!-- LOGO -->
-                    <div class="col-lg-2">
+                    <div class="col-md-2">
                         <div class="logo">
                             <a href="{{ url('/') }}">
                                 <img src="{{ asset('frontend/image/logo.gif') }}" alt="dr runa" loading="lazy">
@@ -12,7 +12,7 @@
                     </div>
 
                     <!-- MENU -->
-                    <div class="col-lg-7">
+                    <div class="col-md-6">
                         <nav class="main-menu">
                             <ul class="d-flex align-items-center justify-content-center">
                                 <li>
@@ -39,14 +39,30 @@
                                         <span class="text-hover">FAQs</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('gallery') }}" class="menu-link">
+                                        <span class="text-default">Gallery</span>
+                                        <span class="text-hover">Gallery</span>
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
 
+                    <div class="col-md-2">
+                        <div class="gap-3 footer-social d-flex header-social">
+                            <a href="#" class="social-icon fb" title="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon tw" title="Twitter">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
                     <!-- RIGHT NUMBER -->
-                    <div class="col-lg-3">
+                    <div class="col-md-2">
                         <div class="header-right">
-                            <img src="{{ asset('frontend/image/contact.svg') }}" alt="contact">
+                            {{-- <img src="{{ asset('frontend/image/contact.svg') }}" alt="contact"> --}}
                             <a href="tel:+8801790118866">
                                 <span class="num-default">+8801790118866</span>
                                 <span class="num-hover">Call Now</span>
@@ -96,9 +112,23 @@
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('service') }}">Services</a></li>
                         <li><a href="{{ route('faq') }}">FAQs</a></li>
+                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
                     </ul>
+                    <div class="gap-3 footer-social d-flex">
+                        <a href="#" class="social-icon fb" title="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon tw" title="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon inst" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon ln" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-
         </section>
     </header>

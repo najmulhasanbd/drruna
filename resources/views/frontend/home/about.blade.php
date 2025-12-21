@@ -1,4 +1,5 @@
-<section class="py-5 overflow-hidden bg-white about-area" id="about">
+<section class="py-5 overflow-hidden bg-white about-area" id="about"
+    style="background: url({{ asset('frontend/image/about_bg.svg') }})">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
@@ -48,7 +49,16 @@
             <div class="col-lg-6" data-aos="fade-left">
                 <div class="about-content">
                     <span class="text-success fw-bold text-uppercase ls-2">About Me</span>
-                    <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">Dr. Runa Akter Dhola</h2>
+                    <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">Dr. Runa Akter Dhola <span
+                            style="font-size: 12px;
+  display: block;
+  font-weight: normal;
+  background: #198754;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  width: fit-content;">MBBS,
+                            BCS (Health), FCPS (OBGYN)</span></h2>
                     <p class="mb-4 text-secondary lead-sm">
                         I'm Dr. Runa Akter Dhola, a specialized OBGYN with a passion for providing holistic,
                         evidence-based medical care. Committed to serving women with excellence for over 18 years.
@@ -71,7 +81,7 @@
                         </div>
                     </div>
 
-                    <a href="#" class="read-more-link fw-bold text-primary text-decoration-none">
+                    <a href="{{ route('about') }}" class="read-more-link fw-bold text-primary text-decoration-none">
                         Read More <span class="arrow-wrap"><i class="fas fa-arrow-up-right-from-square"></i></span>
                     </a>
                 </div>

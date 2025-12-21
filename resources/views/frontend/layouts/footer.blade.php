@@ -21,6 +21,20 @@
                                     class="text-white text-decoration-none">info@doctorruna.com</a>
                             </div>
                         </div>
+                        <div class="gap-3 footer-social d-flex">
+                            <a href="#" class="social-icon fb" title="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon tw" title="Twitter">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon inst" title="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon ln" title="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -45,8 +59,8 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-subtitle">Facebook Page</h4>
                     <div class="footer-fb-container">
-                        <h4 class="footer-subtitle">Facebook Page</h4>
                         <div class="facebook-page-wrapper">
                             <a href="https://www.facebook.com/drrunaakhterdola" target="_blank">
                                 <img src="{{ asset('frontend/image/facebook.png') }}" alt="facebook page" loading="lazy"

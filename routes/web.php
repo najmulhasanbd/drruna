@@ -7,8 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
-Route::get('/services', [FrontendController::class, 'service'])->name('service');
-Route::get('/faqs', [FrontendController::class, 'faq'])->name('faq');
+Route::get('/service-page', [FrontendController::class, 'service'])->name('service');
+Route::get('/faq-page', [FrontendController::class, 'faq'])->name('faq');
+Route::get('/gallery-page', [FrontendController::class, 'gallery'])->name('gallery');
 
 
 Route::get('/dashboard', function () {

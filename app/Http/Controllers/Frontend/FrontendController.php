@@ -23,4 +23,8 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.faq');
     }
+    public function gallery()
+    {
+        return view('frontend.pages.gallery');
+    }
 }
