@@ -15,7 +15,25 @@
 </head>
 
 <body>
+  {{-- <div id="preloader">
+    <div class="loader-content">
+        <div class="icon-container">
+            <svg class="bloom-icon" viewBox="0 0 100 100">
+                <path class="petal" d="M50 50 Q70 10 90 50 T50 90 T10 50 T50 10" />
+                <circle class="center-core" cx="50" cy="50" r="5" />
+                <path class="petal-inner" d="M50 50 Q60 25 75 50 T50 75 T25 50 T50 25" />
+            </svg>
+        </div>
 
+        <div class="text-reveal">
+            <h1 class="doc-name">Dr. Runa Akter Dola</h1>
+            <div class="line-divider"></div>
+            <p class="specialty">Feto-Maternal Medicine Specialist</p>
+            <p class="hospitals">Sir Salimullah Medical College</p>
+        </div>
+    </div>
+    <div class="reg-number">BMDC Reg. D32OV01</div>
+</div> --}}
 
     @include('frontend.layouts.header')
 

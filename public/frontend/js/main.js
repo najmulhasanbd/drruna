@@ -1,6 +1,14 @@
 (function ($) {
     "use strict";
 
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+
+    // 3 seconds total to let the visitor experience the brand prestige
+    setTimeout(() => {
+        preloader.classList.add('fade-away');
+    }, 3000);
+});
 
     $(window).on('scroll', function () {
         var scroll = $(window).scrollTop();
@@ -146,6 +154,18 @@
         });
     });
 
-
+// Hover effect to slightly dim other cards when one is focused
+document.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.video-card').forEach(c => {
+            if (c !== card) c.style.opacity = '0.7';
+        });
+    });
+    card.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.video-card').forEach(c => {
+            c.style.opacity = '1';
+        });
+    });
+});
 
 })(jQuery);

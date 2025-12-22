@@ -19,12 +19,32 @@
 .header-right {
 	padding: 5px;
 }
+.trust-card {
+	top: 25px;
+}
+.hero-title small {
+	font-size: 11px;
+	bottom: -25px !important;
+}
+
 }
 
 
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
 
+.hero-swiper-container {
+	padding-left: 0;
+	padding-right: 0;
+}
+.hero-buttons {
+	justify-content: center;
+}
+.hero-text {
+	width: auto !important;
+	max-width: fit-content;
+	text-align: center;
+}
 
 }
 
@@ -32,11 +52,55 @@
 /* small mobile :320px. */
 @media (max-width: 767px) {
 
+.medical-badge {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+}
+.hero-title span {
+	margin-bottom: 20px;
+}.hero-text {
+	margin-top: 35px;
+    text-align:center
+}
+.hero-section {
+	padding: 50px 0;
+}
+.consultation-section {
+	padding-bottom: 0 !important;
+}
+.moreVideo {
+	text-align: center;
+	margin-top: 20px;
+}
 
+#experience {
+	padding-bottom: 0 !important;
+}
+.review-section {
+	padding-top: 0 !important;
+}
+.hero-title small {
+	font-size: 10px;
+}
+.breadcrumb-title {
+	font-size: 2.5rem;
+}
+.breadcrumb-area {
+	padding: 50px 0;
+}
+#about-doctor iframe {
+	height: auto;
+}
+.bookappoinment {
+	padding: 15px 25px !important;
+}
 }
 
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 .container {width:450px}
-
+.hero-title small {
+	font-size: 12px;
+}
 }

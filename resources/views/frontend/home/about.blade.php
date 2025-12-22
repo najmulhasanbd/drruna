@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6" data-aos="fade-left">
+            <div class="col-lg-6" data-aos="fade-down">
                 <div class="about-content">
                     <span class="text-success fw-bold text-uppercase ls-2">About Me</span>
                     <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">Dr. Runa Akter Dhola <span

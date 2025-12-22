@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6" data-aos="fade-up-right">
                     <div class="mb-4 tab-content award-content-box" id="pills-tabContent">
                         <div class="p-5 text-center border rounded tab-pane fade show active" id="pills-lasker"
                             role="tabpanel">

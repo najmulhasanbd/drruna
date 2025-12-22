@@ -27,4 +27,7 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.gallery');
     }
+    public function video(){
+        return view('frontend.pages.video');
+    }
 }

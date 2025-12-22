@@ -27,7 +27,6 @@
 
     <section class="py-5 dr-about-section" id="about-doctor">
         <div class="container py-lg-5">
-
             <div class="mb-5 row align-items-center pb-lg-4">
                 <div class="mb-4 col-lg-5 mb-lg-0" data-aos="fade-right">
                     <div class="p-2 overflow-hidden bg-white shadow-lg doctor-image-container rounded-4">
@@ -43,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7 ps-lg-5" data-aos="fade-left">
+                <div class="col-lg-7 ps-lg-5" data-aos="fade">
                     <h6 class="mb-2 tracking-wide text-primary fw-bold text-uppercase">Expert Physician</h6>
                     <h1 class="mb-3 display-5 fw-bold">Dr. Runa Akhter Dola</h1>
                     <p class="mb-4 h4 text-success fw-semibold">High Risk Pregnancy & Foetal Medicine Specialist</p>
@@ -103,7 +102,7 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-            <div class="row" data-aos="fade-up">
+            <div class="mt-5 row" data-aos="fade-up">
                 <div class="col-12">
                     <div class="p-5 text-center text-white shadow-lg cta-box rounded-5 bg-success">
                         <h2 class="mb-3 text-white">Commitment to Women's Health</h2>

@@ -10,6 +10,7 @@ Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
 Route::get('/service-page', [FrontendController::class, 'service'])->name('service');
 Route::get('/faq-page', [FrontendController::class, 'faq'])->name('faq');
 Route::get('/gallery-page', [FrontendController::class, 'gallery'])->name('gallery');
+Route::get('/video-page', [FrontendController::class, 'video'])->name('video');
 
 
 Route::get('/dashboard', function () {

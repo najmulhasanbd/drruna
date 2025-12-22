@@ -18,13 +18,45 @@
    Root Variables
 ========================= */
 :root {
-    --primary-color: #00984B;
+    --primary-color: #008BB5;
     --secondary-color: #0b1120;
     --text-color: #334155;
     --bg-color: #ffffff;
     --border-color: #e5e7eb;
 }
+/* --- Custom Scrollbar for Chrome, Edge, and Safari --- */
 
+/* 1. The width of the entire scrollbar */
+::-webkit-scrollbar {
+  width: 10px;               /* Vertical scrollbar width */
+  height: 10px;              /* Horizontal scrollbar height */
+}
+
+/* 2. The Track (the background area of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: #f8f9fa;       /* Very light gray/off-white to match the site bg */
+  border-radius: 10px;
+}
+
+/* 3. The Handle (the part that moves) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #004d40 0%, #006064 100%); /* Deep Teal gradient */
+  border: 2px solid #f8f9fa; /* Creates a padding effect around the handle */
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 4. Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;       /* Turns Gold on hover to match the theme */
+}
+
+/* --- Custom Scrollbar for Firefox --- */
+/* Firefox uses different properties */
+* {
+  scrollbar-width: thin;          /* Options: auto, thin, none */
+  scrollbar-color: #004d40 #f8f9fa; /* Handle color & Track color */
+}
 /* =========================
    Body Default
 ========================= */
@@ -75,11 +107,12 @@ section.header-area {
 	background: #060C1D;
 }
 .header-area.header-sticky.sticky {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-  transition: all .5s ease-in-out;
-  padding: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 99999;
+	transition: all .5s ease-in-out;
+	padding: 0;
+	box-shadow: rgb(25, 135, 84) 0px 4px 12px;
 }
 .header-area {
     background: #0f172a;
@@ -294,7 +327,7 @@ section.header-area {
 
 /* ================= HERO SECTION ================= */
 .hero-section {
-    background: #0a8f4d;
+    background: var(--primary-color);
     overflow: hidden;
 }
 
@@ -330,16 +363,21 @@ section.header-area {
     opacity: 0.95;
     max-width: 500px;
     margin-bottom: 30px;
+    text-align:center;
+    margin-top: 50px;
 }
 
 /* Badge */
 .medical-badge {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 8px 14px;
-    border-radius: 30px;
-    font-weight: 600;
-    display: inline-block;
+	background: rgba(255,255,255,0.15);
+	border: 1px solid rgba(255,255,255,0.3);
+	padding: 8px 14px;
+	border-radius: 30px;
+	font-weight: 600;
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .hero-section {
@@ -358,12 +396,14 @@ section.header-area {
     right: -5%;
     width: 600px;
     height: 600px;
-    background: rgba(255, 255, 255, 0.03);
+    /* Increased opacity slightly to make it visible */
+    background: rgba(0, 77, 64, 0.05);
     border-radius: 45% 55% 70% 30% / 30% 40% 60% 70%;
-    animation: shapeMove 20s infinite alternate;
-    z-index: 1;
+    animation: shapeMove 15s infinite alternate ease-in-out;
+    z-index: 0; /* Background layer */
 }
 
+/* --- Bottom Left Glowing Orb --- */
 .hero-section::after {
     content: "";
     position: absolute;
@@ -371,10 +411,38 @@ section.header-area {
     left: -5%;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.05);
+    /* Using a soft teal/gold glow for better look */
+    background: rgba(197, 160, 89, 0.1);
     border-radius: 50%;
     filter: blur(80px);
-    z-index: 1;
+    animation: floatMove 12s infinite alternate ease-in-out;
+    z-index: 0; /* Keep it behind the content */
+}
+
+/* Keyframes for Top-Right Shape: Morphing & Rotating */
+@keyframes shapeMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        border-radius: 45% 55% 70% 30% / 30% 40% 60% 70%;
+    }
+    50% {
+        transform: translate(-30px, 50px) rotate(90deg);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    100% {
+        transform: translate(20px, -20px) rotate(180deg);
+        border-radius: 45% 55% 70% 30% / 30% 40% 60% 70%;
+    }
+}
+
+/* Keyframes for Bottom-Left Glow: Gentle Floating */
+@keyframes floatMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(60px, -40px) scale(1.2);
+    }
 }
 
 .container {
@@ -1406,6 +1474,322 @@ section.header-area {
     margin-top: 20px;
 }
 
-.gap-3.footer-social.d-flex.header-social {
+.footer-social.d-flex.header-social {
 	margin-top: 0;
 }
+:root {
+    --gold: #c5a059;
+    --deep-teal: #004d40;
+    --soft-blush: #fff9f9;
+}
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    background-color: var(--soft-blush);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+/* Blooming Icon Animation */
+.icon-container {
+    margin-bottom: 30px;
+}
+
+.bloom-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.petal, .petal-inner {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: bloomEffect 3s ease-in-out infinite;
+}
+
+.center-core {
+    fill: var(--deep-teal);
+    animation: pulseCore 2s infinite;
+}
+
+@keyframes bloomEffect {
+    0% { stroke-dashoffset: 300; transform: rotate(0deg) scale(0.8); opacity: 0; }
+    50% { stroke-dashoffset: 0; transform: rotate(180deg) scale(1.1); opacity: 1; }
+    100% { stroke-dashoffset: -300; transform: rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+@keyframes pulseCore {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* Professional Typography */
+.text-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out forwards 0.5s;
+}
+
+.doc-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--deep-teal);
+    margin: 0;
+    font-weight: 700;
+}
+
+.line-divider {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 15px auto;
+}
+
+.specialty {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    color: #555;
+    margin: 0;
+}
+
+.hospitals {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.reg-number {
+    position: absolute;
+    bottom: 40px;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: #bbb;
+    text-transform: uppercase;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Fade Out */
+.fade-away {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+/* Premium Review Button */
+.client_review_btn {
+    position: relative;
+    background: #198754; /* Success Green */
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+}
+
+.client_review_btn:hover {
+    background: #146c43;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 135, 84, 0.4);
+}
+
+/* The Pulsing Ring Animation */
+.btn-ring {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50px;
+    border: 2px solid #198754;
+    animation: btnPulse 2s infinite;
+}
+
+@keyframes btnPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Modal Styling */
+.custom-input {
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.custom-input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.1);
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+.review-section {
+	z-index: 9999;
+	position: relative;
+}
+
+.moreVideo {
+	text-align: end;
+}
+
+/* Container for the pure video look */
+.video-card-pure {
+    position: relative;
+    background: #000;
+    border-radius: 20px; /* Rounded luxury corners */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 77, 64, 0.1); /* Subtle Teal Border */
+}
+
+/* Aspect Ratio Box (16:9) */
+.video-inner {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-inner iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Hover State: Lift and Glow */
+.video-card-pure:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 77, 64, 0.2); /* Teal Glow */
+    border-color: #c5a059; /* Changes to Gold on hover */
+}
+
+/* Added a soft glass reflection effect over the video */
+.video-card-pure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: 0.8s;
+    pointer-events: none;
+}
+
+.video-card-pure:hover::after {
+    left: 150%;
+}
+
+
+.trust-card {
+	background: white;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+	width: 225px;
+	position: absolute;
+	top: 80px;
+	left: -150px;
+	right: 0;
+	margin: auto;
+	z-index: 99;
+	animation: cardBounce 3s ease-in-out infinite;
+}
+/* অ্যানিমেশনের নিয়ম তৈরি করা */
+@keyframes cardBounce {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+    50% {
+        transform: rotate(180deg) translateY(-20px); /* অর্ধেক সময়ে ১৮০ ডিগ্রি ঘুরবে এবং একটু উপরে উঠবে */
+    }
+    100% {
+        transform: rotate(360deg) translateY(0); /* শেষে পুরো ৩৬০ ডিগ্রি ঘুরে আগের জায়গায় আসবে */
+    }
+}
+
+        .star-rating {
+            color: #FFB703;
+            font-size: 20px;
+            line-height:1
+        }
+
+       .trust-title {
+	color: var(--primary-color);
+	font-weight: 500;
+	font-size: 17px;
+	margin-bottom: 5px;
+	text-transform: capitalize;
+}
+
+        /* Avatar Stack Logic */
+        .avatar-group {
+            display: flex;
+            align-items: center;
+        }
+
+.avatar-item {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid var(--primary-color);
+	margin-left: -15px;
+	object-fit: cover;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+        .avatar-item:first-child {
+            margin-left: 0;
+        }
+
+.count-badge {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: var(--badge-green);
+	color: var(--primary-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 0.9rem;
+	margin-left: 10px;
+	box-shadow: 0 4px 10px rgba(0,200,83,0.3);
+}
+
+        /* Animations */
+        @keyframes cardBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Individual avatar hover effect */
+        .avatar-item:hover {
+            transform: scale(1.1) translateY(-5px);
+            z-index: 10;
+            transition: 0.3s;
+        }

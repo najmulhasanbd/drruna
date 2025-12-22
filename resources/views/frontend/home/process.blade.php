@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-8" data-aos="fade-left">
+            <div class="col-lg-8" data-aos="fade">
                 <div class="process-timeline ps-4">
                     <div class="mb-5 process-item position-relative" data-aos="fade-up">
                         <div class="shadow step-number">1</div>

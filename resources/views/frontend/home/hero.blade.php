@@ -3,17 +3,17 @@
         <div class="row align-items-center">
 
             <!-- LEFT CONTENT -->
-            <div class="col-md-5">
+            <div class="col-lg-5 col-md-12 ">
                 <div class="hero-content">
                     <span class="mb-3 badge medical-badge">
                         <i class="fas fa-certificate me-1"></i> BMDC Reg.: D32OV01
                     </span>
 
-                    <h1 class="hero-title">
+                    <h1 class="text-center hero-title">
                         Asst. Prof. Dr. <br>
-                        <div class="position-relative d-flex align-items-end justify-content-end">
+                        <div class="position-relative d-flex justify-content-center">
                             <span style="color: #ffb703;">Runa Akter Dola</span>
-                            <small class="right-0 position-absolute" style="bottom:-20px">MBBS, BCS (Health), FCPS (OBGYN)</small>
+                            <small class="right-0 position-absolute" style="bottom:-20px">MBBS, BCS (Health), FCPS (OBGYN), FCPS (Feto-Maternal Medicine)</small>
                         </div>
                     </h1>
 
@@ -25,7 +25,7 @@
                         experience.
                     </p>
 
-                    <div class="flex-wrap gap-3 hero-buttons d-flex">
+                    <div class="flex-wrap gap-3 hero-buttons d-flex justify-content-between">
                         <a href="tel:09611530530" class="btn btn-appointment">
                             <i class="fas fa-phone-alt"></i> Call: 09611530530
                         </a>
@@ -38,7 +38,7 @@
             </div>
 
             <!-- RIGHT BACKGROUND -->
-            <div class="col-md-7 d-md-block">
+            <div class="col-lg-7 col-md-12 d-md-block">
                 <div class="hero-swiper-container">
                     <div class="swiper heroSwiper">
                         <div class="swiper-wrapper">
@@ -56,6 +56,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="trust-card">
+        <h2 class="trust-title">Trusted by patients</h2>
+        <div class="star-rating">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <div class="avatar-group">
+            <img src="https://i.pravatar.cc/150?u=1" class="avatar-item" alt="Patient 1">
+            <img src="https://i.pravatar.cc/150?u=2" class="avatar-item" alt="Patient 2">
+            <img src="https://i.pravatar.cc/150?u=3" class="avatar-item" alt="Patient 3">
+            <img src="https://i.pravatar.cc/150?u=4" class="avatar-item" alt="Patient 4">
+            <img src="https://i.pravatar.cc/150?u=5" class="avatar-item" alt="Patient 5">
+
+            <div class="count-badge">+2k</div>
         </div>
     </div>
 </section>

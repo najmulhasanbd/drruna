@@ -176,7 +176,7 @@
                             <h2 class="mb-3 display-6 fw-bold">I Provide Best <br> Medical Treatment.</h2>
                             <p class="mb-4 opacity-75 lead">Dr. Runa Akter: Dedicated, Highly Experienced & Compassionate.
                             </p>
-                            <a href="mailto:test@gmail.com" class="px-5 shadow btn btn-primary btn-lg rounded-pill">
+                            <a href="mailto:test@gmail.com" class="px-5 shadow btn btn-primary btn-lg rounded-pill bookappoinment">
                                 BOOK AN APPOINTMENT <i class="fas fa-calendar-check ms-2"></i>
                             </a>
                         </div>
