@@ -45,7 +45,13 @@
 	max-width: fit-content;
 	text-align: center;
 }
-
+.trust-card {
+	right: 0;
+	left: auto;
+}
+.process-item {
+	margin-bottom: 0 !important;
+}
 }
 
 
@@ -95,6 +101,18 @@
 .bookappoinment {
 	padding: 15px 25px !important;
 }
+.trust-card {
+	position: sticky;
+}
+.hero-swiper-container {
+	padding: 0;
+}
+.process-item {
+	margin-bottom: 0 !important;
+}
+.hero-buttons .btn-outline-light {
+	padding: 9px !important;
+}
 }
 
 /* Large Mobile :480px. */
@@ -102,5 +120,7 @@
 .container {width:450px}
 .hero-title small {
 	font-size: 12px;
+}.hero-swiper-container {
+	padding: 0;
 }
 }

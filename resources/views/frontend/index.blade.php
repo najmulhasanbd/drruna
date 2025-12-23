@@ -6,6 +6,9 @@
     {{-- hero --}}
     @include('frontend.home.hero')
 
+    {{-- trused --}}
+    @include('frontend.home.trusted')
+
     {{-- service --}}
     @include('frontend.home.service')
 

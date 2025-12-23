@@ -20,6 +20,11 @@
                                 <a href="mailto:info@example.com"
                                     class="text-white text-decoration-none">info@doctorruna.com</a>
                             </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker me-2 text-warning"></i>
+                                <a href="mailto:info@example.com"
+                                    class="text-white text-decoration-none">Dhaka, Bangladesh</a>
+                            </div>
                         </div>
                         <div class="gap-3 footer-social d-flex">
                             <a href="#" class="social-icon fb" title="Facebook">

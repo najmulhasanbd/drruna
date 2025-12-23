@@ -168,4 +168,5 @@ document.querySelectorAll('.video-card').forEach(card => {
     });
 });
 
+
 })(jQuery);

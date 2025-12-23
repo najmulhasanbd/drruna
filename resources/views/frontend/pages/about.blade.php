@@ -97,10 +97,14 @@
                     </div>
                 </div>
             </div>
-            <iframe width="100%" height="600" src="https://www.youtube.com/embed/flr3QfrM6XI?si=hB9SEGWnf597jhjL"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="video-card-pure">
+                    <div class="video-inner">
+                        <iframe src="https://www.youtube.com/embed/flr3QfrM6XI" loading="lazy"
+                            title="Dr. Runa Akter Dola - Video 1" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
 
             <div class="mt-5 row" data-aos="fade-up">
                 <div class="col-12">
