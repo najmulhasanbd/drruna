@@ -1,8 +1,6 @@
 <section class="hero-section">
     <div class="container">
         <div class="row align-items-center">
-
-            <!-- LEFT CONTENT -->
             <div class="col-lg-5 col-md-12 ">
                 <div class="hero-content">
                     <span class="mb-3 badge medical-badge">
@@ -17,9 +15,6 @@
                                 (OBGYN), FCPS (Feto-Maternal Medicine)</small>
                         </div>
                     </h1>
-
-                    {{-- <h5 class="mb-3 text-white fw-bold">MBBS, BCS (Health), FCPS (OBGYN)</h5> --}}
-
                     <p class=" hero-text">
                         Assistant Professor (Feto-Maternal Medicine) at Sir Salimullah Medical College.
                         Expert in <strong>High-Risk Pregnancy</strong> & Women's Health with 16+ years of
@@ -38,7 +33,6 @@
                 </div>
             </div>
 
-            <!-- RIGHT BACKGROUND -->
             <div class="col-lg-7 col-md-12 d-md-block">
                 <div class="hero-swiper-container">
                     <div class="swiper heroSwiper">
@@ -64,12 +58,11 @@
             &#9733;&#9733;&#9733;&#9733;&#9733;
         </div>
         <div class="avatar-group">
-            <img src="https://i.pravatar.cc/150?u=1" class="avatar-item" alt="Patient 1">
-            <img src="https://i.pravatar.cc/150?u=2" class="avatar-item" alt="Patient 2">
-            <img src="https://i.pravatar.cc/150?u=3" class="avatar-item" alt="Patient 3">
-            <img src="https://i.pravatar.cc/150?u=4" class="avatar-item" alt="Patient 4">
-            <img src="https://i.pravatar.cc/150?u=5" class="avatar-item" alt="Patient 5">
-
+            <img src="https://i.pravatar.cc/150?u=1" class="avatar-item" alt="Patient 1" loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=2" class="avatar-item" alt="Patient 2" loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=3" class="avatar-item" alt="Patient 3" loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=4" class="avatar-item" alt="Patient 4" loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=5" class="avatar-item" alt="Patient 5" loading="lazy">
             <div class="count-badge">+2k</div>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Feature;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class FrontendController extends Controller
     public function index()
     {
         $data['sliders'] = Slider::latest()->get();
+        $data['featured'] = Feature::latest()->take(3)->get();
         return view('frontend.index', $data);
     }
     public function about()

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Slider;
-use Illuminate\Support\Facades\File; // <--- Ei line-ti miss hoyeche
-use Intervention\Image\Laravel\Facades\Image; // Image-er jonno
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -33,7 +33,7 @@ class SliderController extends Controller
 
             $image = Image::read($file);
 
-            $image->cover(690, 690);
+            $image->cover(690, 490);
 
             $save_path = $destinationPath . $filename;
             $image->save($save_path);
@@ -48,27 +48,23 @@ class SliderController extends Controller
     }
     public function update(Request $request, Slider $slider)
     {
-        // Validation
         $request->validate([
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
-            // 1. Puron image delete kora
             if (File::exists(public_path($slider->image))) {
                 File::delete(public_path($slider->image));
             }
 
-            // 2. Notun image process (Intervention v3)
             $file = $request->file('image');
             $filename = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
             $image = Image::read($file);
-            $image->cover(690, 690);
+            $image->cover(690, 490);
 
             $image->save(public_path('upload/sliders/' . $filename));
             $save_url = 'upload/sliders/' . $filename;
 
-            // 3. Database update with new image
             $slider->update(['image' => $save_url]);
         }
 
@@ -76,15 +72,12 @@ class SliderController extends Controller
     }
     public function destroy(Slider $slider)
     {
-        // 1. Database-e save thaka image path-ti check kora
         $imagePath = public_path($slider->image);
 
-        // 2. Server-er folder-e image-ti thakle seta delete/unlink kora
         if (File::exists($imagePath)) {
             File::delete($imagePath);
         }
 
-        // 3. Database theke record-ti delete kora
         $slider->delete();
 
         return redirect()->back()->with('success', 'Slider and Image Deleted Successfully!');

@@ -530,10 +530,9 @@ section.header-area {
     height: 100%;
     object-fit: cover;
     display: block;
-    aspect-ratio: 16 / 9; /* Google prefered ratio */
-    width: 100%;
 }
 
+/* আগের সেই ওভারলে ডার্কনেস কমানো (যাতে ডাক্তার বা ইমেজের মুখ ক্লিয়ার বোঝা যায়) */
 .hero-slide::after {
     content: '';
     position: absolute;
@@ -545,6 +544,7 @@ section.header-area {
     );
 }
 
+/* স্লাইডার যখন একটিভ হবে তখন জুম ইফেক্ট */
 .swiper-slide-active img {
     animation: imageZoom 5s infinite alternate ease-in-out;
 }
@@ -1832,23 +1832,26 @@ section.header-area {
 }
 
 .icon-circle {
-	width: 80px;
-	height: 80px;
-	margin: 0 auto 25px;
-	background: #fff;
-	border-radius: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 32px;
-	color: var(--primary-color);
-	transition: 0.5s;
-	animation: float 3s ease-in-out infinite;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: -40px !important;
-	border: 1px solid var(--primary-color);
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--primary-color);
+    transition: 0.5s;
+    animation: float 3s ease-in-out infinite;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -40px !important;
+    border: 1px solid var(--primary-color);
+}
+.icon-circle svg {
+    padding: 15px;
 }
 
 @keyframes float {

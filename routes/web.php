@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -29,6 +30,15 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         Route::get('/edit/{slider}', 'edit')->name('edit');
         Route::post('/update/{slider}', 'update')->name('update');
         Route::get('/delete/{slider}', 'destroy')->name('delete');
+    });
+    // featured
+    Route::controller(FeatureController::class)->prefix('featured')->name('featured.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+
+        Route::get('/edit/{featured}', 'edit')->name('edit');
+        Route::post('/update/{feature}', 'update')->name('update');
+        Route::get('/delete/{featured}', 'destroy')->name('delete');
     });
 });
 
