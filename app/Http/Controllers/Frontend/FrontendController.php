@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $data['sliders'] = Slider::latest()->get();
+        return view('frontend.index', $data);
     }
     public function about()
     {
@@ -27,7 +29,8 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.gallery');
     }
-    public function video(){
+    public function video()
+    {
         return view('frontend.pages.video');
     }
 }

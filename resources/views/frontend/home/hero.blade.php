@@ -13,7 +13,8 @@
                         Asst. Prof. Dr. <br>
                         <div class="position-relative d-flex justify-content-center">
                             <span style="color: #ffb703;">Runa Akter Dola</span>
-                            <small class="right-0 position-absolute" style="bottom:-20px">MBBS, BCS (Health), FCPS (OBGYN), FCPS (Feto-Maternal Medicine)</small>
+                            <small class="right-0 position-absolute" style="bottom:-20px">MBBS, BCS (Health), FCPS
+                                (OBGYN), FCPS (Feto-Maternal Medicine)</small>
                         </div>
                     </h1>
 
@@ -42,15 +43,14 @@
                 <div class="hero-swiper-container">
                     <div class="swiper heroSwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide hero-slide">
-                                <img src="{{ asset('frontend/image/slider/1.jpeg') }}" alt="Slider 1">
-                            </div>
-                            <div class="swiper-slide hero-slide">
-                                <img src="{{ asset('frontend/image/slider/2.jpeg') }}" alt="Slider 2">
-                            </div>
-                            <div class="swiper-slide hero-slide">
-                                <img src="{{ asset('frontend/image/slider/3.jpeg') }}" alt="Slider 3">
-                            </div>
+                            @foreach ($sliders as $index => $slider)
+                                <div class="swiper-slide hero-slide">
+                                    <img src="{{ asset($slider->image) }}"
+                                        alt="Dr Runa Akter Dola - Slider {{ $index + 1 }}"
+                                        loading="{{ $index == 0 ? 'eager' : 'lazy' }}"
+                                        title="Dr Runa Akter Dola Medical Service">
+                                </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>

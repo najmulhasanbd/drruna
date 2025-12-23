@@ -530,9 +530,10 @@ section.header-area {
     height: 100%;
     object-fit: cover;
     display: block;
+    aspect-ratio: 16 / 9; /* Google prefered ratio */
+    width: 100%;
 }
 
-/* আগের সেই ওভারলে ডার্কনেস কমানো (যাতে ডাক্তার বা ইমেজের মুখ ক্লিয়ার বোঝা যায়) */
 .hero-slide::after {
     content: '';
     position: absolute;
@@ -544,7 +545,6 @@ section.header-area {
     );
 }
 
-/* স্লাইডার যখন একটিভ হবে তখন জুম ইফেক্ট */
 .swiper-slide-active img {
     animation: imageZoom 5s infinite alternate ease-in-out;
 }
