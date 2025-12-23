@@ -28,7 +28,13 @@
                  <li class="nav-item">
                      <a href="{{ route('featured.index') }}" class="nav-link">
                          <i class="nav-icon bi bi-palette"></i>
-                         <p>Feature</p>
+                         <p>Featured</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{ route('service.index') }}" class="nav-link">
+                         <i class="nav-icon bi bi-palette"></i>
+                         <p>Services</p>
                      </a>
                  </li>
                  {{-- <li class="nav-item menu-open">

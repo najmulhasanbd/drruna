@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,15 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         Route::get('/edit/{featured}', 'edit')->name('edit');
         Route::post('/update/{feature}', 'update')->name('update');
         Route::get('/delete/{featured}', 'destroy')->name('delete');
+    });
+    // service
+    Route::controller(ServiceController::class)->prefix('service')->name('service.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+
+        Route::get('/edit/{service}', 'edit')->name('edit');
+        Route::post('/update/{service}', 'update')->name('update');
+        Route::get('/delete/{service}', 'destroy')->name('delete');
     });
 });
 

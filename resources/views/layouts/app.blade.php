@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    @stack('css')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -57,11 +58,9 @@
 
     <div class="app-wrapper">
 
-
         @include('layouts.header')
 
         @include('layouts.sidebar')
-
 
         <main class="app-main">
 
@@ -69,7 +68,6 @@
 
         </main>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
         crossorigin="anonymous"></script>
 
@@ -276,6 +274,8 @@
         sparkline3.render();
     </script>
     <!--end::Script-->
+
+    @stack('js')
 </body>
 <!--end::Body-->
 

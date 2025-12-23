@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+
     public function index()
     {
         $sliders = Slider::latest()->get();

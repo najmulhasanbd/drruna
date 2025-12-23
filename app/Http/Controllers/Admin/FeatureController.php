@@ -31,23 +31,23 @@ class FeatureController extends Controller
 
         return redirect()->back()->with('success', 'Featured uploaded successfully!');
     }
-   public function update(Request $request, Feature $feature)
-{
-    $request->validate([
-        'title' => 'required',
-        'number' => 'required',
-        'icon' => 'required',
-    ]);
+    public function update(Request $request, Feature $feature)
+    {
+        $request->validate([
+            'title' => 'required',
+            'number' => 'required',
+            'icon' => 'required',
+        ]);
 
-    $feature->update([
-        'title' => $request->title,
-        'number' => $request->number,
-        'icon' => $request->icon,
-        'updated_at' => now(),
-    ]);
+        $feature->update([
+            'title' => $request->title,
+            'number' => $request->number,
+            'icon' => $request->icon,
+            'updated_at' => now(),
+        ]);
 
-    return redirect()->back()->with('success', 'Feature Updated Successfully');
-}
+        return redirect()->back()->with('success', 'Feature Updated Successfully');
+    }
 
     public function destroy(Feature $featured)
     {
