@@ -1900,3 +1900,7 @@ section.header-area {
 .serviceModal svg {
     font-size: 50px;
 }
+
+.modal-backdrop {
+    z-index: auto;
+}

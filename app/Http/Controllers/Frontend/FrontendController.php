@@ -48,7 +48,8 @@ class FrontendController extends Controller
     }
     public function service()
     {
-        return view('frontend.pages.service');
+        $data['services'] = Service::latest()->take(3)->get();
+        return view('frontend.pages.service',$data);
     }
     public function faq()
     {
