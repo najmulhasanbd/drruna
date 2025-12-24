@@ -32,63 +32,22 @@
                 <div class="mx-auto divider bg-primary" style="width: 60px; height: 3px;"></div>
             </div>
 
-            <div class="row g-4 popup-gallery">
-                <div class="col-lg-4 col-md-6 col-6">
-                    <div class="overflow-hidden border-0 shadow-sm gallery-card rounded-3">
-                        <a href="{{ asset('frontend/image/about/about-One.jpg') }}"
-                            title="Consultation Room">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('frontend/image/about/about-One.jpg') }}"
-                                    class="img-fluid gallery-img w-100" alt="Clinic" loading="lazy">
-                                <div class="overlay">
-                                   <i class="text-white fa fa-search"></i>
-                                </div>
-                            </div>
-                        </a>
+            <div id="gallery-container" class="row g-4 popup-gallery">
+                @forelse ($gallery as $data)
+                    <div class="col-lg-4 col-md-6 col-6 gallery-item">
+                        <div class="overflow-hidden border-0 shadow-sm gallery-card rounded-3">
+                            <a href="{{ asset($data->image) }}" title="Gallery Image">
+                                <img src="{{ asset($data->image) }}" class="img-fluid gallery-img w-100" alt="Clinic"
+                                    loading="lazy">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6">
-                    <div class="overflow-hidden border-0 shadow-sm gallery-card rounded-3">
-                        <a href="{{ asset('frontend/image/about/about-One.jpg') }}"
-                            title="Consultation Room">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('frontend/image/about/about-One.jpg') }}"
-                                    class="img-fluid gallery-img w-100" alt="Clinic" loading="lazy">
-                                <div class="overlay">
-                                   <i class="text-white fa fa-search"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6">
-                    <div class="overflow-hidden border-0 shadow-sm gallery-card rounded-3">
-                        <a href="{{ asset('frontend/image/about/about-One.jpg') }}"
-                            title="Consultation Room">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('frontend/image/about/about-One.jpg') }}"
-                                    class="img-fluid gallery-img w-100" alt="Clinic" loading="lazy">
-                                <div class="overlay">
-                                   <i class="text-white fa fa-search"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-6">
-                    <div class="overflow-hidden border-0 shadow-sm gallery-card rounded-3">
-                        <a href="{{ asset('frontend/image/about/about-One.jpg') }}"
-                            title="Consultation Room">
-                            <div class="img-wrapper">
-                                <img src="{{ asset('frontend/image/about/about-One.jpg') }}"
-                                    class="img-fluid gallery-img w-100" alt="Clinic" loading="lazy">
-                                <div class="overlay">
-                                   <i class="text-white fa fa-search"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                @empty
+                    <p>No images found.</p>
+                @endforelse
+            </div>
+            <div class="mt-4 d-flex justify-content-center">
+                {{ $gallery->links() }}
             </div>
         </div>
     </section>

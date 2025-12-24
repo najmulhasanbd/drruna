@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Models\Education;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 
 class FrontendController extends Controller
 {
@@ -21,7 +22,7 @@ class FrontendController extends Controller
         $data['services'] = Service::latest()->take(3)->get();
         $data['educations'] = Education::latest()->get();
         $data['award'] = Award::latest()->get();
-        $data['review']=Review::whereStatus('active')->get();
+        $data['review'] = Review::whereStatus('active')->get();
         return view('frontend.index', $data);
     }
 
@@ -40,7 +41,6 @@ class FrontendController extends Controller
         ]);
     }
 
-
     public function about()
     {
         return view('frontend.pages.about');
@@ -55,7 +55,9 @@ class FrontendController extends Controller
     }
     public function gallery()
     {
-        return view('frontend.pages.gallery');
+        $gallery = Gallery::latest()->paginate(18);
+
+        return view('frontend.pages.gallery', compact('gallery'));
     }
     public function video()
     {
