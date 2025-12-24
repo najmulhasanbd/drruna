@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AwardController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -59,6 +60,15 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         Route::get('/edit/{education}', 'edit')->name('edit');
         Route::post('/update/{education}', 'update')->name('update');
         Route::get('/delete/{education}', 'destroy')->name('delete');
+    });
+    // award
+    Route::controller(AwardController::class)->prefix('award')->name('award.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{award}', 'edit')->name('edit');
+        Route::post('/update/{award}', 'update')->name('update');
+        Route::get('/delete/{award}', 'destroy')->name('delete');
     });
 });
 

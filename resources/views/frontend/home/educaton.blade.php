@@ -35,69 +35,36 @@
 
                 <div class="col-lg-6" data-aos="fade-up-right">
                     <div class="mb-4 tab-content award-content-box" id="pills-tabContent">
-                        <div class="p-5 text-center border rounded tab-pane fade show active" id="pills-lasker"
-                            role="tabpanel">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" alt="Icon"
-                                class="mb-3 award_photo" style="width: 80px;">
-                            <h3>Lasker Award</h3>
-                            <p class="text-muted">In 1945 Albert Lasker and Mary Woodard Lasker created the Lasker
-                                Awards. Every year since then the award has been given to the living person considered
-                                to have made the greatest contribution to medical science...</p>
-                        </div>
-                        <div class="p-5 text-center border rounded tab-pane fade" id="pills-medawar" role="tabpanel">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" alt="Icon"
-                                class="mb-3 award_photo" style="width: 80px;">
-                            <h3>Lasker Award</h3>
-                            <p class="text-muted">In 1945 Albert Lasker and Mary Woodard Lasker created the Lasker
-                                Awards. Every year since then the award has been given to the living person considered
-                                to have made the greatest contribution to medical science...</p>
-                        </div>
-                        <div class="p-5 text-center border rounded tab-pane fade" id="pills-aronson" role="tabpanel">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" alt="Icon"
-                                class="mb-3 award_photo" style="width: 80px;">
-                            <h3>Lasker Award</h3>
-                            <p class="text-muted">In 1945 Albert Lasker and Mary Woodard Lasker created the Lasker
-                                Awards. Every year since then the award has been given to the living person considered
-                                to have made the greatest contribution to medical science...</p>
-                        </div>
+                        @foreach ($award as $item)
+                            <div class="p-5 text-center border rounded tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                                id="pill-award-{{ $item->id }}" role="tabpanel">
+
+                                <img src="{{ asset($item->logo) }}" alt="{{ $item->name }}" class="mb-3 award_photo"
+                                    style="width: 80px;">
+
+                                <h3>{{ $item->name }}</h3>
+
+                                <p class="text-muted">
+                                    {{ $item->description }}
+                                </p>
+                            </div>
+                        @endforeach
                     </div>
 
                     <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-lasker"
-                                type="button" role="tab">
-                                <div class="tab-icon">🏆</div>
-                                <span>Lasker Award</span>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-medawar"
-                                type="button" role="tab">
-                                <div class="tab-icon">🏅</div>
-                                <span>Medawar Medal</span>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-aronson"
-                                type="button" role="tab">
-                                <div class="tab-icon">⭐</div>
-                                <span>Aronson Prize</span>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-medawar"
-                                type="button" role="tab">
-                                <div class="tab-icon">🏅</div>
-                                <span>Medawar Medal</span>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-aronson"
-                                type="button" role="tab">
-                                <div class="tab-icon">⭐</div>
-                                <span>Aronson Prize</span>
-                            </button>
-                        </li>
+                        @foreach ($award as $item)
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link {{ $loop->first ? 'active' : '' }}" data-bs-toggle="pill"
+                                    data-bs-target="#pill-award-{{ $item->id }}" type="button" role="tab">
+                                    <div class="tab-icon">
+                                        {{-- Static icon ba dynamic image use korte paren --}}
+                                         <img src="{{ asset($item->logo) }}" alt="{{ $item->name }}" class="mb-3 award_photo"
+                                    style="width: 80px;">
+                                    </div>
+                                    <span>{{ $item->name }}</span>
+                                </button>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

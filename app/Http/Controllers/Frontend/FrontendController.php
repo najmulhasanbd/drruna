@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Award;
 use App\Models\Education;
 use App\Models\Feature;
 use App\Models\Service;
@@ -18,6 +19,7 @@ class FrontendController extends Controller
 
         $data['services'] = Service::latest()->take(3)->get();
         $data['educations']=Education::latest()->get();
+        $data['award']  = Award::latest()->get();
         return view('frontend.index', $data);
     }
     public function about()
