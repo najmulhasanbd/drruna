@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\YoutubeController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -117,6 +118,18 @@ Route::prefix('admin')
                 Route::get('/edit/{faq}', 'edit')->name('edit');
                 Route::post('/update/{faq}', 'update')->name('update');
                 Route::get('/delete/{faq}', 'destroy')->name('delete');
+            });
+        // youtube
+        Route::controller(YoutubeController::class)
+            ->prefix('youtube')
+            ->name('youtube.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
+
+                Route::get('/edit/{youtube}', 'edit')->name('edit');
+                Route::post('/update/{youtube}', 'update')->name('update');
+                Route::get('/delete/{youtube}', 'destroy')->name('delete');
             });
     });
 

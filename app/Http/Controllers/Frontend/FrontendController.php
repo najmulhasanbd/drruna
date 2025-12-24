@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Models\Gallery;
+use App\Models\Youtube;
 
 class FrontendController extends Controller
 {
@@ -24,6 +25,7 @@ class FrontendController extends Controller
         $data['educations'] = Education::latest()->get();
         $data['award'] = Award::latest()->get();
         $data['review'] = Review::whereStatus('active')->get();
+        $data['youtube'] = Youtube::latest()->take(3)->get();
         return view('frontend.index', $data);
     }
 
@@ -49,12 +51,12 @@ class FrontendController extends Controller
     public function service()
     {
         $data['services'] = Service::latest()->take(3)->get();
-        return view('frontend.pages.service',$data);
+        return view('frontend.pages.service', $data);
     }
     public function faq()
     {
-        $faqs=Faq::all();
-        return view('frontend.pages.faq',compact('faqs'));
+        $faqs = Faq::all();
+        return view('frontend.pages.faq', compact('faqs'));
     }
     public function gallery()
     {
@@ -64,6 +66,7 @@ class FrontendController extends Controller
     }
     public function video()
     {
-        return view('frontend.pages.video');
+        $youtube = Youtube::latest()->get();
+        return view('frontend.pages.video', compact('youtube'));
     }
 }

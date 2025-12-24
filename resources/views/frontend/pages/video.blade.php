@@ -35,23 +35,38 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="video-card-pure">
-                        <div class="video-inner">
-                            <iframe src="https://www.youtube.com/embed/flr3QfrM6XI" loading="lazy"
-                                title="Dr. Runa Akter Dola - Video 1" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
+                @forelse ($youtube as $video)
+                    <div class="col-md-6" data-aos="fade-up">
+                        <div class="video-card-pure">
+                            <div class="video-inner">
+                                @php
+                                    $videoId = '';
+                                    if (
+                                        preg_match(
+                                            '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
+                                            $video->url,
+                                            $match,
+                                        )
+                                    ) {
+                                        $videoId = $match[1];
+                                    }
+                                @endphp
 
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="video-card-pure">
-                        <div class="video-inner">
-                            <iframe src="https://www.youtube.com/embed/flr3QfrM6XI" loading="lazy"
-                                title="Dr. Runa Akter Dola - Video 2" allowfullscreen></iframe>
+                                @if ($videoId)
+                                    <iframe src="https://www.youtube.com/embed/{{ $videoId }}" loading="lazy"
+                                        title="Video {{ $loop->iteration }}" allowfullscreen>
+                                    </iframe>
+                                @else
+                                    <p class="text-danger">Invalid Video URL</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center">No videos available at the moment. 🎥</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
