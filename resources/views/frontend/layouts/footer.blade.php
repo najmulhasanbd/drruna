@@ -22,8 +22,8 @@
                             </div>
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-map-marker me-2 text-warning"></i>
-                                <a href="mailto:info@example.com"
-                                    class="text-white text-decoration-none">Dhaka, Bangladesh</a>
+                                <a href="mailto:info@example.com" class="text-white text-decoration-none">Dhaka,
+                                    Bangladesh</a>
                             </div>
                         </div>
                         <div class="gap-3 footer-social d-flex">
@@ -46,10 +46,9 @@
                 <div class="mb-4 col-lg-2 col-md-6 mb-lg-0">
                     <h4 class="footer-subtitle">Services</h4>
                     <ul class="footer-links list-unstyled">
-                        <li><a href="javascript:void(0)">Gynae Check Up</a></li>
-                        <li><a href="javascript:void(0)">Pregnancy Care</a></li>
-                        <li><a href="javascript:void(0)">Fetal Medicine</a></li>
-                        <li><a href="javascript:void(0)">Doppler Scan</a></li>
+                        @foreach ($services as $data)
+                            <li><a href="javascript:void(0)">{{ ucwords($data->title) }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
 

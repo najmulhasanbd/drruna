@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SliderController;
@@ -44,11 +45,20 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     // service
     Route::controller(ServiceController::class)->prefix('service')->name('service.')->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/create','create')->name('create');
+        Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{service}', 'edit')->name('edit');
         Route::post('/update/{service}', 'update')->name('update');
         Route::get('/delete/{service}', 'destroy')->name('delete');
+    });
+    // education
+    Route::controller(EducationController::class)->prefix('education')->name('education.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{education}', 'edit')->name('edit');
+        Route::post('/update/{education}', 'update')->name('update');
+        Route::get('/delete/{education}', 'destroy')->name('delete');
     });
 });
 

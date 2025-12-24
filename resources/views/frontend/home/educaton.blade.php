@@ -5,78 +5,31 @@
             <div class="row g-4">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="qualification-list">
-                        <div
-                            class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" class="rounded shadow-sm me-3"
-                                style="width: 70px; height: 70px; object-fit: cover;" alt="College">
-                            <div class="flex-grow-1 border-end pe-3">
-                                <h6 class="mb-0 fw-bold">Dhaka Medical College</h6>
-                                <small class="text-muted">Jan 2014 - Dec 2018</small>
+                        @forelse ($educations as $data)
+                            <div
+                                class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
+                                {{-- Dynamic Logo/Image --}}
+                                <img src="{{ $data->logo ? asset($data->logo) : asset('frontend/image/default-college.jpg') }}"
+                                    class="rounded shadow-sm me-3" style="width: 70px; height: 70px; object-fit: cover;"
+                                    alt="{{ $data->name }}">
+
+                                <div class="flex-grow-1 border-end pe-3">
+                                    {{-- Dynamic Institute Name --}}
+                                    <h6 class="mb-0 fw-bold">{{ $data->name }}</h6>
+                                    {{-- Dynamic Session --}}
+                                    <small class="text-muted">{{ $data->session }}</small>
+                                </div>
+
+                                <div class="ps-3">
+                                    {{-- Dynamic Degree --}}
+                                    <small class="text-secondary fw-medium">{{ $data->degree }}</small>
+                                </div>
                             </div>
-                            <div class="ps-3">
-                                <small class="text-muted">MBBS (Bachelor of Medicine, Bachelor of Surgery)</small>
+                        @empty
+                            <div class="p-4 text-center border rounded bg-light">
+                                <p class="mb-0 text-muted">No education records found.</p>
                             </div>
-                        </div>
-                        <div
-                            class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" class="rounded shadow-sm me-3"
-                                style="width: 70px; height: 70px; object-fit: cover;" alt="College">
-                            <div class="flex-grow-1 border-end pe-3">
-                                <h6 class="mb-0 fw-bold">Dhaka Medical College</h6>
-                                <small class="text-muted">Jan 2014 - Dec 2018</small>
-                            </div>
-                            <div class="ps-3">
-                                <small class="text-muted">MBBS (Bachelor of Medicine, Bachelor of Surgery)</small>
-                            </div>
-                        </div>
-                        <div
-                            class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" class="rounded shadow-sm me-3"
-                                style="width: 70px; height: 70px; object-fit: cover;" alt="College">
-                            <div class="flex-grow-1 border-end pe-3">
-                                <h6 class="mb-0 fw-bold">Dhaka Medical College</h6>
-                                <small class="text-muted">Jan 2014 - Dec 2018</small>
-                            </div>
-                            <div class="ps-3">
-                                <small class="text-muted">MBBS (Bachelor of Medicine, Bachelor of Surgery)</small>
-                            </div>
-                        </div>
-                        <div
-                            class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" class="rounded shadow-sm me-3"
-                                style="width: 70px; height: 70px; object-fit: cover;" alt="College">
-                            <div class="flex-grow-1 border-end pe-3">
-                                <h6 class="mb-0 fw-bold">Dhaka Medical College</h6>
-                                <small class="text-muted">Jan 2014 - Dec 2018</small>
-                            </div>
-                            <div class="ps-3">
-                                <small class="text-muted">MBBS (Bachelor of Medicine, Bachelor of Surgery)</small>
-                            </div>
-                        </div>
-                        <div
-                            class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" class="rounded shadow-sm me-3"
-                                style="width: 70px; height: 70px; object-fit: cover;" alt="College">
-                            <div class="flex-grow-1 border-end pe-3">
-                                <h6 class="mb-0 fw-bold">Dhaka Medical College</h6>
-                                <small class="text-muted">Jan 2014 - Dec 2018</small>
-                            </div>
-                            <div class="ps-3">
-                                <small class="text-muted">MBBS (Bachelor of Medicine, Bachelor of Surgery)</small>
-                            </div>
-                        </div>
-                        <div
-                            class="p-3 mb-3 bg-white border-4 shadow-sm q-item d-flex align-items-center rounded-3 border-start border-success">
-                            <img src="{{ asset('frontend/image/about/about-One.jpg') }}" class="rounded shadow-sm me-3"
-                                style="width: 70px; height: 70px; object-fit: cover;" alt="College">
-                            <div class="flex-grow-1 border-end pe-3">
-                                <h6 class="mb-0 fw-bold">Dhaka Medical College</h6>
-                                <small class="text-muted">Jan 2014 - Dec 2018</small>
-                            </div>
-                            <div class="ps-3">
-                                <small class="text-muted">MBBS (Bachelor of Medicine, Bachelor of Surgery)</small>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
                 </div>
 

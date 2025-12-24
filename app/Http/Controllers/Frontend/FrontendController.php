@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Education;
 use App\Models\Feature;
+use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -13,6 +15,9 @@ class FrontendController extends Controller
     {
         $data['sliders'] = Slider::latest()->get();
         $data['featured'] = Feature::latest()->take(3)->get();
+
+        $data['services'] = Service::latest()->take(3)->get();
+        $data['educations']=Education::latest()->get();
         return view('frontend.index', $data);
     }
     public function about()

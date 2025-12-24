@@ -1896,3 +1896,7 @@ section.header-area {
 	margin: 15px auto 0;
 	opacity: 0.3;
 }
+
+.serviceModal svg {
+    font-size: 50px;
+}
