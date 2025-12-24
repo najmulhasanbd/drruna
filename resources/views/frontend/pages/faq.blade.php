@@ -37,120 +37,26 @@
                 <div class="col-lg-10">
                     <div class="accordion custom-accordion" id="faqAccordion">
 
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="100">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq1">
-                                    What do we treat?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Common health issue Ask anything you would normally ask your GP. You can have an instant
-                                    video with one of our GPs via a digital consultation from anywhere, at any time of
-                                    day...
-                                </div>
-                            </div>
-                        </div>
+                        @forelse ($faqs as $key => $data)
+                            <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button {{ $key == 0 ? '' : 'collapsed' }}" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faq-{{ $key }}">
+                                        {{ $data->question }}
+                                    </button>
+                                </h2>
 
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq2">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
+                                <div id="faq-{{ $key }}"
+                                    class="accordion-collapse collapse {{ $key == 0 ? 'show' : '' }}"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        {{ $data->answer }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq3">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq4">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq5">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq6">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq7">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 accordion-item" data-aos="fade-up" data-aos-delay="200">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq8">
-                                    How does it work?
-                                </button>
-                            </h2>
-                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body text-muted">
-                                    Our process is simple. You book an appointment, connect via video call, and receive your
-                                    prescription or advice digitally.
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                            <p>No FAQ available.</p>
+                        @endforelse
 
                     </div>
                 </div>

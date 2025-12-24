@@ -8,9 +8,9 @@
         <div class="container-fluid">
             <div class="col-md-12">
                 <div class="d-flex justify-content-between">
-                    <span class="mb-2 btn btn-success">Gallery List</span>
+                    <span class="mb-2 btn btn-success">Slider List</span>
                     <button class="mb-2 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Gallery Add
+                        Slider Add
                     </button>
                 </div>
 
@@ -20,29 +20,24 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px">SL</th>
-                                    <th>Images</th>
+                                    <th>Question</th>
+                                    <th>Answer</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($gallery as $key => $item)
+                                @foreach ($faqs as $key => $item)
                                     <tr class="align-middle">
                                         <td>{{ $key + 1 }}</td>
-                                        <td>
-                                            @if ($item->image)
-                                                <img src="{{ asset($item->image) }}"
-                                                    style="width: 100px; object-fit: cover; border: 1px solid #ddd;">
-                                            @else
-                                                <span>No Image</span>
-                                            @endif
-                                        </td>
+                                        <td>{{ $item->question }}</td>
+                                        <td>{{ $item->answer }}</td>
                                         <td>
                                             <button class="btn btn-sm btn-info" data-bs-toggle="modal"
                                                 data-bs-target="#editModal{{ $item->id }}">
                                                 <i class="fa fa-edit"></i>
                                             </button>
 
-                                            <a href="{{ route('gallery.delete', $item->id) }}" class="btn btn-sm btn-danger"
+                                            <a href="{{ route('faq.delete', $item->id) }}" class="btn btn-sm btn-danger"
                                                 onclick="return confirm('Delete this?')">
                                                 <i class="fa fa-trash"></i>
                                             </a>
@@ -54,43 +49,31 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title">Edit Gallery</h5>
+                                                    <h5 class="modal-title">Edit Slider</h5>
                                                     <button type="button" class="btn-close"
                                                         data-bs-dismiss="modal"></button>
                                                 </div>
-                                                <form action="{{ route('gallery.update', $item->id) }}" method="POST"
-                                                    enctype="multipart/form-data">
+                                                 <div class="modal-body">
+                                                <form action="{{ route('faq.update', $item->id) }}" method="post">
                                                     @csrf
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
-                                                            <label>Current Image</label><br>
-                                                            @if ($item->image)
-                                                                <img src="{{ asset($item->image) }}"
-                                                                    style="width: 100px; height: 100px; object-fit: cover;"
-                                                                    class="mb-2 border">
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label>Upload New Image (Optional)</label>
-                                                            <input type="file" name="image" class="form-control">
-                                                        </div>
+                                                    <div class="mb-3 form-group">
+                                                        <label for="">Question</label>
+                                                        <input type="text" class="form-control" name="question"
+                                                            value="{{ $item->question }}" placeholder="enter question">
                                                     </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary">Update Image</button>
+                                                    <div class="mb-3 form-group">
+                                                        <label for="">Answer</label>
+                                                        <textarea name="answer" class="form-control" cols="30" rows="5">{{ $item->answer }}</textarea>
                                                     </div>
+                                                    <button type="submit" class="btn btn-success w-100">Update FAQ</button>
                                                 </form>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </tbody>
                         </table>
-
-                        <div class="mt-2">
-                            {{ $gallery->links() }}
-                        </div>
                     </div>
                 </div>
             </div>
@@ -101,17 +84,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">Add New Gallery</h1>
+                    <h1 class="modal-title fs-5">Add New Slider</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('gallery.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('faq.store') }}" method="post">
                         @csrf
                         <div class="mb-3 form-group">
-                            <label class="mb-1">Gallery Images (Multiple Select)</label>
-                            <input class="form-control" type="file" name="image[]" required multiple>
+                            <label for="">Question</label>
+                            <input type="text" class="form-control" name="question" placeholder="enter question">
                         </div>
-                        <button type="submit" class="btn btn-success w-100">Submit Gallery</button>
+                        <div class="mb-3 form-group">
+                            <label for="">Answer</label>
+                            <textarea name="answer" class="form-control" cols="30" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Submit</button>
                     </form>
                 </div>
             </div>

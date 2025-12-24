@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AwardController;
 use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -104,6 +105,18 @@ Route::prefix('admin')
                 Route::get('/edit/{gallery}', 'edit')->name('edit');
                 Route::post('/update/{gallery}', 'update')->name('update');
                 Route::get('/delete/{gallery}', 'destroy')->name('delete');
+            });
+        // faq
+        Route::controller(FaqController::class)
+            ->prefix('faq')
+            ->name('faq.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{faq}', 'edit')->name('edit');
+                Route::post('/update/{faq}', 'update')->name('update');
+                Route::get('/delete/{faq}', 'destroy')->name('delete');
             });
     });
 

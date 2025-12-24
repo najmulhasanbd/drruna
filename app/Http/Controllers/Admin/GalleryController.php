@@ -11,7 +11,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $gallery = Gallery::latest()->get();
+        $gallery = Gallery::latest()->paginate(10);
         return view('admin.gallery.index', compact('gallery'));
     }
     public function store(Request $request)

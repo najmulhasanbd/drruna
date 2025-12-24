@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Models\Education;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use App\Models\Gallery;
 
 class FrontendController extends Controller
@@ -51,7 +52,8 @@ class FrontendController extends Controller
     }
     public function faq()
     {
-        return view('frontend.pages.faq');
+        $faqs=Faq::all();
+        return view('frontend.pages.faq',compact('faqs'));
     }
     public function gallery()
     {
