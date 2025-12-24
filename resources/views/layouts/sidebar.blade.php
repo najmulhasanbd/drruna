@@ -38,6 +38,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="{{ route('review.list') }}" class="nav-link">
+                         <i class="nav-icon bi bi-palette"></i>
+                         <p>Review</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="{{ route('education.index') }}" class="nav-link">
                          <i class="nav-icon bi bi-palette"></i>
                          <p>Education</p>

@@ -19,12 +19,19 @@ Route::get('/faq-page', [FrontendController::class, 'faq'])->name('faq');
 Route::get('/gallery-page', [FrontendController::class, 'gallery'])->name('gallery');
 Route::get('/video-page', [FrontendController::class, 'video'])->name('video');
 
+//review store
+Route::post('review-store',[FrontendController::class,'reviewStore'])->name('review.store');
+
 
 
 // admin
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
+    //review
+    Route::get('review',[AdminController::class,'review'])->name('review.list');
+    Route::get('review/status/{id}', [AdminController::class, 'reviewStatus'])->name('review.status');
+    
     // slider
     Route::controller(SliderController::class)->prefix('slider')->name('slider.')->group(function () {
         Route::get('/', 'index')->name('index');

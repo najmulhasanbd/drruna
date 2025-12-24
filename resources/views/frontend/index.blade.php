@@ -52,4 +52,49 @@
 
     {{-- education & award --}}
     @include('frontend.home.educaton')
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script>
+$(document).ready(function() {
+    console.log("jQuery is working!"); // Console-e check korar jonno
+
+    $('#reviewForm').on('submit', function(e) {
+        e.preventDefault(); // Eita page reload bondho korbe
+        e.stopImmediatePropagation(); // Onno kono script jate interfere na kore
+
+        let form = $(this);
+        let submitBtn = $('#reviewSubmitBtn');
+        let btnText = $('#btnText');
+        let btnSpinner = $('#btnSpinner');
+
+        // Loading On
+        submitBtn.prop('disabled', true);
+        btnText.text('Saving...');
+        btnSpinner.removeClass('d-none');
+
+        $.ajax({
+            url: "{{ route('review.store') }}",
+            type: "POST",
+            data: form.serialize(),
+            dataType: 'json',
+            success: function(response) {
+                $('#reviewMessage').html('<div class="alert alert-success mt-2">' + response.message + '</div>');
+                form[0].reset();
+
+                // Loading Off
+                submitBtn.prop('disabled', false);
+                btnText.text('Submit Review');
+                btnSpinner.addClass('d-none');
+            },
+            error: function(xhr) {
+                submitBtn.prop('disabled', false);
+                btnText.text('Submit Review');
+                btnSpinner.addClass('d-none');
+
+                alert("Error: " + xhr.status + " - " + xhr.statusText);
+                console.log(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
 @endsection
