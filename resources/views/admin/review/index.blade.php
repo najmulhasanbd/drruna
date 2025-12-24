@@ -41,6 +41,15 @@
                                                     {{ ucfirst($item->status) }}
                                                 </button>
                                             </a>
+                                            <form action="{{ route('review.destroy', $item->id) }}" method="POST"
+                                                style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Are you sure you want to delete this review?')">
+                                                    <i class="fa fa-trash"></i> Delete
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
 

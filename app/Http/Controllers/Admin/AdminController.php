@@ -33,4 +33,11 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Review status updated successfully!');
     }
+    public function destroy($id)
+    {
+        $review = Review::findOrFail($id);
+        $review->delete();
+
+        return redirect()->back()->with('success', 'Review deleted successfully!');
+    }
 }

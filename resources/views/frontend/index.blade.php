@@ -38,10 +38,10 @@
                     </p>
                 </div>
                 <div class="button-side">
-                    <button class="btn-help-pulse">
+                    <a href="mailto:" class="btn-help-pulse">
                         <span>I NEED HELP</span>
                         <i class="fas fa-hand-holding-medical ms-2"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -55,18 +55,17 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script>
 $(document).ready(function() {
-    console.log("jQuery is working!"); // Console-e check korar jonno
+    console.log("jQuery is working!");
 
     $('#reviewForm').on('submit', function(e) {
-        e.preventDefault(); // Eita page reload bondho korbe
-        e.stopImmediatePropagation(); // Onno kono script jate interfere na kore
+        e.preventDefault();
+        e.stopImmediatePropagation();
 
         let form = $(this);
         let submitBtn = $('#reviewSubmitBtn');
         let btnText = $('#btnText');
         let btnSpinner = $('#btnSpinner');
 
-        // Loading On
         submitBtn.prop('disabled', true);
         btnText.text('Saving...');
         btnSpinner.removeClass('d-none');
@@ -77,10 +76,9 @@ $(document).ready(function() {
             data: form.serialize(),
             dataType: 'json',
             success: function(response) {
-                $('#reviewMessage').html('<div class="alert alert-success mt-2">' + response.message + '</div>');
+                $('#reviewMessage').html('<div class="mt-2 alert alert-success">' + response.message + '</div>');
                 form[0].reset();
 
-                // Loading Off
                 submitBtn.prop('disabled', false);
                 btnText.text('Submit Review');
                 btnSpinner.addClass('d-none');

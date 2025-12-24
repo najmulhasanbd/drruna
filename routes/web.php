@@ -31,7 +31,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     //review
     Route::get('review',[AdminController::class,'review'])->name('review.list');
     Route::get('review/status/{id}', [AdminController::class, 'reviewStatus'])->name('review.status');
-    
+Route::delete('review/destroy/{id}', [AdminController::class, 'destroy'])->name('review.destroy');
+
     // slider
     Route::controller(SliderController::class)->prefix('slider')->name('slider.')->group(function () {
         Route::get('/', 'index')->name('index');
