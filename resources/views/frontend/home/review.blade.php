@@ -63,7 +63,7 @@
                         <div class="p-4 bg-white border shadow-sm review-card rounded-4">
                             <div class="mb-3 quote-icon"><i class="opacity-25 fas fa-quote-left text-success fa-2x"></i>
                             </div>
-                            <p class="mb-4 text-muted small">{{$data->description}}</p>
+                            <p class="mb-4 text-muted small">{{$data->message}}</p>
                             <div class="mb-3 stars text-warning">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i>

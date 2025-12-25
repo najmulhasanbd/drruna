@@ -2,38 +2,34 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Award;
-use App\Models\Review;
-use App\Models\Slider;
-use App\Models\Feature;
-use App\Models\Service;
-use App\Models\Education;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Chamber;
-use App\Models\Experience;
+use App\Models\Review;
 use App\Models\Faq;
 use App\Models\Gallery;
-use App\Models\Process;
-use App\Models\Specialist;
 use App\Models\Youtube;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        $data['sliders'] = Slider::latest()->get();
-        $data['featured'] = Feature::latest()->take(3)->get();
+        $data = Cache::rememberForever('frontend_data', function () {
+            return [
+                'sliders'     => \App\Models\Slider::latest()->get(),
+                'featured'    => \App\Models\Feature::latest()->take(3)->get(),
+                'services'    => \App\Models\Service::latest()->take(3)->get(),
+                'educations'  => \App\Models\Education::latest()->get(),
+                'award'       => \App\Models\Award::latest()->get(),
+                'review'      => \App\Models\Review::whereStatus('active')->get(),
+                'youtube'     => \App\Models\Youtube::latest()->take(3)->get(),
+                'experience'  => \App\Models\Experience::latest()->get(),
+                'chamber'     => \App\Models\Chamber::latest()->get(),
+                'processes'   => \App\Models\Process::orderBy('position', 'asc')->get(),
+                'speciallist' => \App\Models\Specialist::orderBy('position', 'asc')->get(),
+            ];
+        });
 
-        $data['services'] = Service::latest()->take(3)->get();
-        $data['educations'] = Education::latest()->get();
-        $data['award'] = Award::latest()->get();
-        $data['review'] = Review::whereStatus('active')->get();
-        $data['youtube'] = Youtube::latest()->take(3)->get();
-        $data['experience']=Experience::latest()->get();
-        $data['chamber']=Chamber::latest()->get();
-        $data['processes']=Process::orderBy('position', 'asc')->get();
-        $data['speciallist']=Specialist::orderBy('position', 'asc')->get();
         return view('frontend.index', $data);
     }
 
@@ -58,23 +54,40 @@ class FrontendController extends Controller
     }
     public function service()
     {
-        $data['services'] = Service::latest()->take(3)->get();
+        $data['services'] = Cache::rememberForever('service_page_data', function () {
+            return \App\Models\Service::latest()->take(3)->get();
+        });
+
         return view('frontend.pages.service', $data);
     }
+
     public function faq()
     {
-        $faqs = Faq::all();
+        $faqs = Cache::rememberForever('faq_page_data', function () {
+            return \App\Models\Faq::all();
+        });
+
         return view('frontend.pages.faq', compact('faqs'));
     }
+
     public function gallery()
     {
-        $gallery = Gallery::latest()->paginate(18);
+        $page = request()->get('page', 1);
+        $cacheKey = 'gallery_page_' . $page;
+
+        $gallery = Cache::rememberForever($cacheKey, function () {
+            return \App\Models\Gallery::latest()->paginate(12);
+        });
 
         return view('frontend.pages.gallery', compact('gallery'));
     }
+
     public function video()
     {
-        $youtube = Youtube::latest()->get();
+        $youtube = Cache::rememberForever('video_page_data', function () {
+            return Youtube::latest()->get();
+        });
+
         return view('frontend.pages.video', compact('youtube'));
     }
 }

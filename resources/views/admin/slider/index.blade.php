@@ -67,33 +67,56 @@
             padding: 10px 15px;
             border: 1px solid #e2e8f0;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-
-                <div class="mb-4 d-flex justify-content-between align-items-center">
+            <div class="col-lg-10">
+                <div class="header-card d-flex justify-content-between align-items-center">
                     <div>
-                        <h3 class="mb-1 fw-bold text-dark">Slider Management</h3>
-                        <p class="mb-0 text-muted">Manage your homepage hero sliders</p>
+                        <h2 class="mb-1 fw-bold">
+                            <i class="fas fa-user-md me-2"></i> Slider Management
+                        </h2>
+                        <p class="mb-0 opacity-75">Manage your homepage hero sliders.</p>
                     </div>
-                    <button class="px-4 shadow-sm btn btn-success rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#addSliderModal">
+                    <button class="px-4 text-black bg-white shadow-sm btn btn-success btn-add-new rounded-pill btn-lg"
+                        data-bs-toggle="modal" data-bs-target="#addSliderModal">
                         <i class="fas fa-plus-circle me-2"></i> Add Slider
                     </button>
                 </div>
-
-                @if (session('success'))
-                    <div class="border-0 shadow-sm alert alert-success alert-dismissible fade show rounded-3"
-                        role="alert">
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-check-circle me-2"></i>
-                            <span>{{ session('success') }}</span>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
 
                 <div class="custom-card card">
                     <div class="card-header-gradient d-flex justify-content-between align-items-center">
@@ -101,13 +124,23 @@
                         <span class="px-3 bg-white badge text-success rounded-pill">{{ $sliders->count() }} Total</span>
                     </div>
                     <div class="p-0 card-body">
+                        @if (session('success'))
+                            <div class="border-0 shadow-sm alert alert-success alert-dismissible fade show rounded-3"
+                                role="alert">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    <span>{{ session('success') }}</span>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="table-responsive">
                             <table class="table mb-0 align-middle table-hover">
                                 <thead>
                                     <tr>
                                         <th class="ps-4">SL</th>
                                         <th>Preview</th>
-                                        <th>Status</th>
                                         <th class="text-end pe-4">Actions</th>
                                     </tr>
                                 </thead>
@@ -117,9 +150,6 @@
                                             <td class="ps-4 fw-bold text-muted">{{ $key + 1 }}</td>
                                             <td>
                                                 <img src="{{ asset($item->image) }}" class="slider-img-preview">
-                                            </td>
-                                            <td><span
-                                                    class="px-3 border badge bg-soft-success text-success border-success rounded-pill">Active</span>
                                             </td>
                                             <td class="text-end pe-4">
                                                 <div class="gap-2 d-flex justify-content-end">

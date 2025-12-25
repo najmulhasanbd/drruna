@@ -29,6 +29,8 @@ class FeatureController extends Controller
             'created_at' => now(),
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->back()->with('success', 'Featured uploaded successfully!');
     }
     public function update(Request $request, Feature $feature)
@@ -46,12 +48,16 @@ class FeatureController extends Controller
             'updated_at' => now(),
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->back()->with('success', 'Feature Updated Successfully');
     }
 
     public function destroy(Feature $featured)
     {
         $featured->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
 
         return redirect()->back()->with('success', 'Feature Deleted Successfully!');
     }

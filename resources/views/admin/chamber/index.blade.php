@@ -78,18 +78,51 @@
             color: #198754;
             font-size: 0.9rem;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
             <div class="col-lg-11">
 
-                <div class="mb-4 d-flex justify-content-between align-items-center">
+                <div class="mb-4 d-flex justify-content-between align-items-center header-card">
                     <div>
-                        <h3 class="mb-1 fw-bold text-dark">Chamber Locations</h3>
-                        <p class="mb-0 text-muted">Manage your private practice chambers and visiting schedules.</p>
+                        <h3 class="mb-1 text-white fw-bold">Chamber Locations</h3>
+                        <p class="mb-0 text-white">Manage your private practice chambers and visiting schedules.</p>
                     </div>
-                    <a href="{{ route('chamber.create') }}" class="px-4 shadow-sm btn btn-success fw-bold"
+                    <a href="{{ route('chamber.create') }}" class="px-4 shadow-sm btn-add-new btn btn-success fw-bold"
                         style="border-radius: 10px; padding: 10px 20px;">
                         <i class="fas fa-plus-circle me-2"></i> Add New Chamber
                     </a>
@@ -116,7 +149,6 @@
                                     <tr>
                                         <th class="ps-4">SL</th>
                                         <th>Chamber Info</th>
-                                        <th>Status</th>
                                         <th>Visiting Time</th>
                                         <th class="text-end pe-4">Actions</th>
                                     </tr>
@@ -142,9 +174,6 @@
                                                         </small>
                                                     </div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <span class="status-badge">Available</span>
                                             </td>
                                             <td>
                                                 <div class="time-text">

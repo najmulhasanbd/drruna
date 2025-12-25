@@ -89,18 +89,52 @@
             resize: none;
             min-height: 120px;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row">
-            <div class="mx-auto col-lg-8">
+            <div class="mx-auto col-lg-10">
 
-                <div class="mb-4 d-flex justify-content-between align-items-end">
+                <div class="mb-4 d-flex justify-content-between align-items-end header-card">
                     <div>
-                        <h3 class="mb-0 fw-bold text-dark">Add New Experience 💼</h3>
-                        <p class="mb-0 text-muted small">Create a new professional milestone</p>
+                        <h3 class="mb-0 text-white fw-bold">Add New Experience 💼</h3>
+                        <p class="mb-0 text-white small">Create a new professional milestone</p>
                     </div>
-                    <a href="{{ route('experience.index') }}" class="px-4 border shadow-sm btn btn-light btn-sm rounded-pill fw-bold">
+                    <a href="{{ route('experience.index') }}"
+                        class="px-4 border shadow-sm btn-add-new btn btn-light btn-sm rounded-pill fw-bold">
                         <i class="fas fa-chevron-left me-2"></i> Back to List
                     </a>
                 </div>
@@ -118,13 +152,15 @@
                                 <div class="mb-5 text-center col-12">
                                     <label class="form-label d-block text-muted">Institute Logo</label>
                                     <div class="shadow-sm image-preview-wrapper">
-                                        <img id="preview" src="https://via.placeholder.com/150?text=Upload+Logo" alt="preview">
+                                        <img id="preview" src="https://via.placeholder.com/150?text=Upload+Logo"
+                                            alt="preview">
                                     </div>
                                     <div class="mx-auto col-md-6">
                                         <input type="file" name="logo" id="logoInput"
                                             class="form-control @error('logo') is-invalid @enderror"
                                             onchange="previewImage(event)">
-                                        <div class="mt-2 italic text-muted small"><i class="fas fa-info-circle me-1"></i> Recommended: Square PNG/JPG</div>
+                                        <div class="mt-2 italic text-muted small"><i class="fas fa-info-circle me-1"></i>
+                                            Recommended: Square PNG/JPG</div>
                                         @error('logo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -132,7 +168,8 @@
                                 </div>
 
                                 <div class="mb-4 col-md-12">
-                                    <label class="form-label"><i class="fas fa-university me-1 text-success"></i> Institute Name <span class="text-danger">*</span></label>
+                                    <label class="form-label"><i class="fas fa-university me-1 text-success"></i> Institute
+                                        Name <span class="text-danger">*</span></label>
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
                                         placeholder="e.g. Dhaka Medical College Hospital" required>
@@ -142,7 +179,8 @@
                                 </div>
 
                                 <div class="mb-4 col-md-6">
-                                    <label class="form-label"><i class="fas fa-stethoscope me-1 text-success"></i> Department / Role <span class="text-danger">*</span></label>
+                                    <label class="form-label"><i class="fas fa-stethoscope me-1 text-success"></i>
+                                        Department / Role <span class="text-danger">*</span></label>
                                     <input type="text" name="department"
                                         class="form-control @error('department') is-invalid @enderror"
                                         value="{{ old('department') }}" placeholder="e.g. Senior Consultant" required>
@@ -152,7 +190,8 @@
                                 </div>
 
                                 <div class="mb-4 col-md-6">
-                                    <label class="form-label"><i class="fas fa-calendar-alt me-1 text-success"></i> Duration <span class="text-danger">*</span></label>
+                                    <label class="form-label"><i class="fas fa-calendar-alt me-1 text-success"></i> Duration
+                                        <span class="text-danger">*</span></label>
                                     <input type="text" name="session"
                                         class="form-control @error('session') is-invalid @enderror"
                                         value="{{ old('session') }}" placeholder="e.g. Jan 2020 - Present" required>
@@ -162,7 +201,8 @@
                                 </div>
 
                                 <div class="mb-4 col-md-12">
-                                    <label class="form-label"><i class="fas fa-align-left me-1 text-success"></i> Key Responsibilities <span class="text-danger">*</span></label>
+                                    <label class="form-label"><i class="fas fa-align-left me-1 text-success"></i> Key
+                                        Responsibilities <span class="text-danger">*</span></label>
                                     <textarea name="description" class="form-control @error('description') is-invalid @enderror"
                                         placeholder="Describe your role and major achievements..." required>{{ old('description') }}</textarea>
                                     @error('description')

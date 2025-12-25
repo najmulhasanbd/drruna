@@ -70,18 +70,51 @@
             align-items: center;
             justify-content: center;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
+            <div class="col-md-10">
 
-                <div class="mb-4 d-flex justify-content-between align-items-center">
+                <div class="mb-4 d-flex justify-content-between align-items-center header-card">
                     <div>
-                        <h4 class="mb-0 fw-bold text-dark">Edit Chamber</h4>
-                        <small class="text-muted">Modify existing chamber details</small>
+                        <h4 class="mb-0 text-white fw-bold">Edit Chamber</h4>
+                        <small class="text-white">Modify existing chamber details</small>
                     </div>
-                    <a href="{{ route('chamber.index') }}" class="btn btn-outline-secondary btn-sm btn-back">
+                    <a href="{{ route('chamber.index') }}" class="btn btn-outline-secondary btn-add-new btn-sm btn-back">
                         <i class="fas fa-arrow-left"></i> Back to List
                     </a>
                 </div>

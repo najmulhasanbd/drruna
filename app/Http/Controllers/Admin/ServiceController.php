@@ -39,6 +39,8 @@ class ServiceController extends Controller
             'meta_description' => $request->meta_description,
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('service.index')->with('success', 'Service uploaded successfully with SEO data!');
     }
 
@@ -65,12 +67,15 @@ class ServiceController extends Controller
             'meta_description' => $request->meta_description,
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('service.index')->with('success', 'Service Updated Successfully');
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
 
         return redirect()->back()->with('success', 'Service Deleted Successfully!');
     }

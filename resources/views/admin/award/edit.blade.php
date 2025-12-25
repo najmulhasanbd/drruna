@@ -80,18 +80,52 @@
             box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
             color: white;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-10">
 
-                <div class="mb-4 d-flex justify-content-between align-items-center">
+                <div class="mb-4 d-flex justify-content-between align-items-center header-card">
                     <div>
-                        <h3 class="mb-1 fw-bold text-dark">Edit Award</h3>
-                        <p class="mb-0 text-muted">Update the details of your achievement</p>
+                        <h3 class="mb-1 text-white fw-bold">Edit Award</h3>
+                        <p class="mb-0 text-white">Update the details of your achievement</p>
                     </div>
-                    <a href="{{ route('award.index') }}" class="px-4 shadow-sm btn btn-outline-success rounded-pill">
+                    <a href="{{ route('award.index') }}"
+                        class="px-4 shadow-sm btn-add-new btn btn-outline-success rounded-pill">
                         <i class="fas fa-arrow-left me-2"></i> Back to List
                     </a>
                 </div>

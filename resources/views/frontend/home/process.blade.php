@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-8" data-aos="fade">
+            <div class="col-lg-8" data-aos="fade-down">
                 <div class="process-timeline ps-4">
                     @forelse ($processes as $data)
                         <div class="mb-5 process-item position-relative" data-aos="fade-up">

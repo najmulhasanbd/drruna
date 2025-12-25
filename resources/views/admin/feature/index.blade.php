@@ -76,26 +76,47 @@
             border-color: #20c997;
             box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.1);
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-10 col-xl-9">
-
-                @if (session('success'))
-                    <div class="border-0 shadow-sm alert alert-success alert-dismissible fade show rounded-3" role="alert">
-                        <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="col-lg-10">
+                <div class="header-card d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="mb-1 fw-bold">
+                            <i class="fas fa-user-md me-2"></i> Featured Statistics
+                        </h2>
+                        <p class="mb-0 opacity-75">Manage your skill counters and website features.</p>
                     </div>
-                @endif
-
-                <div class="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-                    <div class="mb-3 mb-md-0">
-                        <h3 class="mb-1 fw-bold text-dark">Featured Statistics</h3>
-                        <p class="mb-0 text-muted">Manage your skill counters and website features</p>
-                    </div>
-                    <button class="px-4 shadow-sm btn btn-success rounded-pill btn-lg" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                    <button class="px-4 text-black bg-white shadow-sm btn btn-success rounded-pill btn-lg"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fas fa-plus-circle me-2"></i> Add New Feature
                     </button>
                 </div>
@@ -108,6 +129,14 @@
                         </span>
                     </div>
                     <div class="p-0 card-body">
+                        @if (session('success'))
+                            <div class="border-0 shadow-sm alert alert-success alert-dismissible fade show rounded-3"
+                                role="alert">
+                                <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="table-responsive">
                             <table class="table mb-0 align-middle table-hover">
                                 <thead>
@@ -169,7 +198,8 @@
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label class="form-label fw-bold small">Value
-                                                                    (Number)</label>
+                                                                    (Number)
+                                                                </label>
                                                                 <input type="text" name="number" class="form-control"
                                                                     value="{{ $item->number }}" required>
                                                             </div>
@@ -257,7 +287,7 @@
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 if (!confirm(
-                    'Are you sure you want to delete this feature? This action cannot be undone.')) {
+                        'Are you sure you want to delete this feature? This action cannot be undone.')) {
                     e.preventDefault();
                 }
             });

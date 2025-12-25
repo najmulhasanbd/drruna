@@ -60,25 +60,51 @@
             border-radius: 50px;
             font-size: 0.85rem;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
 
-                @if (session('success'))
-                    <div class="border-0 shadow-sm alert alert-success alert-dismissible fade show rounded-3" role="alert">
-                        <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
-
-                <div class="mb-4 d-flex justify-content-between align-items-center">
+                <div class="mb-4 d-flex justify-content-between align-items-center header-card">
                     <div>
-                        <h3 class="mb-1 fw-bold text-dark">Education Background</h3>
-                        <p class="mb-0 text-muted">Manage your academic qualifications and certifications</p>
+                        <h3 class="mb-1 text-white fw-bold">Education Background</h3>
+                        <p class="mb-0 text-white">Manage your academic qualifications and certifications</p>
                     </div>
-                    <a href="{{ route('education.create') }}" class="px-4 shadow-sm btn btn-success rounded-pill">
+                    <a href="{{ route('education.create') }}" class="px-4 shadow-sm btn-add-new btn btn-success rounded-pill">
                         <i class="fas fa-plus-circle me-2"></i> Add Education
                     </a>
                 </div>

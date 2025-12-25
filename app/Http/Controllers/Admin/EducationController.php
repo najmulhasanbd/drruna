@@ -57,6 +57,8 @@ class EducationController extends Controller
             'logo'    => $save_url,
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('education.index')->with('success', 'Education data saved successfully!');
     }
 
@@ -98,6 +100,8 @@ class EducationController extends Controller
 
         $education->update($data);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('education.index')->with('success', 'Education updated successfully!');
     }
 
@@ -109,6 +113,8 @@ class EducationController extends Controller
         }
 
         $education->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
 
         return redirect()->back()->with('success', 'Education deleted successfully!');
     }

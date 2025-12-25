@@ -96,24 +96,60 @@
             background: white;
             color: #0d6efd;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div class="main-content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-7">
+                <div class="col-lg-10">
 
                     <div class="custom-card card">
-                        <div class="card-header-gradient d-flex justify-content-between align-items-center">
-                            <h4 class="card-title-main">
-                                <i class="fas fa-edit me-3"></i> Edit Process Step
-                            </h4>
-                            <a href="{{ route('process.index') }}" class="btn-back text-decoration-none">
+                        <div class="header-card d-flex justify-content-between align-items-center">
+                            <div>
+                                <h3 class="mb-1 text-white fw-bold">
+                                    <i class="fas fa-edit me-3"></i> Edit Process Step
+                                </h3>
+                                <p class="mb-0 opacity-75">Manage and reorder your workflow steps easily.</p>
+                            </div>
+                            <a href="{{ route('process.index') }}" class="btn-back btn-add-new text-decoration-none">
                                 <i class="fas fa-arrow-left me-1"></i> Back to List
                             </a>
                         </div>
 
-                        <div class="p-4 card-body p-md-5">
+                        <div class="p-4 mt-4 card-body p-md-5">
                             <form action="{{ route('process.update', $process->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')

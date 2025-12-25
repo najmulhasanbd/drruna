@@ -185,8 +185,7 @@
                                                     <i class="fas fa-edit fa-sm"></i>
                                                 </a>
                                                 <a href="{{ route('specialist.delete', $row->id) }}"
-                                                   class="btn-action bg-danger"
-                                                   onclick="return confirm('Delete this specialist?')" title="Delete Specialty">
+                                                   class="btn-action bg-danger confirm-delete" title="Delete Specialty">
                                                     <i class="fas fa-trash-alt fa-sm"></i>
                                                 </a>
                                             </div>

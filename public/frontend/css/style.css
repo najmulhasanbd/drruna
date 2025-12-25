@@ -2030,3 +2030,8 @@ a.menu-link.active {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+.review-card p {
+    height: 200px;
+    overflow-y: scroll;
+}

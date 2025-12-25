@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-7 col-md-12 d-md-block">
+            <div class="col-lg-7 col-md-12 d-md-block" data-aos="fade-down">
                 <div class="hero-swiper-container">
                     <div class="swiper heroSwiper">
                         <div class="swiper-wrapper">

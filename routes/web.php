@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Admin\YoutubeController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -28,6 +30,21 @@ Route::get('/video-page', [FrontendController::class, 'video'])->name('video');
 
 //review store
 Route::post('review-store', [FrontendController::class, 'reviewStore'])->name('review.store');
+
+
+Route::get('/clear-cache', function () {
+    // লারাভেলের সব ধরনের ক্যাশ ক্লিয়ার করবে
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('config:clear');
+    
+    // আপনি যদি নির্দিষ্ট কী (Key) ব্যবহার করেন সেগুলোও মুছে যাবে
+    Cache::forget('frontend_data');
+    Cache::forget('faq_page_data');
+    Cache::forget('settings');
+
+    return redirect()->back()->with('success', 'System Cache Cleared Successfully!');
+})->name('clear.cache');
 
 // admin
 Route::prefix('admin')

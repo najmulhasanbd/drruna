@@ -31,6 +31,9 @@ class ProcessController extends Controller
             'description' => $request->description,
         ]);
 
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('process.index')->with('success', 'Process added successfully!');
     }
 
@@ -47,12 +50,18 @@ class ProcessController extends Controller
         ]);
 
         $process->update($request->all());
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('process.index')->with('success', 'Process updated successfully!');
     }
 
     public function destroy(Process $process)
     {
         $process->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+        
         return redirect()->back()->with('success', 'Process deleted successfully!');
     }
 

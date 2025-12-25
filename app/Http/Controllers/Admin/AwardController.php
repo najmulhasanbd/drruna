@@ -56,6 +56,8 @@ class AwardController extends Controller
             'logo'        => $save_url,
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('award.index')->with('success', 'Award saved successfully!');
     }
 
@@ -96,6 +98,8 @@ class AwardController extends Controller
 
         $award->update($data);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('award.index')->with('success', 'Award updated successfully!');
     }
 
@@ -110,6 +114,8 @@ class AwardController extends Controller
         }
 
         $award->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
 
         return redirect()->back()->with('success', 'Award and Image deleted successfully!');
     }

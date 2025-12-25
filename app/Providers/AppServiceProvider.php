@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+
 use Illuminate\Pagination\Paginator;
 use App\Models\Service;
 use App\Models\Specialist;
@@ -22,8 +23,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-       View::share('services', Service::latest()->get());
-       View::share('specialist', Specialist::latest()->get());
-      Paginator::useBootstrapFive();
+        \Illuminate\Pagination\Paginator::useBootstrapFive();
+
+        $settings = \Illuminate\Support\Facades\Cache::rememberForever('site_settings', function () {
+
+            return \App\Models\Setting::first();
+        });
+        \Illuminate\Support\Facades\View::share('setting', $settings);
+
+        $services = \Illuminate\Support\Facades\Cache::rememberForever('global_services', function () {
+            return \App\Models\Service::latest()->get();
+        });
+        \Illuminate\Support\Facades\View::share('services', $services);
+
+        $specialist = \Illuminate\Support\Facades\Cache::rememberForever('global_specialists', function () {
+            return \App\Models\Specialist::latest()->get();
+        });
+        \Illuminate\Support\Facades\View::share('specialist', $specialist);
     }
 }

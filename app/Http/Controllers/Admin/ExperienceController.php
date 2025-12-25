@@ -58,6 +58,8 @@ class ExperienceController extends Controller
             'logo'    => $save_url,
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('experience.index')->with('success', 'Experience data saved successfully!');
     }
 
@@ -102,6 +104,8 @@ class ExperienceController extends Controller
 
     $experience->update($data);
 
+    \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
     return redirect()->route('experience.index')->with('success', 'Experience updated successfully!');
 }
 
@@ -113,6 +117,8 @@ class ExperienceController extends Controller
         }
 
         $experience->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
 
         return redirect()->back()->with('success', 'Experience deleted successfully!');
     }

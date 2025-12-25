@@ -44,6 +44,8 @@ class SliderController extends Controller
                 'created_at' => now(),
             ]);
 
+            \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
             return redirect()->back()->with('success', 'Slider uploaded successfully!');
         }
     }
@@ -69,21 +71,25 @@ class SliderController extends Controller
             $slider->update(['image' => $save_url]);
         }
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->back()->with('success', 'Slider Updated Successfully');
     }
-public function destroy(Slider $slider)
-{
-    // Database-e thaka image path-ti jodi "/" diye shuru hoy, tobe seta ke clean kora hoyeche
-    $imagePath = public_path($slider->image);
+    public function destroy(Slider $slider)
+    {
+        
+        $imagePath = public_path($slider->image);
 
-    // File check ebong Delete
-    if (!empty($slider->image) && File::exists($imagePath)) {
-        File::delete($imagePath);
+        // File check ebong Delete
+        if (!empty($slider->image) && File::exists($imagePath)) {
+            File::delete($imagePath);
+        }
+
+        // Database theke record delete
+        $slider->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
+        return redirect()->back()->with('success', 'Slider and Image Deleted Successfully!');
     }
-
-    // Database theke record delete
-    $slider->delete();
-
-    return redirect()->back()->with('success', 'Slider and Image Deleted Successfully!');
-}
 }

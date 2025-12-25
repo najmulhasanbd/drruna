@@ -50,18 +50,43 @@
 
     /* এলার্ট স্টাইল */
     .alert-custom { border-radius: 10px; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .header-card {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    }
+
+    .btn-add-new {
+        background: white;
+        color: #1e3a8a;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-add-new:hover {
+        background: #f8fafc;
+        transform: translateY(-2px);
+        color: #1e40af;
+    }
 </style>
 
 <div class="py-5 container-fluid">
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-lg-8">
 
-            <div class="mb-4 d-flex justify-content-between align-items-center">
+            <div class="mb-4 d-flex justify-content-between align-items-center header-card">
                 <div>
-                    <h3 class="mb-1 fw-bold text-dark">YouTube Management 📺</h3>
-                    <p class="mb-0 text-muted">আপনার ওয়েবসাইটের ভিডিও গ্যালারি নিয়ন্ত্রণ করুন।</p>
+                    <h3 class="mb-1 text-white fw-bold">YouTube Management 📺</h3>
+                    <p class="mb-0 text-white">আপনার ওয়েবসাইটের ভিডিও গ্যালারি নিয়ন্ত্রণ করুন।</p>
                 </div>
-                <button class="px-4 shadow-sm btn btn-success rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#addVideoModal">
+                <button class="px-4 shadow-sm btn btn-success rounded-pill btn-add-new fw-bold" data-bs-toggle="modal" data-bs-target="#addVideoModal">
                     <i class="fas fa-plus-circle me-2"></i> Add New Video
                 </button>
             </div>

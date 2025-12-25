@@ -1,117 +1,279 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="app-content-header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3 class="mb-0">Dashboard</h3>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                    </ol>
-                </div>
+    <style>
+        /* 1. Medical Mesh Gradient Background */
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* 2. Floating Animation for Medical Vibe */
+        .plus-bg {
+            position: fixed;
+            font-size: 80px;
+            color: rgba(99, 102, 241, 0.04);
+            z-index: -1;
+            animation: floatMedical 15s infinite ease-in-out;
+            user-select: none;
+        }
+
+        @keyframes floatMedical {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(90deg);
+            }
+        }
+
+        /* 3. Slim Glass Header */
+        .header-slim {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 18px 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        /* 4. Slim & Sharp Gradient Card */
+        .slim-gradient-card {
+            text-decoration: none !important;
+            display: block;
+            border-radius: 14px;
+            padding: 18px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slim-gradient-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+            filter: contrast(1.1);
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-box {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(4px);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .text-box h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .text-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 3px 0 0 0;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Gradient Color Palettes */
+        .bg-g1 {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        }
+
+        .bg-g2 {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+        }
+
+        .bg-g3 {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .bg-g4 {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .bg-g5 {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .bg-g6 {
+            background: linear-gradient(135deg, #ec4899, #be185d);
+        }
+
+        .bg-g7 {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+
+        .bg-g8 {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+        }
+
+        .bg-g9 {
+            background: linear-gradient(135deg, #64748b, #334155);
+        }
+
+        .bg-g10 {
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
+        }
+
+        .bg-g11 {
+            background: linear-gradient(135deg, #6366f1, #4338ca);
+        }
+
+        .bg-g12 {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+    </style>
+
+    <div class="plus-bg" style="top:15%; left:10%;">✚</div>
+    <div class="plus-bg" style="bottom:15%; right:10%; animation-delay: -5s;">✚</div>
+
+    <div class="py-4 container-fluid">
+        <div class="header-slim">
+            <div>
+                <h4 class="mb-0 fw-bold text-dark">
+                    <i class="bi bi-activity text-primary me-2"></i>Admin Dashboard
+                </h4>
+                <p class="mb-0 text-muted small">Medical Module Management Control</p>
             </div>
+            {{-- <div class="d-none d-md-block">
+                <span class="px-3 py-2 bg-white border badge rounded-pill text-dark">
+                    <i class="bi bi-calendar-event me-1"></i> {{ date('l, d M Y') }}
+                </span>
+            </div> --}}
         </div>
-    </div>
-    <div class="app-content">
-        <!--begin::Container-->
-        <div class="container-fluid">
-            <!--begin::Row-->
-            <div class="row">
-                <!--begin::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 1-->
-                    <div class="small-box text-bg-primary">
-                        <div class="inner">
-                            <h3>150</h3>
 
-                            <p>New Orders</p>
-                        </div>
-                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path
-                                d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z">
-                            </path>
-                        </svg>
-                        <a href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 1-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 2-->
-                    <div class="small-box text-bg-success">
-                        <div class="inner">
-                            <h3>53<sup class="fs-5">%</sup></h3>
+        <div class="row g-3">
+            @php
+                $modules = [
+                    [
+                        'count' => $slider_count,
+                        'label' => 'Sliders',
+                        'icon' => 'bi-images',
+                        'color' => 'bg-g1',
+                        'route' => 'slider.index', // শুধুমাত্র নাম
+                    ],
+                    [
+                        'count' => $service_count,
+                        'label' => 'Services',
+                        'icon' => 'bi-heart-pulse',
+                        'color' => 'bg-g2',
+                        'route' => 'service.index',
+                    ],
+                    [
+                        'count' => $award_count,
+                        'label' => 'Awards',
+                        'icon' => 'bi-award',
+                        'color' => 'bg-g3',
+                        'route' => 'award.index',
+                    ],
+                    [
+                        'count' => $review_count,
+                        'label' => 'Reviews',
+                        'icon' => 'bi-star',
+                        'color' => 'bg-g4',
+                        'route' => 'review.list',
+                    ],
+                    [
+                        'count' => $youtube_count,
+                        'label' => 'Videos',
+                        'icon' => 'bi-play-btn',
+                        'color' => 'bg-g5',
+                        'route' => 'youtube.index',
+                    ],
+                    [
+                        'count' => $experience_count,
+                        'label' => 'Experience',
+                        'icon' => 'bi-briefcase',
+                        'color' => 'bg-g6',
+                        'route' => 'experience.index',
+                    ],
+                    [
+                        'count' => $chamber_count,
+                        'label' => 'Chambers',
+                        'icon' => 'bi-geo-alt',
+                        'color' => 'bg-g7',
+                        'route' => 'chamber.index',
+                    ],
+                    [
+                        'count' => $faq_count,
+                        'label' => 'FAQs',
+                        'icon' => 'bi-question-circle',
+                        'color' => 'bg-g8',
+                        'route' => 'faq.index',
+                    ],
+                    [
+                        'count' => $gallery_count,
+                        'label' => 'Gallery',
+                        'icon' => 'bi-camera',
+                        'color' => 'bg-g9',
+                        'route' => 'gallery.index',
+                    ],
+                    [
+                        'count' => $feature_count,
+                        'label' => 'Features',
+                        'icon' => 'bi-lightning',
+                        'color' => 'bg-g10',
+                        'route' => 'featured.index',
+                    ],
+                    [
+                        'count' => $education_count,
+                        'label' => 'Education',
+                        'icon' => 'bi-mortarboard',
+                        'color' => 'bg-g11',
+                        'route' => 'education.index',
+                    ],
+                    [
+                        'count' => $specialist_count,
+                        'label' => 'Specialists',
+                        'icon' => 'bi-person-badge',
+                        'color' => 'bg-g12',
+                        'route' => 'specialist.index',
+                    ],
+                ];
+            @endphp
 
-                            <p>Bounce Rate</p>
+            @foreach ($modules as $module)
+                <div class="col-xl-3 col-md-4 col-6">
+                    <a href="{{ route($module['route']) }}" class="slim-gradient-card {{ $module['color'] }}">
+                        <div class="card-content">
+                            <div class="icon-box">
+                                <i class="bi {{ $module['icon'] }}"></i>
+                            </div>
+                            <div class="text-box">
+                                <h3>{{ $module['count'] }}</h3>
+                                <p>{{ $module['label'] }}</p>
+                            </div>
                         </div>
-                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path
-                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
-                            </path>
-                        </svg>
-                        <a href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 2-->
+                    </a>
                 </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 3-->
-                    <div class="small-box text-bg-warning">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>User Registrations</p>
-                        </div>
-                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path
-                                d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
-                            </path>
-                        </svg>
-                        <a href="#"
-                            class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 3-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 4-->
-                    <div class="small-box text-bg-danger">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path clip-rule="evenodd" fill-rule="evenodd"
-                                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z">
-                            </path>
-                            <path clip-rule="evenodd" fill-rule="evenodd"
-                                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z">
-                            </path>
-                        </svg>
-                        <a href="#"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

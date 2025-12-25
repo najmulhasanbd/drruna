@@ -32,6 +32,9 @@ class SpecialistController extends Controller
             'position' => $lastPosition + 1,
         ]);
 
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('specialist.index')->with('success', 'Specialist added successfully!');
     }
 
@@ -47,12 +50,20 @@ class SpecialistController extends Controller
         ]);
 
         $specialist->update($request->all());
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
+
         return redirect()->route('specialist.index')->with('success', 'Specialist updated successfully!');
     }
 
     public function destroy(Specialist $specialist)
     {
         $specialist->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
+        
         return redirect()->back()->with('success', 'Specialist deleted successfully!');
     }
     public function updateOrder(Request $request)

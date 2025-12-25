@@ -27,6 +27,9 @@ class ChamberController extends Controller
         ]);
 
         Chamber::create($request->all());
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('chamber.index')->with('success', 'Chamber added successfully!');
     }
 
@@ -43,12 +46,18 @@ class ChamberController extends Controller
         ]);
 
         $chamber->update($request->all());
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->route('chamber.index')->with('success', 'Chamber updated successfully!');
     }
 
     public function destroy(Chamber $chamber)
     {
         $chamber->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+        
         return redirect()->back()->with('success', 'Chamber deleted successfully!');
     }
 }

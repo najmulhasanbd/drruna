@@ -25,6 +25,8 @@ class FaqController extends Controller
             'answer' => $request->answer,
         ]);
 
+         \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->back()->with('success', 'Faq uploaded successfully!');
     }
 
@@ -40,12 +42,16 @@ class FaqController extends Controller
         'answer' => $request->answer,
     ]);
 
+     \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
     return redirect()->back()->with('success', 'FAQ updated successfully!');
 }
 
     public function destroy(Faq $Faq)
     {
         $Faq->delete();
+
+         \Illuminate\Support\Facades\Cache::forget('frontend_data');
 
         return redirect()->back()->with('success', 'Faq Deleted Successfully!');
     }

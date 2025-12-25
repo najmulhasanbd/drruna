@@ -27,6 +27,8 @@ class YoutubeController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Video added successfully!');
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
     }
 
     public function update(Request $request, Youtube $youtube)
@@ -39,12 +41,17 @@ class YoutubeController extends Controller
             'url' => $request->url,
         ]);
 
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+
         return redirect()->back()->with('success', 'Video updated successfully!');
     }
 
     public function destroy(Youtube $youtube)
     {
         $youtube->delete();
+
+        \Illuminate\Support\Facades\Cache::forget('frontend_data');
+        
         return redirect()->back()->with('success', 'Video deleted!');
     }
 }

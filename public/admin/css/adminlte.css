@@ -15581,3 +15581,76 @@ fieldset legend {
 }
 
 /*# sourceMappingURL=adminlte.css.map */
+
+/* Sidebar Wrapper - Dark Deep Blue (Using your theme base) */
+.sidebar-wrapper {
+    background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Nav Links */
+.sidebar-wrapper .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+}
+
+/* Sidebar Hover - Using your Green Gradient touch */
+.sidebar-wrapper .nav-link:hover {
+    background: rgba(32, 201, 151, 0.15) !important;
+    color: #20c997 !important;
+    border-radius: 10px;
+    margin: 0 12px;
+}
+
+/* Sidebar Active - Using your Card Header Green Gradient */
+.sidebar-wrapper .nav-link.active {
+    background: linear-gradient(45deg, #198754, #20c997) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 15px rgba(25, 135, 84, 0.3);
+    border-radius: 10px;
+    margin: 0 12px;
+}
+
+/* Dashboard Header Card - Using your Blue Gradient */
+.header-card {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+    border: none;
+}
+
+/* Global Add New Button Styling */
+.btn-add-new {
+    background: #ffffff !important;
+    color: #1e3a8a !important;
+    border: none !important;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.btn-add-new:hover {
+    background: #f1f5f9 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    color: #1e40af !important;
+}
+
+/* Sidebar Brand Section */
+.sidebar-wrapper .sidebar-brand {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.1);
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+}

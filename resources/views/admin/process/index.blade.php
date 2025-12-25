@@ -2,27 +2,6 @@
 
 @section('content')
     <style>
-        /* Header Card Style */
-        .header-card {
-            background: linear-gradient(135deg, #3f67f0 0%, #6789ff 100%);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            color: white;
-            box-shadow: 0 10px 30px rgba(63, 103, 240, 0.2);
-        }
-
-        .btn-add-new {
-            background: white;
-            color: #3f67f0;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 700;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
         .btn-add-new:hover {
             background: #f8fafc;
             transform: translateY(-2px);
@@ -126,6 +105,39 @@
             background: #f0fdf4 !important;
             border: 2px dashed #198754 !important;
         }
+
+        .header-card {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15);
+        }
+
+        .btn-add-new {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-new:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            color: #1e40af;
+        }
+
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
     </style>
 
     <div id="status-msg">
@@ -134,14 +146,14 @@
 
     <div class="py-5 container-fluid">
         <div class="row justify-content-center">
-            <div class="col-lg-11">
+            <div class="col-lg-10">
 
                 <div class="header-card d-flex justify-content-between align-items-center">
                     <div>
-                        <h2 class="mb-1 fw-bold">
+                        <h3 class="mb-1 text-white fw-bold">
                             <i class="fas fa-project-diagram me-2"></i> Working Process
-                        </h2>
-                        <p class="mb-0 opacity-75">Manage and reorder your workflow steps easily.</p>
+                            </h2>
+                            <p class="mb-0 opacity-75">Manage and reorder your workflow steps easily.</p>
                     </div>
                     <a href="{{ route('process.create') }}" class="btn btn-add-new text-decoration-none">
                         <i class="fas fa-plus-circle me-1"></i> Add New Step
