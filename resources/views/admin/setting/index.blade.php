@@ -36,6 +36,10 @@
                                 data-bs-target="#extra" type="button" role="tab">
                                 <i class="fa fa-play-circle me-2"></i> About Youtube Video
                             </button>
+                            <button class="py-3 nav-link text-start" id="aboutphoto-tab" data-bs-toggle="pill"
+                                data-bs-target="#aboutphoto" type="button" role="tab">
+                                <i class="fa fa-users me-2"></i> About Photo
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -238,6 +242,55 @@
                             </form>
                         </div>
 
+                        <div class="tab-pane fade" id="aboutphoto" role="tabpanel">
+                            <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data"
+                                class="settings-form">
+                                @csrf
+                                <h4 class="pb-2 mb-4 text-success border-bottom">About Photo</h4>
+                                <div class="row">
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">First Photo</label>
+                                        <input type="file" name="firstphoto" class="mb-2 form-control">
+                                        @if (config('settings.firstphoto'))
+                                            <div class="p-2 border rounded bg-light d-inline-block">
+                                                <img src="{{ asset(config('settings.firstphoto')) }}" alt="First Photo"
+                                                    style="height: 50px;">
+                                                <small class="d-block text-muted">Current First Photo</small>
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Second Photo</label>
+                                        <input type="file" name="secondphoto" class="mb-2 form-control">
+                                        @if (config('settings.secondphoto'))
+                                            <div class="p-2 border rounded bg-light d-inline-block">
+                                                <img src="{{ asset(config('settings.secondphoto')) }}" alt="Second Photo"
+                                                    style="height: 32px;">
+                                                <small class="d-block text-muted">Current Second Photo</small>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Long Photo</label>
+                                        <input type="file" name="longphoto" class="mb-2 form-control">
+                                        @if (config('settings.longphoto'))
+                                            <div class="p-2 border rounded bg-light d-inline-block">
+                                                <img src="{{ asset(config('settings.longphoto')) }}" alt="Long Photo"
+                                                    style="height: 32px;">
+                                                <small class="d-block text-muted">Current Long Photo</small>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success submit-btn">
+                                    <span class="btn-text">Update General Settings</span>
+                                    <div class="spinner-border spinner-border-sm d-none" role="status"></div>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

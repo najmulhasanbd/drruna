@@ -7,17 +7,17 @@
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="mb-3 img-box bounce-animation">
-                                <img src="{{ asset('frontend/image/about/about-One.jpg') }}"
+                                <img src="{{ config('settings.firstphoto') }}"
                                     alt="Dr. Runa Akter Consulting Patient" class="shadow-sm img-fluid rounded-4">
                             </div>
                             <div class="img-box bounce-animation-delay">
-                                <img src="{{ asset('frontend/image/about/service_image.jpg') }}"
+                                <img src="{{ config('settings.secondphoto') }}"
                                     alt="Medical Treatment at Clinic" class="shadow-sm img-fluid rounded-4">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="img-box main-img bounce-animation">
-                                <img src="{{ asset('frontend/image/about/about_two.png') }}"
+                                <img src="{{ config('settings.longphoto') }}"
                                     alt="Dr. Runa Akter Dhola - OBGYN Specialist"
                                     class="shadow-lg img-fluid rounded-4 h-100 object-fit-cover">
                             </div>
