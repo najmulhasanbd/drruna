@@ -15,40 +15,17 @@
                         <h4 class="m-0 fw-bold">Chamber Location</h4>
                     </div>
 
-                    <div class="mb-4 location-item">
-                        <h5 class="text-success fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Dhaka Hospital</h5>
-                        <p class="text-muted ms-4">শনিবার: ১০:০০ AM - ১২:০০ PM</p>
-                    </div>
-
-                    <div class="mb-4 location-item">
-                        <h5 class="text-primary fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Central Clinic</h5>
-                        <p class="text-muted ms-4">সোমবার: ০৪:০০ PM - ০৭:০০ PM</p>
-                    </div>
-                    <div class="mb-4 location-item">
-                        <h5 class="text-success fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Dhaka Hospital</h5>
-                        <p class="text-muted ms-4">শনিবার: ১০:০০ AM - ১২:০০ PM</p>
-                    </div>
-
-                    <div class="mb-4 location-item">
-                        <h5 class="text-primary fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Central Clinic</h5>
-                        <p class="text-muted ms-4">সোমবার: ০৪:০০ PM - ০৭:০০ PM</p>
-                    </div>
-                    <div class="mb-4 location-item">
-                        <h5 class="text-success fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Dhaka Hospital</h5>
-                        <p class="text-muted ms-4">শনিবার: ১০:০০ AM - ১২:০০ PM</p>
-                    </div>
-
-                    <div class="mb-4 location-item">
-                        <h5 class="text-primary fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Central Clinic</h5>
-                        <p class="text-muted ms-4">সোমবার: ০৪:০০ PM - ০৭:০০ PM</p>
-                    </div>
-                    <div class="mb-4 location-item">
-                        <h5 class="text-primary fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Central Clinic</h5>
-                        <p class="text-muted ms-4">সোমবার: ০৪:০০ PM - ০৭:০০ PM</p>
-                    </div>
+                    @forelse ($chamber as $data)
+                        <div class="mb-4 location-item">
+                            <h5 class="text-success fw-bold"><i
+                                    class="fas fa-map-marker-alt me-2"></i>{{ $data->name }}</h5>
+                            <p class="text-muted ms-4">{{ $data->time }}</p>
+                        </div>
+                    @empty
+                    @endforelse
 
                     <div class="pt-3 mt-4 border-top">
-                        <a href="tel:017XXXXXXXX" class="py-2 shadow-sm btn btn-success w-100 rounded-pill">
+                        <a href="tel:{{ config('settings.mobile') }}" class="py-2 shadow-sm btn btn-success w-100 rounded-pill">
                             <i class="fas fa-phone-alt me-2"></i>Call for Appointment
                         </a>
                     </div>

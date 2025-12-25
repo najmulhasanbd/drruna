@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AwardController;
+use App\Http\Controllers\Admin\ChamberController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -144,6 +145,18 @@ Route::prefix('admin')
                 Route::get('/edit/{experience}', 'edit')->name('edit');
                 Route::put('/update/{experience}', 'update')->name('update');
                 Route::get('/delete/{experience}', 'destroy')->name('delete');
+            });
+        // chamber
+        Route::controller(ChamberController::class)
+            ->prefix('chamber')
+            ->name('chamber.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{chamber}', 'edit')->name('edit');
+                Route::put('/update/{chamber}', 'update')->name('update');
+                Route::get('/delete/{chamber}', 'destroy')->name('delete');
             });
 
         // Setting routes

@@ -80,6 +80,12 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="{{ route('chamber.index') }}" class="nav-link">
+                         <i class="nav-icon bi bi-palette"></i>
+                         <p>Chamber</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="{{ route('setting.index') }}" class="nav-link">
                          <i class="nav-icon bi bi-palette"></i>
                          <p>Settings</p>
