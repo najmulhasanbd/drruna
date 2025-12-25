@@ -1910,3 +1910,28 @@ a.menu-link.active {
     padding-bottom: 15px;
     line-height: 20px;
 }
+
+.process-timeline {
+    border-left: 2px dashed #198754; /* Green dashed line */
+    position: relative;
+}
+
+.step-number {
+    position: absolute;
+    left: -21px; /* Line er upor center korar jonno */
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #198754;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.process-item:last-child {
+    margin-bottom: 0 !important;
+}

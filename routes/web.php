@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\YoutubeController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\ProcessController;
 use App\Http\Controllers\Frontend\FrontendController;
 
 // frontend
@@ -157,6 +158,20 @@ Route::prefix('admin')
                 Route::get('/edit/{chamber}', 'edit')->name('edit');
                 Route::put('/update/{chamber}', 'update')->name('update');
                 Route::get('/delete/{chamber}', 'destroy')->name('delete');
+            });
+        // process
+        Route::controller(ProcessController::class)
+            ->prefix('process')
+            ->name('process.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{process}', 'edit')->name('edit');
+                Route::put('/update/{process}', 'update')->name('update');
+                Route::get('/delete/{process}', 'destroy')->name('delete');
+
+                Route::post('/update-order', 'updateOrder')->name('process.updateOrder');
             });
 
         // Setting routes
