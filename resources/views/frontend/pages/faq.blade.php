@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-    FAQs Page || Dr Runa Akter Dola
+    FAQs Page || {{ config('settings.name') }}
 @endsection
 @section('content')
     <section class="breadcrumb-area">
@@ -10,13 +10,13 @@
                     <h1 class="breadcrumb-title animate-up">Faqs</h1>
 
                     <p class="breadcrumb-desc animate-up">
-                        I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist]
+                        {{ config('settings.name') }} a [Specialization, e.g., Internal Medicine Specialist]
                         with a passion for providing holistic, evidence-based medical care.
                     </p>
 
                     <nav aria-label="breadcrumb" class="animate-up">
                         <ol class="breadcrumb custom-breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">FAQs</li>
                         </ol>
                     </nav>

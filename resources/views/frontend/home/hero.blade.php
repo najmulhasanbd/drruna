@@ -3,30 +3,30 @@
         <div class="row align-items-center">
             <div class="col-lg-5 col-md-12 ">
                 <div class="hero-content">
-                    <span class="mb-3 badge medical-badge">
-                        <i class="fas fa-certificate me-1"></i> BMDC Reg.: D32OV01
+                    <span class="mb-3 badge medical-badge" title="Medical Registration Number">
+                        <i class="fas fa-certificate me-1"></i> {{ config('settings.register') ?? 'BMDC Reg.: D32OV01' }}
                     </span>
 
                     <h1 class="text-center hero-title">
-                        Asst. Prof. Dr. <br>
-                        <div class="position-relative d-flex justify-content-center">
-                            <span style="color: #ffb703;">Runa Akter Dola</span>
-                            <small class="right-0 position-absolute" style="bottom:-20px">MBBS, BCS (Health), FCPS
-                                (OBGYN), FCPS (Feto-Maternal Medicine)</small>
-                        </div>
+                        <span class="mb-1 text-white d-block fs-4 fw-normal">Asst. Prof. Dr.</span>
+                        <span class="d-block"
+                            style="color: #ffb703;">{{ config('settings.name') ?? 'Dr. Runa Akter Dola' }}</span>
+                        <span
+                            class="mt-1 d-block fs-6 fw-light text-light">{{ config('settings.degree') ?? 'MBBS, BCS (Health), FCPS (OBGYN), FCPS (Feto-Maternal Medicine)' }}</span>
                     </h1>
-                    <p class=" hero-text">
-                        Assistant Professor (Feto-Maternal Medicine) at Sir Salimullah Medical College.
-                        Expert in <strong>High-Risk Pregnancy</strong> & Women's Health with 16+ years of
-                        experience.
+
+                    <p class="mt-3 hero-text">
+                        {{ config('settings.short_about') ?? 'Assistant Professor at Mitford Hospital (SSMC). Over 16 years of experience in High-Risk Pregnancy & Fetal Medicine.' }}
                     </p>
 
-                    <div class="flex-wrap gap-3 hero-buttons d-flex justify-content-between">
-                        <a href="tel:09611530530" class="btn btn-appointment">
-                            <i class="fas fa-phone-alt"></i> Call: 09611530530
+                    <div class="flex-wrap gap-3 mt-4 hero-buttons d-flex justify-content-between">
+                        <a href="tel:{{ config('settings.mobile') ?? '01790-118855' }}" class="btn btn-appointment"
+                            title="Call for Appointment">
+                            <i class="fas fa-phone-alt me-2"></i> Call:
+                            {{ config('settings.mobile') ?? '01790-118855' }}
                         </a>
-                        <a href="{{ route('service') }}" class="px-4 btn btn-outline-light"
-                            style="border-radius: 8px; font-weight: 600; padding: 14px 26px;">
+                        <a href="{{ route('service') }}" class="px-4 py-3 btn btn-outline-light"
+                            style="border-radius: 8px; font-weight: 600;" title="Explore Medical Services">
                             View Services
                         </a>
                     </div>
@@ -40,9 +40,10 @@
                             @foreach ($sliders as $index => $slider)
                                 <div class="swiper-slide hero-slide">
                                     <img src="{{ asset($slider->image) }}"
-                                        alt="Dr Runa Akter Dola - Slider {{ $index + 1 }}"
+                                        alt="{{ config('settings.name') ?? 'Dr. Runa Akter Dola' }} - {{ $slider->title ?? 'Professional Medical Specialist' }}"
                                         loading="{{ $index == 0 ? 'eager' : 'lazy' }}"
-                                        title="Dr Runa Akter Dola Medical Service">
+                                        @if ($index == 0) fetchpriority="high" @endif
+                                        title="{{ config('settings.name') ?? 'Dr. Runa Akter Dola' }} Medical Service Slider">
                                 </div>
                             @endforeach
                         </div>
@@ -52,18 +53,22 @@
             </div>
         </div>
     </div>
-    <div class="trust-card">
-        <h2 class="trust-title">Trusted by patients</h2>
-        <div class="star-rating">
-            &#9733;&#9733;&#9733;&#9733;&#9733;
+
+    <div class="shadow-sm trust-card">
+        <h2 class="mb-2 trust-title h6">Trusted by {{ config('settings.patients') ?? '' }} Happy Patients</h2>
+        <div class="mb-2 star-rating" aria-label="5 Star Rating">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         </div>
         <div class="avatar-group">
-            <img src="https://i.pravatar.cc/150?u=1" class="avatar-item" alt="Patient 1" loading="lazy">
-            <img src="https://i.pravatar.cc/150?u=2" class="avatar-item" alt="Patient 2" loading="lazy">
-            <img src="https://i.pravatar.cc/150?u=3" class="avatar-item" alt="Patient 3" loading="lazy">
-            <img src="https://i.pravatar.cc/150?u=4" class="avatar-item" alt="Patient 4" loading="lazy">
-            <img src="https://i.pravatar.cc/150?u=5" class="avatar-item" alt="Patient 5" loading="lazy">
-            <div class="count-badge">+2k</div>
+            <img src="https://i.pravatar.cc/150?u=1" class="avatar-item" alt="Reviewer 1" width="40" height="40"
+                loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=2" class="avatar-item" alt="Reviewer 2" width="40" height="40"
+                loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=3" class="avatar-item" alt="Reviewer 3" width="40" height="40"
+                loading="lazy">
+            <img src="https://i.pravatar.cc/150?u=4" class="avatar-item" alt="Reviewer 4" width="40" height="40"
+                loading="lazy">
+            <div class="count-badge">{{ config('settings.patients') ?? '' }}</div>
         </div>
     </div>
 </section>

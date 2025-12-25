@@ -38,10 +38,10 @@
                     </p>
                 </div>
                 <div class="button-side">
-                    <a href="mailto:" class="btn-help-pulse">
+                    <button class="btn-help-pulse">
                         <span>I NEED HELP</span>
                         <i class="fas fa-hand-holding-medical ms-2"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -78,7 +78,7 @@ $(document).ready(function() {
             success: function(response) {
                 $('#reviewMessage').html('<div class="mt-2 alert alert-success">' + response.message + '</div>');
                 form[0].reset();
-
+                
                 submitBtn.prop('disabled', false);
                 btnText.text('Submit Review');
                 btnSpinner.addClass('d-none');

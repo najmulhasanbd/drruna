@@ -1,13 +1,13 @@
 @extends('frontend.layouts.master')
 @section('title')
-    About Page || Dr Runa Akter Dola
+    About Page ||{{ config('settings.name') }}
 @endsection
 @section('content')
     <section class="breadcrumb-area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="text-center col-lg-8 content-box">
-                    <h1 class="breadcrumb-title animate-up">About Dr. Runa Akhter Dola</h1>
+                    <h1 class="breadcrumb-title animate-up">{{ config('settings.name') }}</h1>
 
                     <p class="breadcrumb-desc animate-up">
                         I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist]
@@ -16,7 +16,7 @@
 
                     <nav aria-label="breadcrumb" class="animate-up">
                         <ol class="breadcrumb custom-breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">About Me</li>
                         </ol>
                     </nav>
@@ -36,7 +36,7 @@
 
                         <div class="p-3 text-center text-white shadow doc-badge bg-success rounded-3" data-aos="zoom-in"
                             data-aos-delay="400">
-                            <p class="mb-0 text-white fw-bold h4">18+ Years</p>
+                            <p class="mb-0 text-white fw-bold h4">{{ config('settings.experience') }}</p>
                             <p class="mb-0 small text-white-50">of Dedicated Service</p>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
 
                 <div class="col-lg-7 ps-lg-5" data-aos="fade">
                     <h6 class="mb-2 tracking-wide text-primary fw-bold text-uppercase">Expert Physician</h6>
-                    <h1 class="mb-3 display-5 fw-bold">Dr. Runa Akhter Dola</h1>
+                    <h1 class="mb-3 display-5 fw-bold">{{ config('settings.name') }}</h1>
                     <p class="mb-4 h4 text-success fw-semibold">High Risk Pregnancy & Foetal Medicine Specialist</p>
 
                     <p class="mb-4 text-muted lead">
@@ -54,8 +54,7 @@
                     </p>
 
                     <div class="p-3 shadow-sm current-role bg-light rounded-4 border-start border-success border-5">
-                        <p class="mb-0"><strong>Former Position:</strong> Assistant Professor of OBGYN at Sir Salimullah
-                            Medical College and Mitford Hospital.</p>
+                        <p class="mb-0"><strong>Former Position:</strong>{{ config('settings.position') }}</p>
                     </div>
                 </div>
             </div>

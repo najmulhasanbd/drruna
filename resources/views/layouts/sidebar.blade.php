@@ -73,6 +73,18 @@
                          <p>Youtube Video</p>
                      </a>
                  </li>
+                 <li class="nav-item">
+                     <a href="{{ route('experience.index') }}" class="nav-link">
+                         <i class="nav-icon bi bi-palette"></i>
+                         <p>Experience</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{ route('setting.index') }}" class="nav-link">
+                         <i class="nav-icon bi bi-palette"></i>
+                         <p>Settings</p>
+                     </a>
+                 </li>
                  {{-- <li class="nav-item menu-open">
                      <a href="#" class="nav-link active">
                          <i class="nav-icon bi bi-speedometer"></i>

@@ -1,17 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AwardController;
-use App\Http\Controllers\Admin\EducationController;
-use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\YoutubeController;
+use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 
 // frontend
 Route::get('/', [FrontendController::class, 'index'])->name('index');
@@ -130,6 +132,27 @@ Route::prefix('admin')
                 Route::get('/edit/{youtube}', 'edit')->name('edit');
                 Route::post('/update/{youtube}', 'update')->name('update');
                 Route::get('/delete/{youtube}', 'destroy')->name('delete');
+            });
+        // experience
+        Route::controller(ExperienceController::class)
+            ->prefix('experience')
+            ->name('experience.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{experience}', 'edit')->name('edit');
+                Route::post('/update/{experience}', 'update')->name('update');
+                Route::get('/delete/{experience}', 'destroy')->name('delete');
+            });
+
+        // Setting routes
+        Route::controller(SettingController::class)
+            ->prefix('setting')
+            ->name('setting.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::post('/store', 'store')->name('store');
             });
     });
 

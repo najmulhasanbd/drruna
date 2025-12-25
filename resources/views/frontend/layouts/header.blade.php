@@ -1,134 +1,158 @@
-    <header>
-        <section class="header-area header-sticky">
-            <div class="container">
-                <div class="row align-items-center d-none d-lg-flex">
-                    <!-- LOGO -->
-                    <div class="col-md-2">
-                        <div class="logo">
-                            <a href="{{ url('/') }}">
-                                <img src="{{ asset('frontend/image/logo.gif') }}" alt="dr runa" loading="lazy">
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- MENU -->
-                    <div class="col-md-6">
-                        <nav class="main-menu">
-                            <ul class="d-flex align-items-center justify-content-center">
-                                <li>
-                                    <a href="{{ url('/') }}" class="menu-link">
-                                        <span class="text-default">Home</span>
-                                        <span class="text-hover">Home</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('about') }}" class="menu-link">
-                                        <span class="text-default">About</span>
-                                        <span class="text-hover">About</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('service') }}" class="menu-link">
-                                        <span class="text-default">Services</span>
-                                        <span class="text-hover">Services</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('faq') }}" class="menu-link">
-                                        <span class="text-default">FAQs</span>
-                                        <span class="text-hover">FAQs</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('gallery') }}" class="menu-link">
-                                        <span class="text-default">Gallery</span>
-                                        <span class="text-hover">Gallery</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div class="gap-3 footer-social d-flex header-social">
-                            <a href="#" class="social-icon fb" title="Facebook">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon tw" title="Twitter">
-                                <i class="fa-brands fa-x-twitter"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- RIGHT NUMBER -->
-                    <div class="col-md-2">
-                        <div class="header-right">
-                            {{-- <img src="{{ asset('frontend/image/contact.svg') }}" alt="contact"> --}}
-                            <a href="tel:+8801790118866">
-                                <span class="num-default">+8801790118866</span>
-                                <span class="num-hover">Call Now</span>
-                            </a>
-                        </div>
+<header>
+    <section class="header-area header-sticky">
+        <div class="container">
+            <div class="row align-items-center d-none d-lg-flex">
+                <div class="col-md-2">
+                    <div class="logo">
+                        <a href="{{ url('/') }}" title="{{ config('settings.name') }}">
+                            @if (Request::is('/'))
+                                <h1 class="d-none">{{ config('settings.name') }}</h1>
+                            @endif
+                            <img src="{{ asset(config('settings.logo')) }}"
+                                alt="{{ config('settings.name') }} - Doctor Website" loading="lazy">
+                        </a>
                     </div>
                 </div>
-                <div class="row align-items-center d-lg-none">
-                    <div class="col-2">
-                        <div class="hamhurbar_menu" data-bs-toggle="offcanvas" href="#mobileMenu" role="button"
-                            aria-controls="offcanvasExample">
-                            <i class="fa fa-bars"></i>
-                        </div>
-                    </div>
-                    <div class="col-6 d-flex justify-content-center">
-                        <div class="logo">
-                            <a href="{{ url('/') }}">
-                                <img src="{{ asset('frontend/image/logo.gif') }}" alt="dr runa" loading="lazy">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="header-right">
-                            <a href="tel:+8801790118866">
-                                <span class="num-default">Call Now</span>
-                                <span class="num-hover">Call Now</span>
-                            </a>
-                        </div>
-                    </div>
+
+                <div class="col-md-6">
+                    <nav class="main-menu" aria-label="Main Navigation">
+                        <ul class="mb-0 d-flex align-items-center justify-content-center list-unstyled">
+                            <li>
+                                <a href="{{ url('/') }}" class="menu-link {{ Request::is('/') ? 'active' : '' }}"
+                                    title="Home Page">
+                                    <span class="text-default">Home</span>
+                                    <span class="text-hover">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('about') }}"
+                                    class="menu-link {{ Request::is('about*') ? 'active' : '' }}"
+                                    title="About Dr. Runa">
+                                    <span class="text-default">About</span>
+                                    <span class="text-hover">About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('service') }}"
+                                    class="menu-link {{ Request::is('service*') ? 'active' : '' }}"
+                                    title="Our Services">
+                                    <span class="text-default">Services</span>
+                                    <span class="text-hover">Services</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('faq') }}"
+                                    class="menu-link {{ Request::is('faq*') ? 'active' : '' }}"
+                                    title="Frequently Asked Questions">
+                                    <span class="text-default">FAQs</span>
+                                    <span class="text-hover">FAQs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('gallery') }}"
+                                    class="menu-link {{ Request::is('gallery*') ? 'active' : '' }}"
+                                    title="Photo Gallery">
+                                    <span class="text-default">Gallery</span>
+                                    <span class="text-hover">Gallery</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
 
-
-            <div class="offcanvas offcanvas-start mobile-menu" tabindex="-1" id="mobileMenu"
-                aria-labelledby="mobileMenuLabel">
-
-                <div class="offcanvas-header">
-                    <div class="offcanvas-logo">
-                        <img src="{{ asset('frontend/image/logo.gif') }}" alt="dr runa" loading="lazy">
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                </div>
-
-                <div class="offcanvas-body">
-                    <ul class="mobile-nav">
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ route('about') }}">About</a></li>
-                        <li><a href="{{ route('service') }}">Services</a></li>
-                        <li><a href="{{ route('faq') }}">FAQs</a></li>
-                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
-                    </ul>
-                    <div class="gap-3 footer-social d-flex">
-                        <a href="#" class="social-icon fb" title="Facebook">
+                <div class="col-md-2">
+                    <div class="gap-3 footer-social d-flex header-social justify-content-center">
+                        <a href="{{ config('settings.facebook') }}" target="_blank" rel="noopener noreferrer"
+                            class="social-icon fb" title="Facebook Profile">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon tw" title="Twitter">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon inst" title="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon ln" title="LinkedIn">
+                        <a href="{{ config('settings.linkedin') }}" target="_blank" rel="noopener noreferrer"
+                            class="social-icon ln" title="LinkedIn Profile">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
+
+                <div class="col-md-2 text-end">
+                    <div class="header-right">
+                        <a href="tel:{{ config('settings.mobile') }}" title="Call for Appointment">
+                            <span class="num-default"><i
+                                    class="fa fa-phone-alt me-1"></i>{{ config('settings.mobile') }}</span>
+                            <span class="num-hover">Call Now</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </section>
-    </header>
+
+            <div class="row align-items-center d-lg-none">
+                <div class="col-2">
+                    <button class="bg-transparent border-0 hamhurbar_menu" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileMenu" aria-label="Open Menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <div class="logo">
+                        <a href="{{ url('/') }}">
+                            <img src="{{ asset(config('settings.logo')) }}" alt="{{ config('settings.name') }}"
+                                loading="lazy" height="40">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-4 text-end">
+                    <div class="header-right">
+                        <a href="tel:{{ config('settings.mobile') }}" class="btn btn-sm btn-success rounded-pill">
+                            <span class="num-default">Call Now</span>
+                                <span class="num-hover">Call Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-start mobile-menu" tabindex="-1" id="mobileMenu"
+            aria-labelledby="mobileMenuLabel">
+            <div class="offcanvas-header border-bottom">
+                <div class="offcanvas-logo" id="mobileMenuLabel">
+                    <img src="{{ asset(config('settings.logo')) }}" alt="{{ config('settings.name') }}"
+                        height="40">
+                </div>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <nav>
+                    <ul class="mobile-nav list-unstyled">
+                        <li class="mb-2"><a href="{{ url('/') }}"
+                                class="py-2 d-block text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="{{ route('about') }}"
+                                class="py-2 d-block text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="{{ route('service') }}"
+                                class="py-2 d-block text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="{{ route('faq') }}"
+                                class="py-2 d-block text-decoration-none">FAQs</a></li>
+                        <li class="mb-2"><a href="{{ route('gallery') }}"
+                                class="py-2 d-block text-decoration-none">Gallery</a></li>
+                    </ul>
+                </nav>
+                <hr>
+                <div class="gap-3 mt-4 footer-social d-flex">
+                    <a href="{{ config('settings.facebook') }}" target="_blank" rel="noopener noreferrer"
+                        class="social-icon fb fs-4" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="{{ config('settings.linkedin') }}" target="_blank" rel="noopener noreferrer"
+                        class="social-icon ln fs-4" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <a href="tel:{{ config('settings.mobile') }}" class="py-2 btn btn-success w-100">
+                        <i class="fa fa-phone-alt me-2"></i> {{ config('settings.mobile') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

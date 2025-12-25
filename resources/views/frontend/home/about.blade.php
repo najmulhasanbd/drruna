@@ -49,7 +49,7 @@
             <div class="col-lg-6" data-aos="fade-down">
                 <div class="about-content">
                     <span class="text-success fw-bold text-uppercase ls-2">About Me</span>
-                    <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">Dr. Runa Akter Dhola <span
+                    <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">{{ config('settings.name') }} <span
                             style="font-size: 12px;
   display: block;
   font-weight: normal;
@@ -57,8 +57,7 @@
   color: #fff;
   padding: 5px;
   border-radius: 3px;
-  width: fit-content;">MBBS,
-                            BCS (Health), FCPS (OBGYN)</span></h2>
+  width: fit-content;">{{ config('settings.degree') }}</span></h2>
                     <p class="mb-4 text-secondary lead-sm">
                         I'm Dr. Runa Akter Dhola, a specialized OBGYN with a passion for providing holistic,
                         evidence-based medical care. Committed to serving women with excellence for over 18 years.

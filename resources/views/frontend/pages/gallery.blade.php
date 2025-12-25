@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-    Gallery Page || Dr Runa Akter Dola
+    Gallery Page || {{ config('settings.name') }}
 @endsection
 @section('content')
     <section class="breadcrumb-area">
@@ -10,13 +10,13 @@
                     <h1 class="breadcrumb-title animate-up">Gallery</h1>
 
                     <p class="breadcrumb-desc animate-up">
-                        I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist]
+                        {{ config('settings.name') }} a [Specialization, e.g., Internal Medicine Specialist]
                         with a passion for providing holistic, evidence-based medical care.
                     </p>
 
                     <nav aria-label="breadcrumb" class="animate-up">
                         <ol class="breadcrumb custom-breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Gallery</li>
                         </ol>
                     </nav>
@@ -36,8 +36,8 @@
                 @forelse ($gallery as $data)
                     <div class="col-lg-4 col-md-6 col-6 gallery-item">
                         <div class="overflow-hidden border-0 shadow-sm gallery-card rounded-3">
-                            <a href="{{ asset($data->image) }}" title="Gallery Image">
-                                <img src="{{ asset($data->image) }}" class="img-fluid gallery-img w-100" alt="Clinic"
+                            <a href="{{ asset($data->image) }}" title="{{ config('settings.name') }}">
+                                <img src="{{ asset($data->image) }}" class="img-fluid gallery-img w-100" alt="{{ config('settings.name') }}"
                                     loading="lazy">
                             </a>
                         </div>

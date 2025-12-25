@@ -188,12 +188,12 @@ section.header-area {
 
 /* number animation */
 .header-right a {
-    position: relative;
-    height: 20px;
-    overflow: hidden;
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
+	position: relative;
+	height: auto;
+	overflow: hidden;
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
 }
 
 .header-right a span {
@@ -203,12 +203,12 @@ section.header-area {
 }
 
 .header-right .num-hover {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    opacity: 0;
-    right: 0;
-    line-height: 1.5;
+	position: absolute;
+	left: 0;
+	top: 85%;
+	opacity: 0;
+	right: 0;
+	line-height: 1.5;
 }
 
 /* hover effect */
@@ -1903,4 +1903,10 @@ section.header-area {
 
 .modal-backdrop {
     z-index: auto;
+}
+
+a.menu-link.active {
+    border-bottom: 2px solid #0088af;
+    padding-bottom: 15px;
+    line-height: 20px;
 }
