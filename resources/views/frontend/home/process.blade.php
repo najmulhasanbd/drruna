@@ -17,11 +17,16 @@
 
                     @forelse ($chamber as $data)
                         <div class="mb-4 location-item">
-                            <h5 class="text-success fw-bold"><i
-                                    class="fas fa-map-marker-alt me-2"></i>{{ $data->name }}</h5>
+                            <h5 class="text-success fw-bold">
+                                <i class="fas fa-map-marker-alt me-2"></i>{{ $data->name }}
+                            </h5>
                             <p class="text-muted ms-4">{{ $data->time }}</p>
                         </div>
                     @empty
+                        <div class="py-4 text-center text-muted">
+                            <i class="mb-3 fas fa-calendar-times fa-3x text-light"></i>
+                            <p class="small">Chamber schedule is currently unavailable. Please call for info.</p>
+                        </div>
                     @endforelse
 
                     <div class="pt-3 mt-4 border-top">
@@ -38,14 +43,21 @@
                     @forelse ($processes as $data)
                         <div class="mb-5 process-item position-relative" data-aos="fade-up">
                             <div class="shadow step-number">{{ $loop->iteration }}</div>
-
                             <div class="ms-5 ps-3">
                                 <h4 class="fw-bold">{{ $data->name }}</h4>
                                 <p class="text-secondary">{{ $data->description }}</p>
                             </div>
                         </div>
                     @empty
-                        <p>No data found</p>
+                        <div class="py-5 text-center" data-aos="fade-in">
+                            <div class="mx-auto mb-4 bg-white shadow-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 100px; height: 100px;">
+                                <i class="opacity-50 fas fa-stream fa-2x text-success"></i>
+                            </div>
+                            <h5 class="fw-bold text-muted">Process Coming Soon</h5>
+                            <p class="px-5 text-secondary">We are updating our consultation steps. Stay tuned for a
+                                better experience!</p>
+                        </div>
                     @endforelse
                 </div>
             </div>

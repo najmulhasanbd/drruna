@@ -28,27 +28,28 @@
 @endsection
 
 @section('content')
-    <section class="breadcrumb-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="text-center col-lg-8 content-box">
-                    <h1 class="breadcrumb-title animate-up">Gallery</h1>
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="text-center col-lg-8 content-box">
+                {{-- SEO এর জন্য টাইটেলটি একটু ইউনিক করা হয়েছে --}}
+                <h1 class="breadcrumb-title animate-up">Medical Gallery</h1>
 
-                    <p class="breadcrumb-desc animate-up">
-                        {{ config('settings.name') }} a [Specialization, e.g., Internal Medicine Specialist]
-                        with a passion for providing holistic, evidence-based medical care.
-                    </p>
+                <p class="breadcrumb-desc animate-up">
+                    {{ config('settings.name') }}, a <strong>High-Risk Pregnancy & Fetal Medicine Specialist</strong>
+                    with over {{ config('settings.experience') }} of experience, dedicated to providing holistic and evidence-based maternal healthcare.
+                </p>
 
-                    <nav aria-label="breadcrumb" class="animate-up">
-                        <ol class="breadcrumb custom-breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-                        </ol>
-                    </nav>
-                </div>
+                <nav aria-label="breadcrumb" class="animate-up">
+                    <ol class="breadcrumb custom-breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                    </ol>
+                </nav>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="py-5 gallery-area bg-light">
         <div class="container">

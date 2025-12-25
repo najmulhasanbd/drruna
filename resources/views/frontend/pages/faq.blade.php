@@ -24,7 +24,8 @@
     {{-- Twitter SEO --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FAQ - Women's Health & Pregnancy | Dr. Runa Akter Dola">
-    <meta name="twitter:description" content="Find reliable answers to common health questions for women and expecting mothers.">
+    <meta name="twitter:description"
+        content="Find reliable answers to common health questions for women and expecting mothers.">
     <meta name="twitter:image" content="{{ asset(config('settings.logo')) }}">
 
     {{-- Local SEO --}}
@@ -42,8 +43,9 @@
                     <h1 class="breadcrumb-title animate-up">Faqs</h1>
 
                     <p class="breadcrumb-desc animate-up">
-                        {{ config('settings.name') }} a [Specialization, e.g., Internal Medicine Specialist]
-                        with a passion for providing holistic, evidence-based medical care.
+                        {{ config('settings.name') }} is a <strong>High-Risk Pregnancy & Fetal Medicine Specialist</strong>
+                        with {{ config('settings.experience') }} of clinical expertise, providing evidence-based answers to your gynecological and
+                        maternity health concerns.
                     </p>
 
                     <nav aria-label="breadcrumb" class="animate-up">
@@ -62,9 +64,12 @@
             @if ($faqs->count() > 0)
                 <div class="mb-5 text-center" data-aos="fade-up">
                     <h2 class="fw-bold">Have Any Questions?</h2>
-                    <p class="text-muted">Find below our frequently asked questions. If you have other questions please
-                        contact
-                        me.</p>
+                    <p class="text-muted">
+                        Explore answers to common questions about pregnancy and gynecological health.
+                        If you have specific concerns regarding high-risk maternity care, please feel free to
+                        <a href="mailto:{{ config('settings.email') }}" class="text-primary fw-bold">contact me</a>
+                        directly.
+                    </p>
                 </div>
             @endif
 
@@ -105,4 +110,3 @@
         </div>
     </section>
 @endsection
-

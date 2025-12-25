@@ -8,15 +8,17 @@
                     </span>
 
                     <h1 class="text-center hero-title">
-                        <span class="mb-1 text-white d-block fs-4 fw-normal">Asst. Prof. Dr.</span>
-                        <span class="d-block"
-                            style="color: #ffb703;">{{ config('settings.name') ?? 'Dr. Runa Akter Dola' }}</span>
-                        <span
-                            class="mt-1 d-block fs-6 fw-light text-light">{{ config('settings.degree') ?? 'MBBS, BCS (Health), FCPS (OBGYN), FCPS (Feto-Maternal Medicine)' }}</span>
+                        Asst. Prof. Dr. <br>
+                        <div class="position-relative d-flex justify-content-center">
+                            <span style="color: #ffb703;">{{ config('settings.name') ?? 'Runa Akter Dola' }}</span>
+                            <small class="right-0 position-absolute"
+                                style="bottom:-20px">{{ config('settings.degree') ?? 'MBBS, BCS (Health), FCPS (OBGYN), FCPS (Feto-Maternal Medicine)' }}</small>
+                        </div>
                     </h1>
 
                     <p class="mt-3 hero-text">
-                        {!! config('settings.short_about') ?? 'Assistant Professor at Mitford Hospital (SSMC). Over 16 years of experience in High-Risk Pregnancy & Fetal Medicine.' !!}
+                        {!! config('settings.short_about') ??
+                            'Assistant Professor at Mitford Hospital (SSMC). Over 16 years of experience in High-Risk Pregnancy & Fetal Medicine.' !!}
                     </p>
 
                     <div class="flex-wrap gap-3 mt-4 hero-buttons d-flex justify-content-between">

@@ -2,23 +2,23 @@
 @section('title', 'Expert Health Guidance Videos | Dr. Runa Akter Dola')
 @section('meta')
     <meta name="description"
-        content="Watch educational videos on women's health and pregnancy by Dr. Runa Akter Dola. বিশেষজ্ঞ গাইনি ও প্রসূতি বিষয়ক স্বাস্থ্য সচেতনতামূলক ভিডিও দেখুন।">
+        content="Watch educational videos on women's health and pregnancy by {{ config('settings.name') }}. বিশেষজ্ঞ গাইনি ও প্রসূতি বিষয়ক স্বাস্থ্য সচেতনতামূলক ভিডিও দেখুন।">
     <meta name="keywords"
-        content="Health Videos, Pregnancy Advice Video, Dr. Runa Akter Dola YouTube, Gynecologist Video Gallery, গর্ভাবস্থায় সচেতনতা ভিডিও, গাইনি সমস্যার ভিডিও সমাধান, Dr. {{ config('settings.name') }}">
-    <meta name="author" content="Dr. Runa Akter Dola">
+        content="Health Videos, Pregnancy Advice Video, {{ config('settings.name') }} YouTube, Gynecologist Video Gallery, গর্ভাবস্থায় সচেতনতা ভিডিও, গাইনি সমস্যার ভিডিও সমাধান, Dr. {{ config('settings.name') }}">
+    <meta name="author" content="{{ config('settings.name') }}">
     <link rel="canonical" href="{{ url()->current() }}">
 
     {{-- Open Graph / Facebook --}}
     <meta property="og:type" content="video.movie"> {{-- ভিডিও পেজের জন্য এটি বেস্ট --}}
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="Video Gallery - Health Awareness by Dr. Runa Akter Dola">
+    <meta property="og:title" content="Video Gallery - Health Awareness by {{ config('settings.name') }}">
     <meta property="og:description"
         content="Explore our video library for expert advice on pregnancy, maternity, and women's wellness. স্বাস্থ্য বিষয়ক গুরুত্বপূর্ণ ভিডিও গ্যালারি।">
     <meta property="og:image" content="{{ asset(config('settings.logo')) }}">
 
     {{-- Twitter --}}
     <meta name="twitter:card" content="player"> {{-- টুইটারে ভিডিও প্লেয়ার সাপোর্ট করে --}}
-    <meta name="twitter:title" content="Medical Video Gallery | Dr. Runa Akter Dola">
+    <meta name="twitter:title" content="Medical Video Gallery | {{ config('settings.name') }}">
     <meta name="twitter:description" content="Watch the latest health awareness videos from our specialist.">
 
     <meta name="geo.region" content="BD">
@@ -33,7 +33,7 @@
                     <h1 class="breadcrumb-title animate-up">Educational Videos</h1>
                     <p class="breadcrumb-desc animate-up">
                         Expert insights on Feto-Maternal medicine, high-risk pregnancy care, and women's wellness by
-                        <strong>Dr. Runa Akter Dola</strong>.
+                        <strong>{{ config('settings.name') }}</strong>.
                     </p>
                     <nav aria-label="breadcrumb" class="animate-up">
                         <ol class="breadcrumb custom-breadcrumb justify-content-center">

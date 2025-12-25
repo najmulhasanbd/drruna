@@ -1,6 +1,40 @@
 @extends('frontend.layouts.master')
 @section('title')
-    Home Page || Dr Runa Akter Dola
+    Home Page || {{ config('settings.name') }}
+@endsection
+@section('meta')
+    {{-- Primary Meta Tags --}}
+    <meta name="description"
+        content="{{ config('settings.name') }} is a highly experienced Gynaecologist & Fetal Medicine specialist in Dhaka. Assistant Professor at Mitford Hospital with 18+ years of expertise in High-Risk Pregnancy. বিশেষজ্ঞ গাইনি ও প্রসূতি সেবা।">
+    <meta name="keywords"
+        content="{{ config('settings.name') }}, Best Gynaecologist in Dhaka, High Risk Pregnancy Specialist, Fetal Medicine Specialist Bangladesh, SS Ratnam Award Winner, Mitford Hospital Gynae Doctor, Normal Delivery Expert, ইনফার্টিলিটি বিশেষজ্ঞ, ডা. রুনা আক্তার দোলা, গাইনি ডাক্তার ঢাকা">
+    <meta name="author" content="{{ config('settings.name') }}">
+    <link rel="canonical" href="{{ url('/') }}">
+
+    {{-- Open Graph / Facebook (Social Media SEO) --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="{{ config('settings.name') }} | Expert in Gynaecology & Fetal Medicine">
+    <meta property="og:description"
+        content="SS Ratnam Award-winning specialist and Assistant Professor at Sir Salimullah Medical College. 18 years of excellence in women's healthcare.">
+    <meta property="og:image" content="{{ asset(config('settings.logo')) }}">
+
+    {{-- Twitter SEO --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ config('settings.name') }} | Women's Health & Maternity Specialist">
+    <meta name="twitter:description"
+        content="Dedicated to providing advanced medical care for high-risk pregnancies and gynecological issues.">
+    <meta name="twitter:image" content="{{ asset(config('settings.logo')) }}">
+
+    {{-- Local SEO & Verification --}}
+    <meta name="geo.region" content="BD">
+    <meta name="geo.placename" content="Dhaka">
+    <meta name="geo.position" content="23.8103;90.4125">
+    <meta name="ICBM" content="23.8103, 90.4125">
+@endsection
+
+@section('title')
+    {{ config('settings.name') }} | Best Gynaecologist & Fetal Medicine Specialist in Dhaka
 @endsection
 @section('content')
     {{-- hero --}}

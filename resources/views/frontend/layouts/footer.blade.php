@@ -28,7 +28,7 @@
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-map-marker me-2 text-warning"></i>
                                     <a href="javascript:void(0)"
-                                        class="text-white text-decoration-none">{{ config('settings.address') }}</a>
+                                        class="text-white text-decoration-none">{!! config('settings.address') !!}</a>
                                 </div>
                             @endif
                         </div>

@@ -1,36 +1,191 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="py-4 container-fluid">
-    <div class="mb-3 d-flex justify-content-between">
-        <h4>Chamber List</h4>
-        <a href="{{ route('chamber.create') }}" class="btn btn-primary btn-sm">Add New Chamber</a>
-    </div>
-    <div class="border-0 shadow-sm card">
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead class="bg-light">
-                    <tr>
-                        <th>SL</th>
-                        <th>Chamber Name</th>
-                        <th>Visiting Time</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($chambers as $key => $row)
-                    <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td>{{ $row->name }}</td>
-                        <td>{{ $row->time }}</td>
-                        <td>
-                            <a href="{{ route('chamber.edit', $row->id) }}" class="text-white btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                            <a href="{{ route('chamber.delete', $row->id) }}" onclick="return confirm('Delete this?')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    <style>
+        /* Experience Page এর মতো কার্ড ডিজাইন */
+        .custom-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Experience Page এর সেই সিগনেচার গ্রেডিয়েন্ট হেডার */
+        .card-header-gradient {
+            background: linear-gradient(45deg, #198754, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border: none;
+        }
+
+        /* ক্লিন টেবিল স্টাইল */
+        .table thead th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem;
+        }
+
+        /* আইকন বক্স স্টাইল (Experience Logo এর মতো) */
+        .chamber-icon-box {
+            width: 45px;
+            height: 45px;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #198754;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f1f5f9;
+        }
+
+        /* অ্যাকশন বাটন */
+        .btn-action {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            color: white !important;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ব্যাজ স্টাইল */
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .time-text {
+            font-weight: 700;
+            color: #198754;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <div class="py-5 container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+
+                <div class="mb-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h3 class="mb-1 fw-bold text-dark">Chamber Locations</h3>
+                        <p class="mb-0 text-muted">Manage your private practice chambers and visiting schedules.</p>
+                    </div>
+                    <a href="{{ route('chamber.create') }}" class="px-4 shadow-sm btn btn-success fw-bold"
+                        style="border-radius: 10px; padding: 10px 20px;">
+                        <i class="fas fa-plus-circle me-2"></i> Add New Chamber
+                    </a>
+                </div>
+
+                <div class="custom-card card">
+                    <div class="card-header-gradient d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold"><i class="fas fa-hospital-user me-2"></i> Chamber List</h5>
+                        <span class="px-3 bg-white badge text-success rounded-pill">
+                            {{ count($chambers) }} Total Records
+                        </span>
+                    </div>
+
+                    <div class="p-0 card-body">
+                        @if (session('success'))
+                            <div class="m-3 alert alert-success rounded-3">
+                                <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
+                            </div>
+                        @endif
+
+                        <div class="table-responsive">
+                            <table class="table mb-0 align-middle table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="ps-4">SL</th>
+                                        <th>Chamber Info</th>
+                                        <th>Status</th>
+                                        <th>Visiting Time</th>
+                                        <th class="text-end pe-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($chambers as $key => $row)
+                                        <tr>
+                                            <td class="ps-4">
+                                                <span
+                                                    class="text-muted fw-bold">#{{ str_pad($key + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="chamber-icon-box me-3">
+                                                        <i class="fas fa-clinic-medical"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div class="fw-bold text-dark" style="font-size: 0.95rem;">
+                                                            {{ $row->name }}
+                                                        </div>
+                                                        <small class="text-muted">
+                                                            <i class="fas fa-map-marker-alt me-1 small"></i> Bangladesh
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="status-badge">Available</span>
+                                            </td>
+                                            <td>
+                                                <div class="time-text">
+                                                    <i class="far fa-clock me-1 text-success"></i>
+                                                    {{ $row->time }}
+                                                </div>
+                                            </td>
+                                            <td class="text-end pe-4">
+                                                <div class="gap-2 d-flex justify-content-end">
+                                                    <a href="{{ route('chamber.edit', $row->id) }}"
+                                                        class="btn-action bg-info" title="Edit Chamber">
+                                                        <i class="fas fa-edit fa-sm"></i>
+                                                    </a>
+                                                    <a href="{{ route('chamber.delete', $row->id) }}"
+                                                        class="btn-action bg-danger confirm-delete" title="Delete Chamber">
+                                                        <i class="fas fa-trash-alt fa-sm"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="5" class="py-5 text-center">
+                                                <i class="mb-3 fas fa-hospital-alt fa-4x text-light"></i>
+                                                <h5 class="text-secondary">No Chambers Found</h5>
+                                                <a href="{{ route('chamber.create') }}"
+                                                    class="mt-2 btn btn-sm btn-success rounded-pill">Add First Record</a>
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-center">
+                    <p class="text-muted small">Showing {{ count($chambers) }} entries in the chamber database.</p>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 @endsection

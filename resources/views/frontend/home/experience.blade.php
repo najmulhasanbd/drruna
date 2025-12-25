@@ -4,28 +4,24 @@
             <h2 id="exp-title" class="fw-bold display-6 text-dark">
                 Professional <span class="text-success">Experience</span>
             </h2>
-            <div class="mx-auto mt-2 header-underline bg-success"
-                 style="width: 70px; height: 4px; border-radius: 10px;"
-                 role="presentation">
+            <div class="mx-auto mt-2 header-underline bg-success" style="width: 70px; height: 4px; border-radius: 10px;"
+                role="presentation">
             </div>
         </header>
 
         <div class="row g-4 justify-content-center">
             @forelse($experience as $index => $data)
-                <article class="col-lg-4 col-md-6"
-                         data-aos="fade-up"
-                         data-aos-delay="{{ ($index + 1) * 100 }}"
-                         itemscope itemtype="https://schema.org/Organization">
+                <article class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}"
+                    itemscope itemtype="https://schema.org/Organization">
 
-                    <div class="p-4 text-center bg-white border-0 shadow-sm experience-card h-100 rounded-4 transition-hover">
+                    <div
+                        class="p-4 text-center bg-white border-0 shadow-sm experience-card h-100 rounded-4 transition-hover">
 
                         <figure class="mx-auto mb-4 overflow-hidden shadow-sm hospital-logo-box rounded-3"
-                                style="width: 100px; height: 100px;">
+                            style="width: 100px; height: 100px;">
                             <img src="{{ $data->logo ? asset($data->logo) : asset('frontend/image/placeholder-hospital.jpg') }}"
-                                 alt="{{ $data->name }} - {{ $data->department }}"
-                                 class="img-fluid w-100 h-100 object-fit-cover"
-                                 itemprop="logo"
-                                 loading="lazy">
+                                alt="{{ $data->name }} - {{ $data->department }}"
+                                class="img-fluid w-100 h-100 object-fit-cover" itemprop="logo" loading="lazy">
                         </figure>
 
                         <h3 class="mb-1 h5 fw-bold text-dark" itemprop="name">
@@ -47,8 +43,12 @@
                     </div>
                 </article>
             @empty
-                <div class="text-center col-12">
-                    <p class="italic text-muted">Experience records are being updated...</p>
+                <div class="py-5 text-center col-12" data-aos="fade-up">
+                    <div class="mb-3">
+                        <i class="opacity-25 fas fa-briefcase fa-2x text-success"></i>
+                    </div>
+                    <h5 class="fw-bold text-secondary">No Experience Added Yet</h5>
+                    <p class="small text-muted">Professional journey details are being updated. Stay tuned!</p>
                 </div>
             @endforelse
         </div>
@@ -59,10 +59,12 @@
     .experience-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .experience-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
     }
+
     .hospital-logo-box {
         border: 2px solid #f8f9fa;
         background: #fff;

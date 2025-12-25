@@ -34,8 +34,10 @@
                     <h1 class="breadcrumb-title animate-up">Services</h1>
 
                     <p class="breadcrumb-desc animate-up">
-                        {{ config('settings.name') }} a [Specialization, e.g., Internal Medicine Specialist]
-                        with a passion for providing holistic, evidence-based medical care.
+                        <strong>{{ config('settings.name') }}</strong> is a <strong>High-Risk Pregnancy & Feto-Maternal
+                            Medicine Specialist</strong>
+                        with {{ config('settings.experience') }} of clinical excellence, dedicated to providing advanced, evidence-based maternity and
+                        gynecological care.
                     </p>
 
                     <nav aria-label="breadcrumb" class="animate-up">
@@ -59,8 +61,11 @@
                                 class="text-success">Services</span>
                         </h2>
                         <div class="mx-auto mb-4 header-line"></div>
-                        <p class="text-muted">Specialized medical care focusing on high-risk pregnancy, fetal medicine, and
-                            gynecological excellence with over {{ config('settings.experience') ?? '' }} of experience.</p>
+                        <p class="text-muted">
+                            Dedicated to providing specialized medical care in <strong>high-risk pregnancy</strong> and
+                            <strong>fetal medicine</strong>, ensuring gynecological excellence with over
+                            {{ config('settings.experience') ?? '18 years' }} of clinical expertise and government service.
+                        </p>
                     </div>
                 </div>
             @endif

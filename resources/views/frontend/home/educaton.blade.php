@@ -34,7 +34,7 @@
 
             <div class="col-lg-6" data-aos="fade-up-right">
                 <div class="mb-4 tab-content award-content-box" id="pills-tabContent">
-                    @foreach ($award as $item)
+                    @forelse ($award as $item)
                         <div class="p-5 text-center border rounded tab-pane fade {{ $loop->first ? 'show active' : '' }}"
                             id="pill-award-{{ $item->id }}" role="tabpanel">
 
@@ -47,7 +47,10 @@
                                 {{ $item->description }}
                             </p>
                         </div>
-                    @endforeach
+                        @empty  <div class="p-4 text-center border rounded bg-light">
+                            <p class="mb-0 text-muted">No education records found.</p>
+                        </div>
+                    @endforelse
                 </div>
 
                 <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">

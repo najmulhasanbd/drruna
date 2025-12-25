@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title')
-    About Page ||{{ config('settings.name') }}
+    About Page || {{ config('settings.name') }}
 @endsection
 @section('meta')
     <meta name="description"
@@ -34,8 +34,10 @@
                     <h1 class="breadcrumb-title animate-up">{{ config('settings.name') }}</h1>
 
                     <p class="breadcrumb-desc animate-up">
-                        I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist]
-                        with a passion for providing holistic, evidence-based medical care.
+                        I'm <strong>{{ config('settings.name') }}</strong>, a specialist in <strong>High-Risk Pregnancy &
+                            Feto-Maternal Medicine</strong>
+                        with {{ config('settings.experience') }} years of experience, committed to providing holistic and
+                        evidence-based clinical care.
                     </p>
 
                     <nav aria-label="breadcrumb" class="animate-up">
@@ -66,19 +68,24 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7 ps-lg-5" data-aos="fade">
+                <div class="col-lg-7 ps-lg-5" data-aos="fade-down">
                     <h6 class="mb-2 tracking-wide text-primary fw-bold text-uppercase">Expert Physician</h6>
                     <h1 class="mb-3 display-5 fw-bold">{{ config('settings.name') }}</h1>
                     <p class="mb-4 h4 text-success fw-semibold">High Risk Pregnancy & Foetal Medicine Specialist</p>
 
                     <p class="mb-4 text-muted lead">
-                        {{ config('settings.long_about') }}
+                        {!! config('settings.short_about') !!}
                     </p>
 
-                    <div class="p-3 shadow-sm current-role bg-light rounded-4 border-start border-success border-5">
-                        <p class="mb-0"><strong>Former Position:</strong>{{ config('settings.position') }}</p>
-                    </div>
+                    @if (config('settings.position'))
+                        <div class="p-3 shadow-sm current-role bg-light rounded-4 border-start border-success border-5">
+                            <p class="mb-0"><strong>Former Position:</strong>{{ config('settings.position') }}</p>
+                        </div>
+                    @endif
                 </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                {!! config('settings.long_about') !!}
             </div>
 
             <div class="mb-5 row g-4">
@@ -89,16 +96,15 @@
                         </div>
                         <h3 class="mb-4 fw-bold">Academic Excellence</h3>
                         <ul class="list-unstyled timeline-list">
-                            <li><strong>MBBS:</strong>{{ config('settings.MBBS') ??
-                                'Sir Salimullah Medical College (9th Merit position in 1st
-                                                            Professional Exam).' }}
+                            <li><strong>MBBS : </strong> {{ config('settings.MBBS') ??
+                                'Sir Salimullah Medical College (9th Merit position in 1st Professional Exam).' }}
                             </li>
-                            <li><strong>FCPS:</strong>
+                            <li><strong>FCPS : </strong>
                                 {{ config('settings.FCPS') ?? 'Obstetrics and Gynaecology, Feto-Maternal Medicine. ' }}
                             </li>
-                            <li><strong>Fellowship:</strong>
+                            <li><strong>Fellowship : </strong>
                                 {{ config('settings.Fellowship') ?? 'Community Fellowship (Philippines).' }} </li>
-                            <li><strong>Schooling:</strong>
+                            <li><strong>Schooling : </strong>
                                 {{ config('settings.Schooling') ?? 'SSC & HSC from Mymensingh Girls Cadet College.' }}
                             </li>
                         </ul>
