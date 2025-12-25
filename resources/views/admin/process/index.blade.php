@@ -53,7 +53,7 @@
         const dragArea = document.getElementById('sortable-list');
         new Sortable(dragArea, {
             animation: 150,
-            handle: '.sortable-item', // Full row drag hobe
+            handle: '.sortable-item',
             onEnd: function() {
                 let order = [];
                 $('.sortable-item').each(function(index, element) {
@@ -63,7 +63,6 @@
                     });
                 });
 
-                // Ajax request to save order
                 $.ajax({
                     type: "POST",
                     url: "{{ route('process.process.updateOrder') }}",
@@ -73,7 +72,6 @@
                     },
                     success: function(response) {
                         console.log(response.message);
-                        // Oproyojone ekane Alert ba Toastr add korte paren
                     }
                 });
             }

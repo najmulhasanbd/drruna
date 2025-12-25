@@ -57,7 +57,8 @@
   color: #fff;
   padding: 5px;
   border-radius: 3px;
-  width: fit-content;">{{ config('settings.degree') }}</span></h2>
+  width: fit-content;">{{ config('settings.degree') }}</span>
+                    </h2>
                     <p class="mb-4 text-secondary lead-sm">
                         I'm Dr. Runa Akter Dhola, a specialized OBGYN with a passion for providing holistic,
                         evidence-based medical care. Committed to serving women with excellence for over 18 years.
@@ -97,13 +98,26 @@
                     aria-label="Close"></button>
             </div>
             <div class="p-0 modal-body">
-                <div class="overflow-hidden border border-white shadow-lg ratio ratio-16x9 rounded-4 border-5">
-                    <iframe src="https://www.youtube.com/embed/flr3QfrM6XI?autoplay=1&rel=0"
-                        title="Dr. Runa Akter Introduction"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+               <div class="overflow-hidden border border-white shadow-lg ratio ratio-16x9 rounded-4 border-5">
+    @php
+        // YouTube URL theke ID ber korar logic
+        $url = config('settings.youtube_video');
+        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+        $video_id = $match[1] ?? null;
+    @endphp
+
+    @if($video_id)
+        <iframe src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=1&mute=1"
+                title="Introduction Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    @else
+        <div class="text-white bg-dark d-flex align-items-center justify-content-center">
+            Invalid Video URL
+        </div>
+    @endif
+</div>
             </div>
         </div>
     </div>

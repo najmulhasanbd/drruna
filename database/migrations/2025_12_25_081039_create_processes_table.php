@@ -10,13 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-      Schema::create('processes', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->text('description');
-    $table->integer('position')->default(0);
-    $table->timestamps();
-});
+        Schema::create('processes', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->integer('position')->default(0);
+            $table->timestamps();
+        });
     }
 
     /**
