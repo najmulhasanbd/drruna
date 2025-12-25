@@ -61,7 +61,7 @@
 ' }}</span>
                     </h2>
                     <p class="mb-4 text-secondary lead-sm">
-                        {{ config('settings.short_about') }}
+                        {!! config('settings.short_about') !!}
                     </p>
 
                     <div class="row">

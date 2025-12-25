@@ -7,32 +7,42 @@
                         <h3 class="footer-title">{{ config('settings.name') }}</h3>
                         <p class="doctor-credentials">{{ config('settings.degree') }}</p>
                         <p class="about-text">
-                            {{ config('settings.short_about') }}
+                            {!! config('settings.short_about') !!}
                         </p>
                         <div class="footer-contact-info">
-                            <div class="mb-2 d-flex align-items-center">
-                                <i class="fas fa-phone-alt me-2 text-warning"></i>
-                                <a href="tel:{{ config('settings.mobile') }}"
-                                    class="text-white text-decoration-none">{{ config('settings.mobile') }}</a>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-envelope me-2 text-warning"></i>
-                                <a href="mailto:{{ config('settings.email') }}"
-                                    class="text-white text-decoration-none">{{ config('settings.email') }}</a>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-map-marker me-2 text-warning"></i>
-                                <a href="javascript:void(0)"
-                                    class="text-white text-decoration-none">{{ config('settings.address') }}</a>
-                            </div>
+                            @if (config('settings.mobile'))
+                                <div class="mb-2 d-flex align-items-center">
+                                    <i class="fas fa-phone-alt me-2 text-warning"></i>
+                                    <a href="tel:{{ config('settings.mobile') }}"
+                                        class="text-white text-decoration-none">{{ config('settings.mobile') }}</a>
+                                </div>
+                            @endif
+                            @if (config('settings.email'))
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-envelope me-2 text-warning"></i>
+                                    <a href="mailto:{{ config('settings.email') }}"
+                                        class="text-white text-decoration-none">{{ config('settings.email') }}</a>
+                                </div>
+                            @endif
+                            @if (config('settings.address'))
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-map-marker me-2 text-warning"></i>
+                                    <a href="javascript:void(0)"
+                                        class="text-white text-decoration-none">{{ config('settings.address') }}</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="gap-3 footer-social d-flex">
-                            <a href="{{ config('settings.facebook') }}" class="social-icon fb" title="Facebook">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            <a href="{{ config('settings.linkedin') }}" class="social-icon ln" title="LinkedIn">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
+                            @if (config('settings.facebook'))
+                                <a href="{!! config('settings.facebook') !!}" class="social-icon fb" title="Facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                            @endif
+                            @if (config('settings.linkedin'))
+                                <a href="{!! config('settings.linkedin') !!}" class="social-icon ln" title="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -59,13 +69,15 @@
                     <h4 class="footer-subtitle">Facebook Page</h4>
                     <div class="footer-fb-container">
                         <div class="facebook-page-wrapper">
-                            <a href="{{ config('settings.facebook') }}" target="_blank">
-                                <img src="{{ config('settings.profile_photo') }}" alt="{{ config('settings.name') }}"
-                                    loading="lazy" class="fb-img">
-                                <div class="fb-overlay">
-                                    <span>Visit Our Page</span>
-                                </div>
-                            </a>
+                            @if (config('settings.facebook'))
+                                <a href="{{ config('settings.facebook') }}" target="_blank">
+                                    <img src="{{ config('settings.profile_photo') }}"
+                                        alt="{{ config('settings.name') }}" loading="lazy" class="fb-img">
+                                    <div class="fb-overlay">
+                                        <span>Visit Our Page</span>
+                                    </div>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

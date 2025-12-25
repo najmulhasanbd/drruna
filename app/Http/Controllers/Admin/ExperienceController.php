@@ -105,15 +105,15 @@ class ExperienceController extends Controller
     return redirect()->route('experience.index')->with('success', 'Experience updated successfully!');
 }
 
-    // public function destroy(Education $education)
-    // {
-    //     // Image unlink
-    //     if ($education->logo && File::exists(public_path($education->logo))) {
-    //         File::delete(public_path($education->logo));
-    //     }
+    public function destroy(Experience $experience)
+    {
+        // Image unlink
+        if ($experience->logo && File::exists(public_path($experience->logo))) {
+            File::delete(public_path($experience->logo));
+        }
 
-    //     $education->delete();
+        $experience->delete();
 
-    //     return redirect()->back()->with('success', 'Education deleted successfully!');
-    // }
+        return redirect()->back()->with('success', 'Experience deleted successfully!');
+    }
 }

@@ -30,8 +30,8 @@
             <div class="mb-5 row align-items-center pb-lg-4">
                 <div class="mb-4 col-lg-5 mb-lg-0" data-aos="fade-right">
                     <div class="p-2 overflow-hidden bg-white shadow-lg doctor-image-container rounded-4">
-                        <img src="{{ asset('frontend/image/about/about-One.jpg') }}"
-                            alt="Dr. Runa Akhter Dola - High Risk Pregnancy & Foetal Medicine Specialist"
+                        <img src="{{ config('settings.aboutpagephoto') }}"
+                            alt="{{ config('settings.name') ?? 'Dr. Runa Akhter Dola' }} - High Risk Pregnancy & Foetal Medicine Specialist"
                             class="img-fluid rounded-3 w-100" loading="lazy">
 
                         <div class="p-3 text-center text-white shadow doc-badge bg-success rounded-3" data-aos="zoom-in"
@@ -48,9 +48,7 @@
                     <p class="mb-4 h4 text-success fw-semibold">High Risk Pregnancy & Foetal Medicine Specialist</p>
 
                     <p class="mb-4 text-muted lead">
-                        Dr. Runa Akhter Dola is a distinguished 25th BCS Health Cadre officer serving the Government of
-                        Bangladesh for over 18 years. She has dedicated the last 11 years as a specialist doctor and 12
-                        years as an OBGYN consultant, focusing on maternal and fetal health excellence.
+                       {{ config('settings.long_about') }}
                     </p>
 
                     <div class="p-3 shadow-sm current-role bg-light rounded-4 border-start border-success border-5">
@@ -60,47 +58,46 @@
             </div>
 
             <div class="mb-5 row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-4 border-0 shadow-sm card h-100 rounded-4 academic-card">
                         <div class="mb-3 card-icon bg-primary-soft">
                             <i class="bi bi-mortarboard fs-3 text-primary"></i>
                         </div>
                         <h3 class="mb-4 fw-bold">Academic Excellence</h3>
                         <ul class="list-unstyled timeline-list">
-                            <li><strong>MBBS:</strong> Sir Salimullah Medical College (9th Merit position in 1st
-                                Professional Exam).</li>
-                            <li><strong>FCPS:</strong> Obstetrics and Gynaecology.</li>
-                            <li><strong>FCPS:</strong> Feto-Maternal Medicine.</li>
-                            <li><strong>Fellowship:</strong> Community Fellowship (Philippines).</li>
-                            <li><strong>Schooling:</strong> SSC & HSC from Mymensingh Girls Cadet College.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-4 text-white border-0 shadow-sm card h-100 rounded-4 achievement-card bg-dark">
-                        <div class="mb-3 card-icon bg-white-soft">
-                            <i class="bi bi-award fs-3 text-warning"></i>
-                        </div>
-                        <h3 class="mb-4 text-white fw-bold">Achievements & Mastery</h3>
-                        <ul class="list-unstyled custom-check-list">
-                            <li class="mb-3 text-white-50"><i class="bi bi-check-circle-fill text-success me-2"></i>
-                                National Master Trainer on MCCoD (Medical Certification of Cause of Death).</li>
-                            <li class="mb-3 text-white-50"><i class="bi bi-check-circle-fill text-success me-2"></i>
-                                National Master Trainer on SMoL (Start up Mortality List).</li>
-                            <li class="mb-3 text-white-50"><i
-                                    class="bi bi-check-circle-fill text-success me-2 text-warning"></i> <strong>SS Ratnam
-                                    Young Gynaecology Award 2019:</strong> Prestigious recognition from AOFOG for social
-                                research contribution.</li>
+                            <li><strong>MBBS:</strong>{{ config('settings.MBBS') ?? 'Sir Salimullah Medical College (9th Merit position in 1st
+                                Professional Exam).' }} </li>
+                            <li><strong>FCPS:</strong> {{ config('settings.FCPS') ?? 'Obstetrics and Gynaecology, Feto-Maternal Medicine. ' }} </li>
+                            <li><strong>Fellowship:</strong> {{ config('settings.Fellowship') ?? 'Community Fellowship (Philippines).' }} </li>
+                            <li><strong>Schooling:</strong> {{ config('settings.Schooling') ?? 'SSC & HSC from Mymensingh Girls Cadet College.' }} </li>
                         </ul>
                     </div>
                 </div>
             </div>
-           <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-12" data-aos="fade-up" data-aos-delay="100">
                 <div class="video-card-pure">
                     <div class="video-inner">
-                        <iframe src="https://www.youtube.com/embed/flr3QfrM6XI" loading="lazy"
-                            title="Dr. Runa Akter Dola - Video 1" allowfullscreen></iframe>
+                        @php
+                        $url = config('settings.youtube_video');
+                        preg_match(
+                            '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
+                            $url,
+                            $match,
+                        );
+                        $video_id = $match[1] ?? null;
+                    @endphp
+
+                    @if ($video_id)
+                        <iframe src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=1&mute=1"
+                            title="Introduction Video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    @else
+                        <div class="text-white bg-dark d-flex align-items-center justify-content-center">
+                            Invalid Video URL
+                        </div>
+                    @endif
                     </div>
                 </div>
             </div>
@@ -112,9 +109,9 @@
                         <p class="mb-4 text-white-50">Expert care for complicated pregnancies and specialized fetal
                             medicine.</p>
                         <div class="flex-wrap gap-3 d-flex justify-content-center">
-                            <a href="tel:+880" class="px-5 btn btn-light btn-lg rounded-pill fw-bold">Call for
+                            <a href="tel:+{{ config('settings.mobile') }}"
+                                class="px-5 btn btn-light btn-lg rounded-pill fw-bold">Call for
                                 Appointment</a>
-                            <a href="#contact" class="px-5 btn btn-outline-light btn-lg rounded-pill">Contact Online</a>
                         </div>
                     </div>
                 </div>

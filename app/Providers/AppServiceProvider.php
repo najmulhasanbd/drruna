@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
     {
        View::share('services', Service::latest()->get());
        View::share('specialist', Specialist::latest()->get());
-       Paginator::useBootstrap();
+      Paginator::useBootstrapFive();
     }
 }

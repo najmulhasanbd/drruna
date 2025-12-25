@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
-use File;
 
 class GalleryController extends Controller
 {
@@ -33,8 +32,11 @@ class GalleryController extends Controller
                 ]);
             }
         }
+        return redirect()->route('gallery.index')->with([
+            'message' => 'Images Inserted Successfully!',
+            'alert-type' => 'success'
+        ]);
 
-        return back()->with('success', 'All images uploaded as individual rows!');
     }
 
     public function update(Request $request, $id)
@@ -58,6 +60,7 @@ class GalleryController extends Controller
 
         return back()->with('success', 'Gallery image updated successfully!');
     }
+
     public function destroy($id)
     {
         $gallery = Gallery::findOrFail($id);

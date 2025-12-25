@@ -1935,3 +1935,98 @@ a.menu-link.active {
 .process-item:last-child {
     margin-bottom: 0 !important;
 }
+
+/* Pagination Wrapper */
+.custom-pagination .pagination {
+    gap: 8px; /* বাটনের মাঝখানে স্পেস */
+}
+
+.custom-pagination .page-item .page-link {
+    border: none;
+    border-radius: 8px !important; /* রাউন্ডেড কর্নার */
+    padding: 10px 18px;
+    color: #444;
+    font-weight: 500;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.custom-pagination .page-item .page-link:hover {
+    background-color: #198754; /* আপনার প্রাইমারি কালার (যেমন: গ্রিন) */
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(25, 135, 84, 0.2);
+}
+
+/* Active State */
+.custom-pagination .page-item.active .page-link {
+    background-color: #198754 !important;
+    color: #fff !important;
+    border: none;
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.3);
+}
+
+/* Disabled State */
+.custom-pagination .page-item.disabled .page-link {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    opacity: 0.6;
+}
+
+.custom-pagination .small.text-muted {
+    display: flex;
+    margin: 0;
+    gap: 10px;
+}
+
+.gallery-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 250px; /* আপনার প্রয়োজন অনুযায়ী হাইট ফিক্সড করতে পারেন */
+}
+
+.gallery-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* হোভার ইফেক্ট */
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+}
+
+.gallery-card:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+/* ওভারলে ইফেক্ট */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--bs-primary-rgb), 0.6); /* আপনার প্রাইমারি কালার */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* ব্রেডক্রাম্ব এনিমেশন */
+.animate-up {
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

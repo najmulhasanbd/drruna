@@ -63,8 +63,13 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-12">
-                        <p class="text-center">No videos available at the moment. 🎥</p>
+                  <div class="py-5 text-center col-12">
+                        <div class="empty-state">
+                            <i class="mb-3 far fa-images text-muted" style="font-size: 80px; opacity: 0.3;"></i>
+                            <h4 class="text-secondary fw-bold">No Moments Captured Yet</h4>
+                            <p class="text-muted">Our Video Gallery is currently being updated. Please check back later.</p>
+                            <a href="{{ url('/') }}" class="px-4 mt-2 btn btn-primary rounded-pill">Back to Home</a>
+                        </div>
                     </div>
                 @endforelse
             </div>

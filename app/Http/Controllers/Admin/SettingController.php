@@ -32,7 +32,7 @@ class SettingController extends Controller
 
                 $file = $request->file($key);
                 $filename = time() . '_' . $key . '.' . $file->getClientOriginalExtension();
-                $directory = 'uploads/settings/';
+                $directory = 'upload/settings/';
                 $file->move(public_path($directory), $filename);
 
                 $value = $directory . $filename;

@@ -27,11 +27,13 @@
 
     <section class="py-5 faq-section">
         <div class="container">
-            <div class="mb-5 text-center" data-aos="fade-up">
+             @if ($faqs->count() > 0)
+                <div class="mb-5 text-center" data-aos="fade-up">
                 <h2 class="fw-bold">Have Any Questions?</h2>
                 <p class="text-muted">Find below our frequently asked questions. If you have other questions please contact
                     me.</p>
             </div>
+            @endif
 
             <div class="row justify-content-center">
                 <div class="col-lg-10">
@@ -55,7 +57,14 @@
                                 </div>
                             </div>
                         @empty
-                            <p>No FAQ available.</p>
+                            <div class="py-5 text-center col-12">
+                                <div class="empty-state">
+                                    <i class="mb-3 far fa-images text-muted" style="font-size: 80px; opacity: 0.3;"></i>
+                                    <h4 class="text-secondary fw-bold">No Moments Captured Yet</h4>
+                                    <p class="text-muted">Our FAQ is currently being updated. Please check back later.</p>
+                                    <a href="{{ url('/') }}" class="px-4 mt-2 btn btn-primary rounded-pill">Back to
+                                        Home</a>
+                                </div>
                         @endforelse
 
                     </div>

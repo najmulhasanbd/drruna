@@ -27,16 +27,19 @@
 
     <section class="py-5 bg-white service-section" id="services">
         <div class="container">
-            <div class="mb-5 text-center row justify-content-center">
-                <div class="col-lg-7" data-aos="fade-up">
-                    <span class="text-success fw-bold text-uppercase ls-2">What I Provide</span>
-                    <h2 class="mt-2 display-5 fw-bold text-dark">Expert Medical <span class="text-success">Services</span>
-                    </h2>
-                    <div class="mx-auto mb-4 header-line"></div>
-                    <p class="text-muted">Specialized medical care focusing on high-risk pregnancy, fetal medicine, and
-                        gynecological excellence with over {{ config('settings.experience') ?? '' }} of experience.</p>
+            @if ($services->count() > 0)
+                <div class="mb-5 text-center row justify-content-center">
+                    <div class="col-lg-7" data-aos="fade-up">
+                        <span class="text-success fw-bold text-uppercase ls-2">What I Provide</span>
+                        <h2 class="mt-2 display-5 fw-bold text-dark">Expert Medical <span
+                                class="text-success">Services</span>
+                        </h2>
+                        <div class="mx-auto mb-4 header-line"></div>
+                        <p class="text-muted">Specialized medical care focusing on high-risk pregnancy, fetal medicine, and
+                            gynecological excellence with over {{ config('settings.experience') ?? '' }} of experience.</p>
+                    </div>
                 </div>
-            </div>
+            @endif
 
             <div class="row g-4">
                 @forelse ($services as $data)
@@ -51,7 +54,14 @@
                         </div>
                     </article>
                 @empty
-                    <p>No services found. 🏥</p>
+                    <div class="py-5 text-center col-12">
+                        <div class="empty-state">
+                            <i class="mb-3 far fa-images text-muted" style="font-size: 80px; opacity: 0.3;"></i>
+                            <h4 class="text-secondary fw-bold">No Moments Captured Yet</h4>
+                            <p class="text-muted">Our Service is currently being updated. Please check back later.</p>
+                            <a href="{{ url('/') }}" class="px-4 mt-2 btn btn-primary rounded-pill">Back to Home</a>
+                        </div>
+                    </div>
                 @endforelse
 
 

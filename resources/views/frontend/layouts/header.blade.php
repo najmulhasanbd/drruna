@@ -62,22 +62,26 @@
 
                 <div class="col-md-2">
                     <div class="gap-3 footer-social d-flex header-social justify-content-center">
-                        <a href="{{ config('settings.facebook') }}" target="_blank" rel="noopener noreferrer"
-                            class="social-icon fb" title="Facebook Profile">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="{{ config('settings.linkedin') }}" target="_blank" rel="noopener noreferrer"
-                            class="social-icon ln" title="LinkedIn Profile">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
+                        @if (config('settings.facebook'))
+                            <a href="{{ config('settings.facebook') }}" target="_blank" rel="noopener noreferrer"
+                                class="social-icon fb" title="Facebook Profile">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        @endif
+                        @if (config('settings.linkedin'))
+                            <a href="{{ config('settings.linkedin') }}" target="_blank" rel="noopener noreferrer"
+                                class="social-icon ln" title="LinkedIn Profile">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        @endif
                     </div>
                 </div>
 
                 <div class="col-md-2 text-end">
                     <div class="header-right">
-                        <a href="tel:{{ config('settings.mobile') }}" title="Call for Appointment">
+                        <a href="tel:{{ config('settings.mobile') ?? '01790-118855' }}" title="Call for Appointment">
                             <span class="num-default"><i
-                                    class="fa fa-phone-alt me-1"></i>{{ config('settings.mobile') }}</span>
+                                    class="fa fa-phone-alt me-1"></i>{{ config('settings.mobile') ?? '01790-118855' }}</span>
                             <span class="num-hover">Call Now</span>
                         </a>
                     </div>
@@ -101,9 +105,9 @@
                 </div>
                 <div class="col-4 text-end">
                     <div class="header-right">
-                        <a href="tel:{{ config('settings.mobile') }}" class="btn btn-sm btn-success rounded-pill">
+                        <a href="tel:{{ config('settings.mobile') ?? '01790-118855' }}" class="btn btn-sm btn-success rounded-pill">
                             <span class="num-default">Call Now</span>
-                                <span class="num-hover">Call Now</span>
+                            <span class="num-hover">Call Now</span>
                         </a>
                     </div>
                 </div>
@@ -114,7 +118,7 @@
             aria-labelledby="mobileMenuLabel">
             <div class="offcanvas-header border-bottom">
                 <div class="offcanvas-logo" id="mobileMenuLabel">
-                    <img src="{{ asset(config('settings.logo')) }}" alt="{{ config('settings.name') }}"
+                    <img src="{{ asset(config('settings.logo')) ?? '' }}" alt="{{ config('settings.name') }}"
                         height="40">
                 </div>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
@@ -138,20 +142,26 @@
                 </nav>
                 <hr>
                 <div class="gap-3 mt-4 footer-social d-flex">
+                    @if(config('settings.facebook'))
                     <a href="{{ config('settings.facebook') }}" target="_blank" rel="noopener noreferrer"
                         class="social-icon fb fs-4" title="Facebook">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
+                    @endif
+                    @if(config('settings.linkedin'))
                     <a href="{{ config('settings.linkedin') }}" target="_blank" rel="noopener noreferrer"
                         class="social-icon ln fs-4" title="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
+                    @endif
                 </div>
+                @if(config('settings.mobile'))
                 <div class="mt-4">
                     <a href="tel:{{ config('settings.mobile') }}" class="py-2 btn btn-success w-100">
                         <i class="fa fa-phone-alt me-2"></i> {{ config('settings.mobile') }}
                     </a>
                 </div>
+                @endif
             </div>
         </div>
     </section>

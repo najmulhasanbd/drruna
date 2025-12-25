@@ -16,7 +16,7 @@
                     </h1>
 
                     <p class="mt-3 hero-text">
-                        {{ config('settings.short_about') ?? 'Assistant Professor at Mitford Hospital (SSMC). Over 16 years of experience in High-Risk Pregnancy & Fetal Medicine.' }}
+                        {!! config('settings.short_about') ?? 'Assistant Professor at Mitford Hospital (SSMC). Over 16 years of experience in High-Risk Pregnancy & Fetal Medicine.' !!}
                     </p>
 
                     <div class="flex-wrap gap-3 mt-4 hero-buttons d-flex justify-content-between">

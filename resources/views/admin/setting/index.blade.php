@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <div class="app-content-header">
         <div class="container-fluid">
             <h3 class="mb-0">Website Settings</h3>
@@ -39,6 +40,10 @@
                             <button class="py-3 nav-link text-start" id="aboutphoto-tab" data-bs-toggle="pill"
                                 data-bs-target="#aboutphoto" type="button" role="tab">
                                 <i class="fa fa-users me-2"></i> About Photo
+                            </button>
+                            <button class="py-3 nav-link text-start" id="acadamy-tab" data-bs-toggle="pill"
+                                data-bs-target="#acadamy" type="button" role="tab">
+                                <i class="fa fa-users me-2"></i> Academic Excellence
                             </button>
                         </div>
                     </div>
@@ -88,7 +93,13 @@
 
                                     <div class="mb-3 col-md-12">
                                         <label class="form-label">Short About</label>
-                                        <textarea name="short_about" class="form-control" rows="3">{{ config('settings.short_about') }}</textarea>
+                                        <textarea name="short_about" class="form-control summernote">{!! config('settings.short_about') !!}</textarea>
+                                    </div>
+                                    <div class="mb-3 col-md-12">
+                                        <label class="form-label fw-bold">Long About</label>
+                                        <textarea name="long_about" class="form-control summernote">
+                                            {!! config('settings.long_about') !!}
+                                        </textarea>
                                     </div>
                                 </div>
 
@@ -148,7 +159,7 @@
                                     </div>
                                     <div class="mb-3 col-md-12">
                                         <label class="form-label">Address</label>
-                                        <textarea name="address" class="form-control">{{ config('settings.address') }}</textarea>
+                                        <textarea name="address" class="form-control summernote">{{ config('settings.address') }}</textarea>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success submit-btn">
@@ -283,10 +294,54 @@
                                             </div>
                                         @endif
                                     </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">About Page Photo</label>
+                                        <input type="file" name="aboutpagephoto" class="mb-2 form-control">
+                                        @if (config('settings.aboutpagephoto'))
+                                            <div class="p-2 border rounded bg-light d-inline-block">
+                                                <img src="{{ asset(config('settings.aboutpagephoto')) }}"
+                                                    alt="Long Photo" style="height: 32px;">
+                                                <small class="d-block text-muted">Current About Page Photo</small>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
 
                                 <button type="submit" class="btn btn-success submit-btn">
                                     <span class="btn-text">Update General Settings</span>
+                                    <div class="spinner-border spinner-border-sm d-none" role="status"></div>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="acadamy" role="tabpanel">
+                            <form action="{{ route('setting.store') }}" method="POST" class="settings-form">
+                                @csrf
+                                <h4 class="pb-2 mb-4 text-success border-bottom">Academic Excellence</h4>
+
+                                <div class="mb-3">
+                                    <label class="form-label">MBBS</label>
+                                    <input type="text" name="MBBS" class="form-control"
+                                        value="{{ config('settings.MBBS') }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">FCPS</label>
+                                    <input type="text" name="FCPS" class="form-control"
+                                        value="{{ config('settings.FCPS') }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Fellowship</label>
+                                    <input type="text" name="Fellowship" class="form-control"
+                                        value="{{ config('settings.Fellowship') }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Schooling</label>
+                                    <input type="text" name="Schooling" class="form-control"
+                                        value="{{ config('settings.Schooling') }}">
+                                </div>
+
+                                <button type="submit" class="btn btn-success submit-btn">
+                                    <span class="btn-text">Update Academic Excellence Settings</span>
                                     <div class="spinner-border spinner-border-sm d-none" role="status"></div>
                                 </button>
                             </form>
@@ -365,4 +420,23 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.summernote').summernote({
+            placeholder: 'Write your long about here...',
+            tabsize: 2,
+            height: 300, // এডিটর এর উচ্চতা
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    });
+</script>
 @endsection
