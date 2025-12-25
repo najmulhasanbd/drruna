@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="d-flex justify-content-between">
                     <span class="mb-2 btn btn-success">Slider List</span>
-                    <a href="{{ route('education.create') }}" class="mb-2 btn btn-sm btn-success">Education Add</a>
+                    <a href="{{ route('experience.create') }}" class="mb-2 btn btn-sm btn-success">Education Add</a>
                 </div>
 
                 <div class="mb-4 card">

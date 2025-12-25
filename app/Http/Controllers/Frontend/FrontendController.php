@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Models\Education;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Experience;
 use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Youtube;
@@ -26,6 +27,7 @@ class FrontendController extends Controller
         $data['award'] = Award::latest()->get();
         $data['review'] = Review::whereStatus('active')->get();
         $data['youtube'] = Youtube::latest()->take(3)->get();
+        $data['experience']=Experience::latest()->get();
         return view('frontend.index', $data);
     }
 

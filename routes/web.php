@@ -142,7 +142,7 @@ Route::prefix('admin')
                 Route::get('/create', 'create')->name('create');
                 Route::post('/store', 'store')->name('store');
                 Route::get('/edit/{experience}', 'edit')->name('edit');
-                Route::post('/update/{experience}', 'update')->name('update');
+                Route::put('/update/{experience}', 'update')->name('update');
                 Route::get('/delete/{experience}', 'destroy')->name('delete');
             });
 
