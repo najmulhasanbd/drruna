@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 
+
 class GalleryController extends Controller
 {
     public function index()
@@ -32,11 +33,8 @@ class GalleryController extends Controller
                 ]);
             }
         }
-        return redirect()->route('gallery.index')->with([
-            'message' => 'Images Inserted Successfully!',
-            'alert-type' => 'success'
-        ]);
 
+        return back()->with('success', 'Gallery Image Insert Done!');
     }
 
     public function update(Request $request, $id)
