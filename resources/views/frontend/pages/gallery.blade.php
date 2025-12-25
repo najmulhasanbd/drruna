@@ -6,21 +6,22 @@
 
 @section('meta')
     <meta name="description"
-        content="Explore the medical gallery of {{ config('settings.name') }}, a leading Gynecologist & Obstetrician. View our advanced maternity care, surgical excellence, and women's health initiatives.">
+        content="Find expert answers to common questions about maternity care, gynecology treatments, and women's health by {{ config('settings.name') }}. আপনার স্বাস্থ্য জিজ্ঞাসা ও বিশেষজ্ঞ সমাধান।">
     <meta name="keywords"
-        content="Gynecologist Gallery, Maternity Care Photos, Dr. {{ config('settings.name') }}, Women's Health Clinic, Pregnancy Care, Laparoscopic Surgery Gallery, Best Gynae Doctor in Bangladesh">
+        content="Gynecology FAQ, Pregnancy questions, Dr. {{ config('settings.name') }}, Women's Health Advice, Maternity Care FAQ, গাইনি ডাক্তারের পরামর্শ, গর্ভাবস্থায় যত্ন, Best Gynae Doctor in Bangladesh">
     <meta name="author" content="{{ config('settings.name') }}">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="Medical Excellence Gallery - {{ config('settings.name') }}">
+    <meta property="og:title" content="Health FAQ & Expert Advice - {{ config('settings.name') }}">
     <meta property="og:description"
-        content="Witness the visual journey of specialized women's healthcare, maternity services, and surgery success stories.">
+        content="Get reliable answers to your health concerns. Explore frequently asked questions about pregnancy and gynecological care.">
     <meta property="og:image" content="{{ asset(config('settings.logo')) }}">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Medical Gallery | {{ config('settings.name') }}">
-    <meta name="twitter:description" content="Specialized Gynecological and Obstetric care gallery.">
+    <meta name="twitter:title" content="FAQ | Women's Health & Maternity | {{ config('settings.name') }}">
+    <meta name="twitter:description" content="Expert answers to your gynecology and pregnancy-related questions.">
 
     <meta name="geo.region" content="BD">
     <meta name="geo.placename" content="Dhaka">

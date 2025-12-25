@@ -2,6 +2,30 @@
 @section('title')
     About Page ||{{ config('settings.name') }}
 @endsection
+@section('meta')
+    <meta name="description"
+        content="Comprehensive gynecological and obstetric services by {{ config('settings.name') }}. বিশেষজ্ঞ গাইনি ও প্রসূতি সেবা, নরমাল ডেলিভারি এবং বন্ধ্যাত্ব চিকিৎসার নির্ভরযোগ্য কেন্দ্র।">
+    <meta name="keywords"
+        content="Gynecology Services, Maternity Care, Dr. {{ config('settings.name') }}, Infertility Treatment, Normal Delivery, Laparoscopic Surgery, গাইনি চিকিৎসা, সিজারিয়ান অপারেশন, জরায়ু সমস্যা, বন্ধ্যাত্ব বিশেষজ্ঞ">
+    <meta name="author" content="{{ config('settings.name') }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Specialized Healthcare Services - {{ config('settings.name') }}">
+    <meta property="og:description"
+        content="Expert medical services for women. Specialized in maternity care, infertility, and surgical procedures. নির্ভরযোগ্য গাইনি ও প্রসূতি সেবা।">
+    <meta property="og:image" content="{{ asset(config('settings.logo')) }}">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Services | {{ config('settings.name') }}">
+    <meta name="twitter:description" content="Explore advanced gynecological and obstetric treatments at our clinic.">
+
+    <meta name="geo.region" content="BD">
+    <meta name="geo.placename" content="Dhaka">
+@endsection
 @section('content')
     <section class="breadcrumb-area">
         <div class="container">
@@ -48,7 +72,7 @@
                     <p class="mb-4 h4 text-success fw-semibold">High Risk Pregnancy & Foetal Medicine Specialist</p>
 
                     <p class="mb-4 text-muted lead">
-                       {{ config('settings.long_about') }}
+                        {{ config('settings.long_about') }}
                     </p>
 
                     <div class="p-3 shadow-sm current-role bg-light rounded-4 border-start border-success border-5">
@@ -65,11 +89,18 @@
                         </div>
                         <h3 class="mb-4 fw-bold">Academic Excellence</h3>
                         <ul class="list-unstyled timeline-list">
-                            <li><strong>MBBS:</strong>{{ config('settings.MBBS') ?? 'Sir Salimullah Medical College (9th Merit position in 1st
-                                Professional Exam).' }} </li>
-                            <li><strong>FCPS:</strong> {{ config('settings.FCPS') ?? 'Obstetrics and Gynaecology, Feto-Maternal Medicine. ' }} </li>
-                            <li><strong>Fellowship:</strong> {{ config('settings.Fellowship') ?? 'Community Fellowship (Philippines).' }} </li>
-                            <li><strong>Schooling:</strong> {{ config('settings.Schooling') ?? 'SSC & HSC from Mymensingh Girls Cadet College.' }} </li>
+                            <li><strong>MBBS:</strong>{{ config('settings.MBBS') ??
+                                'Sir Salimullah Medical College (9th Merit position in 1st
+                                                            Professional Exam).' }}
+                            </li>
+                            <li><strong>FCPS:</strong>
+                                {{ config('settings.FCPS') ?? 'Obstetrics and Gynaecology, Feto-Maternal Medicine. ' }}
+                            </li>
+                            <li><strong>Fellowship:</strong>
+                                {{ config('settings.Fellowship') ?? 'Community Fellowship (Philippines).' }} </li>
+                            <li><strong>Schooling:</strong>
+                                {{ config('settings.Schooling') ?? 'SSC & HSC from Mymensingh Girls Cadet College.' }}
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -78,26 +109,26 @@
                 <div class="video-card-pure">
                     <div class="video-inner">
                         @php
-                        $url = config('settings.youtube_video');
-                        preg_match(
-                            '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
-                            $url,
-                            $match,
-                        );
-                        $video_id = $match[1] ?? null;
-                    @endphp
+                            $url = config('settings.youtube_video');
+                            preg_match(
+                                '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
+                                $url,
+                                $match,
+                            );
+                            $video_id = $match[1] ?? null;
+                        @endphp
 
-                    @if ($video_id)
-                        <iframe src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=1&mute=1"
-                            title="Introduction Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    @else
-                        <div class="text-white bg-dark d-flex align-items-center justify-content-center">
-                            Invalid Video URL
-                        </div>
-                    @endif
+                        @if ($video_id)
+                            <iframe src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=1&mute=1"
+                                title="Introduction Video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        @else
+                            <div class="text-white bg-dark d-flex align-items-center justify-content-center">
+                                Invalid Video URL
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

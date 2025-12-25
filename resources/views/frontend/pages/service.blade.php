@@ -2,6 +2,30 @@
 @section('title')
     Service Page || {{ config('settings.name') }}
 @endsection
+@section('meta')
+    <meta name="description"
+        content="Comprehensive gynecological and obstetric services by {{ config('settings.name') }}. বিশেষজ্ঞ গাইনি ও প্রসূতি সেবা, নরমাল ডেলিভারি এবং বন্ধ্যাত্ব চিকিৎসার নির্ভরযোগ্য কেন্দ্র।">
+    <meta name="keywords"
+        content="Gynecology Services, Maternity Care, Dr. {{ config('settings.name') }}, Infertility Treatment, C-Section, Normal Delivery, Laparoscopic Surgery, গাইনি চিকিৎসা, সিজারিয়ান অপারেশন, জরায়ু সমস্যা">
+    <meta name="author" content="{{ config('settings.name') }}">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Specialized Medical Services - {{ config('settings.name') }}">
+    <meta property="og:description"
+        content="Providing advanced healthcare for women. From pregnancy care to complex surgeries, get expert medical support.">
+    <meta property="og:image" content="{{ asset(config('settings.logo')) }}">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Services | {{ config('settings.name') }}">
+    <meta name="twitter:description" content="Explore our wide range of women's health and maternity services.">
+
+    <meta name="geo.region" content="BD">
+    <meta name="geo.placename" content="Dhaka">
+@endsection
 @section('content')
     <section class="breadcrumb-area">
         <div class="container">

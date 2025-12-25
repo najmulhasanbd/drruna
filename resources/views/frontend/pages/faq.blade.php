@@ -1,7 +1,39 @@
 @extends('frontend.layouts.master')
+
 @section('title')
-    FAQs Page || {{ config('settings.name') }}
+    Faq Page | Best Gynecologist & Obstetrician | {{ config('settings.name') }}
 @endsection
+
+@section('meta')
+    {{-- Primary Meta Tags --}}
+    <meta name="description"
+        content="Get expert answers to your pregnancy and gynecology questions by Dr. Runa Akter Dola. গর্ভবতী মায়ের যত্ন এবং গাইনি সমস্যার সঠিক সমাধান পেতে ডা. রুনা আক্তার দোলার পরামর্শ নিন।">
+    <meta name="keywords"
+        content="Gynecology FAQ, Pregnancy questions, Dr. Runa Akter Dola, Best Gynecologist in Bangladesh, বন্ধ্যাত্ব চিকিৎসা, গাইনি ডাক্তারের পরামর্শ, গর্ভাবস্থায় যত্ন, Normal delivery specialist in Dhaka">
+    <meta name="author" content="Dr. Runa Akter Dola">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Open Graph / Facebook (Social Media SEO) --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Health FAQ & Advice | Dr. Runa Akter Dola | গাইনি ও প্রসূতি বিশেষজ্ঞ">
+    <meta property="og:description"
+        content="Expert answers to your health concerns. Frequently asked questions about maternity and gynecological care. আপনার স্বাস্থ্য জিজ্ঞাসা ও বিশেষজ্ঞ সমাধান।">
+    <meta property="og:image" content="{{ asset(config('settings.logo')) }}">
+
+    {{-- Twitter SEO --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FAQ - Women's Health & Pregnancy | Dr. Runa Akter Dola">
+    <meta name="twitter:description" content="Find reliable answers to common health questions for women and expecting mothers.">
+    <meta name="twitter:image" content="{{ asset(config('settings.logo')) }}">
+
+    {{-- Local SEO --}}
+    <meta name="geo.region" content="BD">
+    <meta name="geo.placename" content="Dhaka">
+    <meta name="geo.position" content="23.8103;90.4125">
+    <meta name="ICBM" content="23.8103, 90.4125">
+@endsection
+
 @section('content')
     <section class="breadcrumb-area">
         <div class="container">
@@ -27,12 +59,13 @@
 
     <section class="py-5 faq-section">
         <div class="container">
-             @if ($faqs->count() > 0)
+            @if ($faqs->count() > 0)
                 <div class="mb-5 text-center" data-aos="fade-up">
-                <h2 class="fw-bold">Have Any Questions?</h2>
-                <p class="text-muted">Find below our frequently asked questions. If you have other questions please contact
-                    me.</p>
-            </div>
+                    <h2 class="fw-bold">Have Any Questions?</h2>
+                    <p class="text-muted">Find below our frequently asked questions. If you have other questions please
+                        contact
+                        me.</p>
+                </div>
             @endif
 
             <div class="row justify-content-center">
@@ -66,10 +99,10 @@
                                         Home</a>
                                 </div>
                         @endforelse
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
 @endsection
+
