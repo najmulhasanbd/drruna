@@ -49,10 +49,9 @@
                 <div class="mb-4 col-lg-2 col-md-6 mb-lg-0">
                     <h4 class="footer-subtitle">Specialties</h4>
                     <ul class="footer-links list-unstyled">
-                        <li><a href="javascript:void(0)">High-Risk Pregnancy</a></li>
-                        <li><a href="javascript:void(0)">Infertility Care</a></li>
-                        <li><a href="javascript:void(0)">MTP/Abortion</a></li>
-                        <li><a href="javascript:void(0)">Gynae Surgery</a></li>
+                        @foreach ($specialist as $data)
+                            <li><a href="javascript:void(0)">{{ ucwords($data->name) }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
 
@@ -76,7 +75,8 @@
 
             <div class="row align-items-center footer-bottom">
                 <div class="text-center col-md-6 text-md-start">
-                    <p class="mb-0">&copy; 2025 <strong>{{ config('settings.copyright') }}</strong>. All rights reserved.
+                    <p class="mb-0">&copy; 2025 <strong>{{ config('settings.copyright') }}</strong>. All rights
+                        reserved.
                     </p>
                 </div>
                 <div class="mt-3 text-center col-md-6 text-md-end mt-md-0">

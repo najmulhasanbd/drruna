@@ -49,7 +49,7 @@
             <div class="col-lg-6" data-aos="fade-down">
                 <div class="about-content">
                     <span class="text-success fw-bold text-uppercase ls-2">About Me</span>
-                    <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">{{ config('settings.name') }} <span
+                    <h2 class="mt-2 mb-4 display-5 fw-bold text-dark">{{ config('settings.name') ?? 'Dr Runa Akter Dola' }} <span
                             style="font-size: 12px;
   display: block;
   font-weight: normal;
@@ -57,28 +57,32 @@
   color: #fff;
   padding: 5px;
   border-radius: 3px;
-  width: fit-content;">{{ config('settings.degree') }}</span>
+  width: fit-content;">{{ config('settings.degree') ?? 'MBBS, BCS (Health), FCPS (OBGYN), FCPS (Feto-Maternal Medicine)
+' }}</span>
                     </h2>
                     <p class="mb-4 text-secondary lead-sm">
-                        I'm Dr. Runa Akter Dhola, a specialized OBGYN with a passion for providing holistic,
-                        evidence-based medical care. Committed to serving women with excellence for over 18 years.
+                        {{ config('settings.short_about') }}
                     </p>
 
-                    <div class="mb-4 row g-3">
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled checklist">
-                                <li><i class="fas fa-check-circle text-primary"></i> Monthly Checkups</li>
-                                <li><i class="fas fa-check-circle text-primary"></i> Caring & Support Always</li>
-                                <li><i class="fas fa-check-circle text-primary"></i> Proactive and Fast Results</li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="list-unstyled checklist">
-                                <li><i class="fas fa-check-circle text-primary"></i> Specialized Consultation</li>
-                                <li><i class="fas fa-check-circle text-primary"></i> Advanced Diagnostics</li>
-                                <li><i class="fas fa-check-circle text-primary"></i> Complete Care Solutions</li>
-                            </ul>
-                        </div>
+                    <div class="row">
+                        @php
+                            $chunks = $speciallist->chunk(ceil($speciallist->count() / 2));
+                        @endphp
+
+                        @forelse ($chunks as $chunk)
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled checklist">
+                                    @foreach ($chunk as $data)
+                                        <li>
+                                            <i class="fas fa-check-circle text-primary"></i>
+                                            {{ $data->name }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @empty
+                            <p>No specialists found.</p>
+                        @endforelse
                     </div>
 
                     <a href="{{ route('about') }}" class="read-more-link fw-bold text-primary text-decoration-none">
@@ -98,26 +102,29 @@
                     aria-label="Close"></button>
             </div>
             <div class="p-0 modal-body">
-               <div class="overflow-hidden border border-white shadow-lg ratio ratio-16x9 rounded-4 border-5">
-    @php
-        // YouTube URL theke ID ber korar logic
-        $url = config('settings.youtube_video');
-        preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
-        $video_id = $match[1] ?? null;
-    @endphp
+                <div class="overflow-hidden border border-white shadow-lg ratio ratio-16x9 rounded-4 border-5">
+                    @php
+                        $url = config('settings.youtube_video');
+                        preg_match(
+                            '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
+                            $url,
+                            $match,
+                        );
+                        $video_id = $match[1] ?? null;
+                    @endphp
 
-    @if($video_id)
-        <iframe src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=1&mute=1"
-                title="Introduction Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
-    @else
-        <div class="text-white bg-dark d-flex align-items-center justify-content-center">
-            Invalid Video URL
-        </div>
-    @endif
-</div>
+                    @if ($video_id)
+                        <iframe src="https://www.youtube.com/embed/{{ $video_id }}?autoplay=1&mute=1"
+                            title="Introduction Video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    @else
+                        <div class="text-white bg-dark d-flex align-items-center justify-content-center">
+                            Invalid Video URL
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

@@ -15,6 +15,7 @@ use App\Models\Experience;
 use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Process;
+use App\Models\Specialist;
 use App\Models\Youtube;
 
 class FrontendController extends Controller
@@ -32,6 +33,7 @@ class FrontendController extends Controller
         $data['experience']=Experience::latest()->get();
         $data['chamber']=Chamber::latest()->get();
         $data['processes']=Process::orderBy('position', 'asc')->get();
+        $data['speciallist']=Specialist::orderBy('position', 'asc')->get();
         return view('frontend.index', $data);
     }
 

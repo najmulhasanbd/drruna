@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\YoutubeController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\ProcessController;
+use App\Http\Controllers\Admin\SpecialistController;
 use App\Http\Controllers\Frontend\FrontendController;
 
 // frontend
@@ -172,6 +173,21 @@ Route::prefix('admin')
                 Route::get('/delete/{process}', 'destroy')->name('delete');
 
                 Route::post('/update-order', 'updateOrder')->name('process.updateOrder');
+            });
+        // specialist
+        Route::controller(SpecialistController::class)
+            ->prefix('specialist')
+            ->name('specialist.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{specialist}', 'edit')->name('edit');
+                Route::put('/update/{specialist}', 'update')->name('update');
+                Route::get('/delete/{specialist}', 'destroy')->name('delete');
+
+                // এই লাইনটি খেয়াল করুন
+                Route::post('/update-order', 'updateOrder')->name('updateOrder');
             });
 
         // Setting routes
